@@ -2138,3 +2138,25 @@ footer .copy-right {
     padding: 0;
     margin: 0;
 }
+
+/* 想让的光标闪动的话，复制下面的代码 */
+.typed-cursor{
+  opacity: 1;
+  font-size: 2rem!important;
+  animation: typedjsBlink 1s infinite;
+  -webkit-animation: typedjsBlink 1s infinite;
+}
+@keyframes typedjsBlink{
+  50% { opacity: 0.0; }
+}
+@-webkit-keyframes typedjsBlink{
+  0% { opacity: 1; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1; }
+}
+.typed-fade-out{
+  opacity: 0;
+  transition: opacity .25s;
+  -webkit-animation: 0;
+  animation: 0;
+}
