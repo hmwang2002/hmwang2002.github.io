@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>互联网计算|2022.9.8</title>
+      <link href="/2022/09/12/hu-lian-wang-ji-suan-2022-9-8/"/>
+      <url>/2022/09/12/hu-lian-wang-ji-suan-2022-9-8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="互联网计算-2022-9-8"><a href="#互联网计算-2022-9-8" class="headerlink" title="互联网计算 2022.9.8"></a>互联网计算 2022.9.8</h1><h2 id="Peer-to-Peer-Communications"><a href="#Peer-to-Peer-Communications" class="headerlink" title="Peer-to-Peer Communications:"></a>Peer-to-Peer Communications:</h2><p><img src="1.png" alt="Peer-to-Peer Communications" title="Peer-to-Peer Communications"></p><h2 id="TCP-IP模型"><a href="#TCP-IP模型" class="headerlink" title="TCP/IP模型"></a>TCP/IP模型</h2><p>只有四层</p><h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>​        该层包括所有和应用程序协同工作，利用基础网络交换应用程序专用的数据的协议.<br>　　这个层上运行这一些特定的程序，它们提供用户应用需要的服务，与其对应的协议有 HTTP(超文本传输协议), FTP(文件传输协议), SMTP(简单邮件传输协议), SSH(安全远程登录协议), DNS(域名服务) 等．一旦从应用程序来的数据被编码成一个标准的应用层协议，它将被传送到 IP 栈的下一层.<br>　　应用层工作的应用通常使用传输层中的 TCP 或 UDP 服务，并且服务器应用常与一个公开的端口号绑定．该端口号由互联网号码分配局正式分配，但是新协议的开发者可以选择自己的端口号.<br>　　每一个应用层协议一般会使用两个传输层协议之一: 面向连接的 TCP 和无连接的包传输的 UDP，常用的应用层协议有</p><p>　　运行在 TCP 上的协议</p><ul><li>HTTP(Hypertext Transfer Protocol, 超文本传输协议)，主要用于普通的浏览网页</li><li>HTTPS(Hypertext Transfer Protocol over Secure Socket Layer, or HTTP over SSl, 安全超文本传输协议)，HTTP 协议的安全版本</li><li>FTP(File Transfer Protocol, 文件传输协议), 用于文件传输</li><li>POP3(Post Office Protocol, 邮局协议), 收邮件用</li><li>SMTP(Simple Mail Transfer Protocol, 简单邮件传输协议), 用于发送电子邮件</li><li>TELNET(Teletype over the NetWork, 网络电传), 通过一个终端登录到网路</li><li>SSH(Secure Shell, 用于替代安全性差的TELNET), 用于加密安全登录</li></ul><p>　　运行在 UDP 协议上的协议</p><ul><li>BOOTP(Boot protocol, 启动协议), 应用于无盘设备</li><li>NTP(Network Time Protocol, 网络时间协议), 用于网络同步</li><li>DHCP(Dynamic Host Configuration Protocol, 动态主机配置协议), 动态配置 IP 地址</li></ul><p>　　其他</p><ul><li>DNS(Domain Name Service, 域名服务), 用于完成地址查找，邮件转发等工作(运行在 TCP 和 UDP 之上)</li><li>ECHO(Echo Protocol, 回绕协议), 用于查错及测量应答时间(运行在 TCP 和 UDP 之上)</li><li>SNMP(Simple Network Management Protocol, 简单网络管理协议)，用于网络信息的收集和网络管理</li><li>ARP(Address Resolution Protocol, 地址解析协议), 用于动态解析以太网硬件的地址</li></ul><h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>Transmission Control Protocol(TCP)</p><p>User Datagram Protocol(UDP)</p><p>传输层的报文标准被称为segments</p><p>​        传输层的协议，能够解决诸如端到端的可靠性和保证数据按照正确的顺序到达这样的问题．在 TCP/IP 协议族中，传输协议也包括所给数据应该送给哪个应用程序．<br>　    TCP 是一个可靠的，面向连接的传输机制，它提供一种可靠的字节流保证数据完整，无损并且按顺序到达．<br>　    UDP 是一个无连接的数据报协议，它并不检查数据报是否已经到达目的地，并且不保证数据报到达的顺序.</p><h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>Internet protocol(IP)</p><h3 id="网络接入层-Network-Access-Layer"><a href="#网络接入层-Network-Access-Layer" class="headerlink" title="网络接入层 Network Access Layer"></a>网络接入层 Network Access Layer</h3><h2 id="网络拓扑-Topology"><a href="#网络拓扑-Topology" class="headerlink" title="网络拓扑 Topology"></a>网络拓扑 Topology</h2><ol><li>defines the structure of the network</li><li>Physical topology: the actual layout of the wire(media)</li></ol><p>​        bus, star, ring, extended star, hierarchical, mesh</p><ol start="3"><li>Logical topology: defines how the media is accessed by the hosts</li></ol><p>​        token passing</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 互联网计算 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>互联网计算| 2022/9/5</title>
       <link href="/2022/09/10/hu-lian-wang-ji-suan-2022.9.5/"/>
       <url>/2022/09/10/hu-lian-wang-ji-suan-2022.9.5/</url>
