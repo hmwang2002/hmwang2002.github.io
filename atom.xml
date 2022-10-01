@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2022-09-30T02:39:37.905Z</updated>
+  <updated>2022-10-01T02:12:59.442Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>物理层</title>
+    <link href="https://hmwang2002/github.io/2022/10/01/wu-li-ceng/"/>
+    <id>https://hmwang2002/github.io/2022/10/01/wu-li-ceng/</id>
+    <published>2022-10-01T02:10:37.000Z</published>
+    <updated>2022-10-01T02:12:59.442Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;物理层&quot;&gt;&lt;a href=&quot;#物理层&quot; class=&quot;headerlink&quot; title=&quot;物理层&quot;&gt;&lt;/a&gt;物理层&lt;/h1&gt;&lt;h2 id=&quot;1-网络连接类型&quot;&gt;&lt;a href=&quot;#1-网络连接类型&quot; class=&quot;headerlink&quot; title=&quot;1.</summary>
+        
+      
+    
+    
+    
+    <category term="互联网计算" scheme="https://hmwang2002/github.io/categories/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97/"/>
+    
+    
+    <category term="博客" scheme="https://hmwang2002/github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Kiyotaka | C++作业一</title>
