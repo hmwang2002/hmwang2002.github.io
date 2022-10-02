@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2022-10-01T02:12:59.442Z</updated>
+  <updated>2022-10-02T15:16:15.354Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++的io处理</title>
+    <link href="https://hmwang2002/github.io/2022/10/02/c-de-io-chu-li/"/>
+    <id>https://hmwang2002/github.io/2022/10/02/c-de-io-chu-li/</id>
+    <published>2022-10-02T14:43:02.000Z</published>
+    <updated>2022-10-02T15:16:15.354Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;C-的io处理&quot;&gt;&lt;a href=&quot;#C-的io处理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="C++" scheme="https://hmwang2002/github.io/categories/C/"/>
+    
+    
+    <category term="菜鸟的代码作业" scheme="https://hmwang2002/github.io/tags/%E8%8F%9C%E9%B8%9F%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%9C%E4%B8%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>物理层</title>
