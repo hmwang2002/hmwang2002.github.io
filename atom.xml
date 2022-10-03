@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2022-10-02T15:16:15.354Z</updated>
+  <updated>2022-10-03T13:15:51.620Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>泛型</title>
+    <link href="https://hmwang2002/github.io/2022/10/03/fan-xing/"/>
+    <id>https://hmwang2002/github.io/2022/10/03/fan-xing/</id>
+    <published>2022-10-03T02:36:32.000Z</published>
+    <updated>2022-10-03T13:15:51.620Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;泛型&quot;&gt;&lt;a href=&quot;#泛型&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://hmwang2002/github.io/categories/Java/"/>
+    
+    
+    <category term="博客" scheme="https://hmwang2002/github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>C++的io处理</title>
