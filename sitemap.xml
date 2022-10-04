@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hmwang2002/github.io/2022/10/03/fan-xing/</loc>
+    
+    <lastmod>2022-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hmwang2002/github.io/2022/10/04/yong-6-ping-nong-fu-shan-quan-de-jie-ge-shi-xian-tu-chuang-zi-you/</loc>
     
     <lastmod>2022-10-04</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>https://hmwang2002/github.io/about/index.html</loc>
-    
-    <lastmod>2022-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hmwang2002/github.io/2022/10/03/fan-xing/</loc>
     
     <lastmod>2022-10-03</lastmod>
     
