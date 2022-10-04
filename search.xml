@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>用6瓶农夫山泉的价格实现图床自由</title>
+      <link href="/2022/10/04/yong-6-ping-nong-fu-shan-quan-de-jie-ge-shi-xian-tu-chuang-zi-you/"/>
+      <url>/2022/10/04/yong-6-ping-nong-fu-shan-quan-de-jie-ge-shi-xian-tu-chuang-zi-you/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于我用6瓶农夫山泉的价格实现图床自由这档子事"><a href="#关于我用6瓶农夫山泉的价格实现图床自由这档子事" class="headerlink" title="关于我用6瓶农夫山泉的价格实现图床自由这档子事"></a>关于我用6瓶农夫山泉的价格实现图床自由这档子事</h1><p>由于墙越来越高了，所以我们的ip地址在访问GitHub时是不干净的，这就导致了我们用GitHub来做我们的图床仓库会遇到加载不出来的问题。因为实际的仓库地址是raw.github啥啥的，我们可以通过修改访问域名来加载我们的图片，但是这确实是挺麻烦的，至少我这个计网废物搞不明白。之前的方法是存到我南的云盘里面，但毕竟三年之后毕业了，云盘也就没了，所以我在大佬们的指导下租了阿里云的oss服务，花了6瓶农夫山泉的rmb实现了图床自由。</p><h2 id="准备工作——Typora"><a href="#准备工作——Typora" class="headerlink" title="准备工作——Typora"></a>准备工作——Typora</h2><p>在Typora的偏好设置中选择“图像”，<strong>插入图片时</strong>选择<strong>上传图片</strong>，<strong>对本地位置的图片应用上述规则</strong>，将<strong>上传服务</strong>旁边选择<strong>PicGo-Core（command line）</strong>，点击下面的<strong>下载或更新</strong>。Typora自动下载的PicGo似乎不是最新版本，但省事就完事了。</p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004141128605.png" alt="Typora偏好设置"></p><h2 id="注册阿里云，购买对象存储OSS服务"><a href="#注册阿里云，购买对象存储OSS服务" class="headerlink" title="注册阿里云，购买对象存储OSS服务"></a>注册阿里云，购买对象存储OSS服务</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004141455628.png" alt="image-20221004141455628"></p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004141529002.png" alt="image-20221004141529002"></p><p>看，9块钱，便宜吧。。。</p><h2 id="管理OSS控制台"><a href="#管理OSS控制台" class="headerlink" title="管理OSS控制台"></a>管理OSS控制台</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004141658367.png" alt="image-20221004141658367"></p><p><strong>第一步：</strong></p><p>创建Bucket，<strong>记得读写权限选择公共读！！！</strong></p><p><strong>第二步：</strong></p><p>打开配置文件</p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004142138345.png" alt="打开配置文件"></p><p>输入下面代码</p><pre class="line-numbers language-none"><code class="language-none">&#123;    &quot;picBed&quot;: &#123;      &quot;uploader&quot;: &quot;aliyun&quot;,      &quot;aliyun&quot;: &#123;      &quot;accessKeyId&quot;: &quot;&quot;,      &quot;accessKeySecret&quot;: &quot;&quot;,      &quot;bucket&quot;: &quot;&quot;, &#x2F;&#x2F;这里添加你的bucket名字      &quot;area&quot;: &quot;&quot;, &#x2F;&#x2F;存储区域代号      &quot;path&quot;: &quot;img&#x2F;&quot;,        &quot;customUrl&quot;: &quot;&quot;, &#x2F;&#x2F;自定义域名，注意前面要加http:&#x2F;&#x2F;或https:&#x2F;&#x2F;       &quot;options&quot;: &quot;&quot;       &#125;    &#125;,    &quot;picgoPlugins&quot;: &#123;&#125;  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><strong>上面信息都是要通过阿里云账号获取的</strong>，首先我们来找<strong>accessKeyId</strong>和<strong>accessKeySecret</strong></p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004143046314.png" alt="image-20221004143046314"></p><p>点击AccessKey管理，创建accessKey，查看secret，将内容复制进相应的位置。</p><p>回到你的bucket，点击概览，下图两处图红的地方分别是area和customUrl的值。</p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004143314097.png" alt="image-20221004143314097"></p><p>PS：记得把我的代码注释删掉</p><p>最后保存配置，然后回到偏好设置，点击旁边的验证图片上传选项</p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004143617924.png" alt="image-20221004143617924"></p><p>如果出现下面的结果，就成功了！</p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004143732044.png" alt="image-20221004143732044"></p><p>祝你也能实现图床自由！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>泛型</title>
       <link href="/2022/10/03/fan-xing/"/>
       <url>/2022/10/03/fan-xing/</url>
