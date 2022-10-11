@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="用6瓶农夫山泉的价格实现图床自由, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
+    <meta name="keywords" content="Cpp_数组与指针, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
     <meta name="description" content="南京大学 | 软件学院">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>用6瓶农夫山泉的价格实现图床自由 | Kiyotaka Wang的博客</title>
+    <title>Cpp_数组与指针 | Kiyotaka Wang的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -294,7 +294,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">用6瓶农夫山泉的价格实现图床自由</h1>
+                    <h1 class="description center-align post-title">Cpp_数组与指针</h1>
                 </div>
             </div>
         </div>
@@ -410,8 +410,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                                <span class="chip bg-color">随笔</span>
+                            <a href="/tags/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                <span class="chip bg-color">C++高级程序设计</span>
                             </a>
                         
                     </div>
@@ -422,8 +422,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                博客
+                            <a href="/categories/C/" class="post-category">
+                                C++
                             </a>
                         
                     </div>
@@ -435,14 +435,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-04
+                    2022-10-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-04
+                    2022-10-11
                 </div>
                 
 
@@ -464,46 +464,106 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="关于我用6瓶农夫山泉的价格实现图床自由这档子事"><a href="#关于我用6瓶农夫山泉的价格实现图床自由这档子事" class="headerlink" title="关于我用6瓶农夫山泉的价格实现图床自由这档子事"></a>关于我用6瓶农夫山泉的价格实现图床自由这档子事</h1><p>由于墙越来越高了，所以我们的ip地址在访问GitHub时是不干净的，这就导致了我们用GitHub来做我们的图床仓库会遇到加载不出来的问题。因为实际的仓库地址是raw.github啥啥的，我们可以通过修改访问域名来加载我们的图片，但是这确实是挺麻烦的，至少我这个计网废物搞不明白。之前的方法是存到我南的云盘里面，但毕竟三年之后毕业了，云盘也就没了，所以我在大佬们的指导下租了阿里云的oss服务，花了6瓶农夫山泉的rmb实现了图床自由。</p>
-<h2 id="准备工作——Typora"><a href="#准备工作——Typora" class="headerlink" title="准备工作——Typora"></a>准备工作——Typora</h2><p>在Typora的偏好设置中选择“图像”，<strong>插入图片时</strong>选择<strong>上传图片</strong>，<strong>对本地位置的图片应用上述规则</strong>，将<strong>上传服务</strong>旁边选择<strong>PicGo-Core（command line）</strong>，点击下面的<strong>下载或更新</strong>。Typora自动下载的PicGo似乎不是最新版本，但省事就完事了。</p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004141128605.png" alt="Typora偏好设置"></p>
-<h2 id="注册阿里云，购买对象存储OSS服务"><a href="#注册阿里云，购买对象存储OSS服务" class="headerlink" title="注册阿里云，购买对象存储OSS服务"></a>注册阿里云，购买对象存储OSS服务</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004141455628.png" alt="image-20221004141455628"></p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004141529002.png" alt="image-20221004141529002"></p>
-<p>看，9块钱，便宜吧。。。</p>
-<h2 id="管理OSS控制台"><a href="#管理OSS控制台" class="headerlink" title="管理OSS控制台"></a>管理OSS控制台</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004141658367.png" alt="image-20221004141658367"></p>
-<p><strong>第一步：</strong></p>
-<p>创建Bucket，<strong>记得读写权限选择公共读！！！</strong></p>
-<p><strong>第二步：</strong></p>
-<p>打开配置文件</p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004142138345.png" alt="打开配置文件"></p>
-<p>输入下面代码</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;
-    &quot;picBed&quot;: &#123;
-      &quot;uploader&quot;: &quot;aliyun&quot;,
-      &quot;aliyun&quot;: &#123;
-      &quot;accessKeyId&quot;: &quot;&quot;,
-      &quot;accessKeySecret&quot;: &quot;&quot;,
-      &quot;bucket&quot;: &quot;&quot;, &#x2F;&#x2F;这里添加你的bucket名字
-      &quot;area&quot;: &quot;&quot;, &#x2F;&#x2F;存储区域代号
-      &quot;path&quot;: &quot;img&#x2F;&quot;, 
-       &quot;customUrl&quot;: &quot;&quot;, &#x2F;&#x2F;自定义域名，注意前面要加http:&#x2F;&#x2F;或https:&#x2F;&#x2F;
-       &quot;options&quot;: &quot;&quot; 
-      &#125;
-    &#125;,
-    &quot;picgoPlugins&quot;: &#123;&#125;
-  &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="数组与指针"><a href="#数组与指针" class="headerlink" title="数组与指针"></a>数组与指针</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><ol>
+<li>相同类型</li>
+<li>连续存储 0 ~ n-1</li>
+</ol>
+<h3 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h3><ol>
+<li>类型定义</li>
+<li>函数接口</li>
+</ol>
+<ul>
+<li>元素个数通过参数显式地给出，不能通过sizeof取得</li>
+<li>特例是字符串</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> len1 <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token operator">/</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//是不对的，因为现在的a是一个指针类型的变量，而不是原来的数组了</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//len = sizeof(a)/sizeof(int);</span>
+<span class="token comment">//为什么一定要自己传入数组的大小：传入参数时，a[]自动被转换为int *a，此时a是一个指针类型的变量</span>
+<span class="token comment">//特例是字符串，因为默认char[]的末尾默认是\0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>上面信息都是要通过阿里云账号获取的</strong>，首先我们来找<strong>accessKeyId</strong>和<strong>accessKeySecret</strong></p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004143046314.png" alt="image-20221004143046314"></p>
-<p>点击AccessKey管理，创建accessKey，查看secret，将内容复制进相应的位置。</p>
-<p>回到你的bucket，点击概览，下图两处图红的地方分别是area和customUrl的值。</p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004143314097.png" alt="image-20221004143314097"></p>
-<p>PS：记得把我的代码注释删掉</p>
-<p>最后保存配置，然后回到偏好设置，点击旁边的验证图片上传选项</p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004143617924.png" alt="image-20221004143617924"></p>
-<p>如果出现下面的结果，就成功了！</p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221004143732044.png" alt="image-20221004143732044"></p>
-<p>祝你也能实现图床自由！</p>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>p<span class="token punctuation">;</span>
+p <span class="token operator">=</span> <span class="token operator">&amp;</span>x<span class="token punctuation">;</span>
+<span class="token operator">*</span>p <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>指针初始化（只有两种）：</p>
+<ol>
+<li>指定表示某个变量</li>
+<li>申请（new）分配一定内存给它，如果没有想好就分配一个NULL</li>
+</ol>
+<h3 id="关于void"><a href="#关于void" class="headerlink" title="关于void *"></a>关于void *</h3><p>ANSI C：宏定义NULL为(void*) 0</p>
+<p>但是C++之父Stroustrup否定了这种定义方法</p>
+<p>C++: #define NULL 0</p>
+<p>void*仅仅是记录地址，所以无法使用它，它也就可以记录任何类型的变量的地址了</p>
+<p>而</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token operator">*</span>p1<span class="token punctuation">;</span>
+<span class="token keyword">char</span> <span class="token operator">*</span>p2<span class="token punctuation">;</span>
+p1 <span class="token operator">=</span> p2<span class="token punctuation">;</span> <span class="token comment">//是非法的</span>
+<span class="token keyword">void</span> <span class="token operator">*</span>p3<span class="token punctuation">;</span>
+p3 <span class="token operator">=</span> p1<span class="token punctuation">;</span> <span class="token comment">//合法，但是仅仅能记录地址，无法使用</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>但是这会造成一个问题，</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">memset</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span>p<span class="token punctuation">,</span> <span class="token keyword">unsigned</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">char</span> <span class="token operator">*</span>q <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>p<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token operator">*</span><span class="token punctuation">(</span>q<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>也就是<strong>null也能被转化为其他的值</strong>。</p>
+<p>C++11之后新加入了nullptr，这中间的原因挺复杂的，因为C++不允许void指针隐式转换而造成了不少的问题（虽然也避免了许多其他的问题）。。。为了方便又加入了nullptr。。。</p>
+<blockquote>
+<p>看看这篇<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1942015">C++ 中的 nullptr 到底是什么 - 腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+</blockquote>
+<p>总之，C++里面用nullptr就对了。</p>
+<h2 id="指针和数组的使用"><a href="#指针和数组的使用" class="headerlink" title="指针和数组的使用"></a>指针和数组的使用</h2><p>a和p的区别：a是一个常量指针，值不可以改变。</p>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011192515137.png" alt="a和p的区别"></p>
+<h3 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h3><p>在内存上和一维没有区别，并不是什么矩阵的模样。</p>
+<p>表示法可以理解为</p>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011112230014.png" alt="表示法"></p>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011112317543.png" alt="表示法"></p>
+<p>PS：Professor对蚂蚁老师和67失望了。。。</p>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011193345540.png" alt="多维数组"></p>
+<h3 id="Q1：C-为什么允许越界？"><a href="#Q1：C-为什么允许越界？" class="headerlink" title="Q1：C++为什么允许越界？"></a>Q1：C++为什么允许越界？</h3><p>因为这样做增加了语言的灵活性</p>
+<p>多种指针表示方式：</p>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011193413065.png" alt="两种指针表示方式"></p>
+<h3 id="数组升降维"><a href="#数组升降维" class="headerlink" title="数组升降维"></a>数组升降维</h3><ul>
+<li>降维</li>
+</ul>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span>  <span class="token function">maximum</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>	<span class="token keyword">int</span>  max <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span>  <span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span>  <span class="token punctuation">(</span>a<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">></span> max<span class="token punctuation">)</span>
+			max <span class="token operator">=</span> a<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>  
+		<span class="token keyword">return</span> max<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>		
+	<span class="token keyword">int</span>  A<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#123;</span><span class="token number">68</span><span class="token punctuation">,</span><span class="token number">69</span><span class="token punctuation">,</span><span class="token number">70</span><span class="token punctuation">,</span><span class="token number">71</span><span class="token punctuation">&#125;</span> <span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token number">85</span><span class="token punctuation">,</span><span class="token number">86</span><span class="token punctuation">,</span><span class="token number">87</span><span class="token punctuation">,</span><span class="token number">89</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	cout <span class="token operator">&lt;&lt;</span> “the max grade is” <span class="token operator">&lt;&lt;</span> <span class="token function">maximum</span><span class="token punctuation">(</span>A<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>	
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011193952633.png" alt="降维"></p>
+<ul>
+<li>降维</li>
+</ul>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011194100303.png" alt="升维"></p>
+<h3 id="申请new"><a href="#申请new" class="headerlink" title="申请new"></a>申请new</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>malloc需要强制类型转换，而new不用，所以多用new</p>
+<p>其次，new可以完成初始化，而不像malloc只是简单的分配内存，比如在你初始化一个类的指针时，new可以直接完成初始化（构造函数）。</p>
+<p>有借有还</p>
+<p>new —— delete</p>
+<p>malloc —— free</p>
+<p>auto_ptr</p>
+<p>未完待续。。。</p>
 
                 
             </div>
@@ -530,7 +590,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hmwang2002/github.io/2022/10/04/yong-6-ping-nong-fu-shan-quan-de-jie-ge-shi-xian-tu-chuang-zi-you/">https://hmwang2002/github.io/2022/10/04/yong-6-ping-nong-fu-shan-quan-de-jie-ge-shi-xian-tu-chuang-zi-you/</a>
+                    <a href="https://hmwang2002/github.io/2022/10/11/cpp-shu-zu-yu-zhi-zhen/">https://hmwang2002/github.io/2022/10/11/cpp-shu-zu-yu-zhi-zhen/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -568,8 +628,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                                    <span class="chip bg-color">随笔</span>
+                                <a href="/tags/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">C++高级程序设计</span>
                                 </a>
                             
                         </div>
@@ -613,9 +673,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/10/11/cpp-shu-zu-yu-zhi-zhen/">
                     <div class="card-image">
@@ -633,9 +694,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -648,6 +709,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -666,13 +728,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/03/fan-xing/">
+                <a href="/2022/10/04/yong-6-ping-nong-fu-shan-quan-de-jie-ge-shi-xian-tu-chuang-zi-you/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="泛型">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="用6瓶农夫山泉的价格实现图床自由">
                         
-                        <span class="card-title">泛型</span>
+                        <span class="card-title">用6瓶农夫山泉的价格实现图床自由</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -683,14 +745,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
                                 </a>
                             
                             
@@ -700,8 +762,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
                     </a>
                     
                 </div>

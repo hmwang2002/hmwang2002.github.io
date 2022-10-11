@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2022-10-04T06:38:50.896Z</updated>
+  <updated>2022-10-11T11:42:56.514Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cpp_数组与指针</title>
+    <link href="https://hmwang2002/github.io/2022/10/11/cpp-shu-zu-yu-zhi-zhen/"/>
+    <id>https://hmwang2002/github.io/2022/10/11/cpp-shu-zu-yu-zhi-zhen/</id>
+    <published>2022-10-11T10:40:18.000Z</published>
+    <updated>2022-10-11T11:42:56.514Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;数组与指针&quot;&gt;&lt;a href=&quot;#数组与指针&quot; class=&quot;headerlink&quot; title=&quot;数组与指针&quot;&gt;&lt;/a&gt;数组与指针&lt;/h1&gt;&lt;h2 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="C++" scheme="https://hmwang2002/github.io/categories/C/"/>
+    
+    
+    <category term="C++高级程序设计" scheme="https://hmwang2002/github.io/tags/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>用6瓶农夫山泉的价格实现图床自由</title>
@@ -96,7 +121,7 @@
     <link href="https://hmwang2002/github.io/2022/10/01/wu-li-ceng/"/>
     <id>https://hmwang2002/github.io/2022/10/01/wu-li-ceng/</id>
     <published>2022-10-01T02:10:37.000Z</published>
-    <updated>2022-10-01T02:12:59.442Z</updated>
+    <updated>2022-10-08T11:53:06.894Z</updated>
     
     
       
