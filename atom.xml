@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2022-10-11T11:42:56.514Z</updated>
+  <updated>2022-10-11T12:42:31.490Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cpp_multiFile</title>
+    <link href="https://hmwang2002/github.io/2022/10/11/cpp-multifile/"/>
+    <id>https://hmwang2002/github.io/2022/10/11/cpp-multifile/</id>
+    <published>2022-10-11T11:57:28.000Z</published>
+    <updated>2022-10-11T12:42:31.490Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;多文件MultiFile&quot;&gt;&lt;a href=&quot;#多文件MultiFile&quot; class=&quot;headerlink&quot; title=&quot;多文件MultiFile&quot;&gt;&lt;/a&gt;多文件MultiFile&lt;/h1&gt;&lt;p&gt;三个问题&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="C++" scheme="https://hmwang2002/github.io/categories/C/"/>
+    
+    
+    <category term="C++高级程序设计" scheme="https://hmwang2002/github.io/tags/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>Cpp_数组与指针</title>

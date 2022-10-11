@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Cpp_multiFile</title>
+      <link href="/2022/10/11/cpp-multifile/"/>
+      <url>/2022/10/11/cpp-multifile/</url>
+      
+        <content type="html"><![CDATA[<h1 id="多文件MultiFile"><a href="#多文件MultiFile" class="headerlink" title="多文件MultiFile"></a>多文件MultiFile</h1><p>三个问题</p><h2 id="Q1：能在不降低可读性的前提下，降低COST吗？（不产生function-call）"><a href="#Q1：能在不降低可读性的前提下，降低COST吗？（不产生function-call）" class="headerlink" title="Q1：能在不降低可读性的前提下，降低COST吗？（不产生function call）"></a>Q1：能在不降低可读性的前提下，降低COST吗？（不产生function call）</h2><ul><li>代码段的cost (时间)<ul><li>参数传递 (push)</li><li>保持现场 (ret addr) (frame)</li></ul></li><li>Stack的cost (空间)<ul><li>参数空间</li><li>环境</li></ul></li><li>代码替换，不存在参数传递与现场调换 (Compiler)<ul><li>inline : 主动申请</li><li>联系 : virtual</li></ul></li></ul><p>Compiler帮你做改进</p><p>函数前面加上inline</p><p>inline的坏处：无法递归、函数指针没有了、代码段拉长了</p><p>循环不被认为是简单的代码</p><h2 id="Q2：使用Lib需要注意什么？"><a href="#Q2：使用Lib需要注意什么？" class="headerlink" title="Q2：使用Lib需要注意什么？"></a>Q2：使用Lib需要注意什么？</h2><ul><li>C&#x2F;C++ 符号表不同，cpp 函数名因为重载与 C 不同</li></ul><h2 id="Q3：执行性呢？"><a href="#Q3：执行性呢？" class="headerlink" title="Q3：执行性呢？"></a>Q3：执行性呢？</h2><ul><li>安全问题<ul><li>防止写入攻击，写和执行是正交的</li><li>ROP<ul><li>监视 : 指令两步跳转有问题</li><li>防止踩点<ul><li>读和执行的正交</li><li>Loader 地址 random</li></ul></li></ul></li></ul></li></ul><h2 id="程序组织"><a href="#程序组织" class="headerlink" title="程序组织"></a>程序组织</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011201318431.png" alt="image-20221011201318431"></p><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011202024232.png" alt="image-20221011202024232"></p><p>#include告诉编译器提前做一些<strong>编辑</strong>工作，将库函数的代码粘贴到你的程序里面</p><p>extern告诉编译器有这个名称的函数或变量会在其他地方声明</p><p>static的变量作用域很小，但生命周期遍及整个程序，也就是说虽然我在其他地方不能直接使用它，但我想保留它的值</p><blockquote><p><a href="https://www.runoob.com/w3cnote/cpp-static-usage.html">C&#x2F;C++ 中 static 的用法全局变量与局部变量 | 菜鸟教程 (runoob.com)</a></p></blockquote><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011202625166.png" alt="image-20221011202625166"></p><p><strong>不建议在同一作用域两次使用using-directive</strong></p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011203401893.png" alt="image-20221011203401893"></p><p><strong>优先考虑using-declaration</strong>（ppt比较老，应该是&lt;cstdio&gt;）</p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011203538850.png" alt="image-20221011203538850"></p><h2 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h2><ul><li>与作用域、类型、接口等概念格格不入</li><li>编辑处理 : 不懂任何语法，仅仅是文本上的编辑</li><li>缺陷：<ul><li>潜伏于环境</li><li>穿透作用域</li></ul></li></ul><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011203906026.png" alt="image-20221011203906026"></p><h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011204210199.png" alt="image-20221011204210199"></p><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011204223827.png" alt="image-20221011204223827"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++高级程序设计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Cpp_数组与指针</title>
       <link href="/2022/10/11/cpp-shu-zu-yu-zhi-zhen/"/>
       <url>/2022/10/11/cpp-shu-zu-yu-zhi-zhen/</url>
