@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Cpp_multiFile, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
+    <meta name="keywords" content="链表, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
     <meta name="description" content="南京大学 | 软件学院">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Cpp_multiFile | Kiyotaka Wang的博客</title>
+    <title>链表 | Kiyotaka Wang的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Cpp_multiFile</h1>
+                    <h1 class="description center-align post-title">链表</h1>
                 </div>
             </div>
         </div>
@@ -410,8 +410,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                                <span class="chip bg-color">C++高级程序设计</span>
+                            <a href="/tags/%E5%8F%98%E5%BC%BA/">
+                                <span class="chip bg-color">变强</span>
                             </a>
                         
                     </div>
@@ -422,8 +422,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C/" class="post-category">
-                                C++
+                            <a href="/categories/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="post-category">
+                                LeetCode刷题笔记
                             </a>
                         
                     </div>
@@ -435,14 +435,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-11
+                    2022-10-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-11
+                    2022-10-14
                 </div>
                 
 
@@ -464,71 +464,88 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="多文件MultiFile"><a href="#多文件MultiFile" class="headerlink" title="多文件MultiFile"></a>多文件MultiFile</h1><p>三个问题</p>
-<h2 id="Q1：能在不降低可读性的前提下，降低COST吗？（不产生function-call）"><a href="#Q1：能在不降低可读性的前提下，降低COST吗？（不产生function-call）" class="headerlink" title="Q1：能在不降低可读性的前提下，降低COST吗？（不产生function call）"></a>Q1：能在不降低可读性的前提下，降低COST吗？（不产生function call）</h2><ul>
-<li>代码段的cost (时间)<ul>
-<li>参数传递 (push)</li>
-<li>保持现场 (ret addr) (frame)</li>
-</ul>
-</li>
-<li>Stack的cost (空间)<ul>
-<li>参数空间</li>
-<li>环境</li>
-</ul>
-</li>
-<li>代码替换，不存在参数传递与现场调换 (Compiler)<ul>
-<li>inline : 主动申请</li>
-<li>联系 : virtual</li>
-</ul>
-</li>
-</ul>
-<p>Compiler帮你做改进</p>
-<p>函数前面加上inline</p>
-<p>inline的坏处：无法递归、函数指针没有了、代码段拉长了</p>
-<p>循环不被认为是简单的代码</p>
-<h2 id="Q2：使用Lib需要注意什么？"><a href="#Q2：使用Lib需要注意什么？" class="headerlink" title="Q2：使用Lib需要注意什么？"></a>Q2：使用Lib需要注意什么？</h2><ul>
-<li>C&#x2F;C++ 符号表不同，cpp 函数名因为重载与 C 不同</li>
-</ul>
-<h2 id="Q3：执行性呢？"><a href="#Q3：执行性呢？" class="headerlink" title="Q3：执行性呢？"></a>Q3：执行性呢？</h2><ul>
-<li>安全问题<ul>
-<li>防止写入攻击，写和执行是正交的</li>
-<li>ROP<ul>
-<li>监视 : 指令两步跳转有问题</li>
-<li>防止踩点<ul>
-<li>读和执行的正交</li>
-<li>Loader 地址 random</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="程序组织"><a href="#程序组织" class="headerlink" title="程序组织"></a>程序组织</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011201318431.png" alt="image-20221011201318431"></p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011202024232.png" alt="image-20221011202024232"></p>
-<p>#include告诉编译器提前做一些<strong>编辑</strong>工作，将库函数的代码粘贴到你的程序里面</p>
-<p>extern告诉编译器有这个名称的函数或变量会在其他地方声明</p>
-<p>static的变量作用域很小，但生命周期遍及整个程序，也就是说虽然我在其他地方不能直接使用它，但我想保留它的值</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/cpp-static-usage.html">C&#x2F;C++ 中 static 的用法全局变量与局部变量 | 菜鸟教程 (runoob.com)</a></p>
-</blockquote>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011202625166.png" alt="image-20221011202625166"></p>
-<p><strong>不建议在同一作用域两次使用using-directive</strong></p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011203401893.png" alt="image-20221011203401893"></p>
-<p><strong>优先考虑using-declaration</strong>（ppt比较老，应该是&lt;cstdio&gt;）</p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011203538850.png" alt="image-20221011203538850"></p>
-<h2 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h2><ul>
-<li>与作用域、类型、接口等概念格格不入</li>
-<li>编辑处理 : 不懂任何语法，仅仅是文本上的编辑</li>
-<li>缺陷：<ul>
-<li>潜伏于环境</li>
-<li>穿透作用域</li>
-</ul>
-</li>
-</ul>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011203906026.png" alt="image-20221011203906026"></p>
-<h2 id="宏"><a href="#宏" class="headerlink" title="宏"></a>宏</h2><p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011204210199.png" alt="image-20221011204210199"></p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011204223827.png" alt="image-20221011204223827"></p>
+                <h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>上大学以前没有学习过任何编程相关的内容，甚至电脑也仅限于上个网课。大一上学期的C语言程序设计的机考让我深受打击。后来刷了一些力扣的题目，自以为大有长进。但是对算法和数据结构的学习一直不是很系统，所以现在想照着labuladong的刷题笔记好好学一学。tag的名字是变强，算是致敬我最喜欢的apex选手青野了吧。</p>
+<h2 id="LeetCode141-环形链表"><a href="#LeetCode141-环形链表" class="headerlink" title="LeetCode141 环形链表"></a>LeetCode141 环形链表</h2><p>给你一个链表的头节点 <em>head</em> ，判断链表中是否有环。</p>
+<p>如果链表中有某个节点，可以通过连续跟踪 <em>next</em> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <em>pos</em> 来表示链表尾连接到链表中的位置（索引从 0 开始）。<strong>注意：pos 不作为参数进行传递 。</strong>仅仅是为了标识链表的实际情况。</p>
+<p>如果链表中存在环 ，则返回 <em>true</em> 。 否则，返回 <em>false</em> 。</p>
+<p><strong>示例 1：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入：head &#x3D; [3,2,0,-4], pos &#x3D; 1
+输出：true
+解释：链表中有一个环，其尾部连接到第二个节点。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<p><strong>示例 2：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入：head &#x3D; [1,2], pos &#x3D; 0
+输出：true
+解释：链表中有一个环，其尾部连接到第一个节点。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<p><strong>示例 3：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">输入：head &#x3D; [1], pos &#x3D; -1
+输出：false
+解释：链表中没有环。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>提示：</strong></p>
+<p>链表中节点的数目范围是 [0, 104]<br>-105 &lt;&#x3D; Node.val &lt;&#x3D; 105<br>pos 为 -1 或者链表中的一个 有效索引 。</p>
+<h3 id="解析："><a href="#解析：" class="headerlink" title="解析："></a>解析：</h3><p>环形链表这种问题，可以通过快慢指针的方法解决，形象地说就是龟兔赛跑，只不过兔子这把勤奋了，不开摆了。这里我们一般可以快指针步长为2，慢指针步长为1。若能追上慢指针，则说明该链表中必定存在回路。</p>
+<h3 id="解答："><a href="#解答：" class="headerlink" title="解答："></a>解答：</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) &#123;&#125;
+ * &#125;;
+ */</span>
+<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+   <span class="token keyword">bool</span> <span class="token function">hasCycle</span><span class="token punctuation">(</span>ListNode <span class="token operator">*</span>head<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> <span class="token keyword">nullptr</span> <span class="token operator">||</span> head<span class="token operator">-></span>next <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    ListNode <span class="token operator">*</span>slow <span class="token operator">=</span> head<span class="token punctuation">,</span> <span class="token operator">*</span>fast <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>fast <span class="token operator">!=</span> <span class="token keyword">nullptr</span> <span class="token operator">&amp;&amp;</span> fast<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        fast <span class="token operator">=</span> fast<span class="token operator">-></span>next<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        slow <span class="token operator">=</span> slow<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>slow <span class="token operator">==</span> fast<span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h3><p>如何计算这个环的起点？</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ListNode</span> <span class="token function">detectCycle</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">ListNode</span> fast<span class="token punctuation">,</span> slow<span class="token punctuation">;</span>
+    fast <span class="token operator">=</span> slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>fast <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> fast<span class="token punctuation">.</span>next <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>fast <span class="token operator">==</span> slow<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 上面的代码类似 hasCycle 函数</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>fast <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> fast<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// fast 遇到空指针说明没有环</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// 重新指向头结点</span>
+    slow <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token comment">// 快慢指针同步前进，相交点就是环起点</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>slow <span class="token operator">!=</span> fast<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        fast <span class="token operator">=</span> fast<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        slow <span class="token operator">=</span> slow<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> slow<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到，当快慢指针相遇时，让其中任一个指针指向头节点，然后让它俩以相同速度前进，再次相遇时所在的节点位置就是环开始的位置。</p>
+<p>为什么要这样呢？这里简单说一下其中的原理。</p>
+<p>我们假设快慢指针相遇时，慢指针 <code>slow</code> 走了 <code>k</code> 步，那么快指针 <code>fast</code> 一定走了 <code>2k</code> 步：</p>
+<p><a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/images/%E5%8F%8C%E6%8C%87%E9%92%88/3.jpeg"><img src="https://labuladong.github.io/algo/images/%e5%8f%8c%e6%8c%87%e9%92%88/3.jpeg" alt="计算环的起点"></a></p>
+<p><code>fast</code> 一定比 <code>slow</code> 多走了 <code>k</code> 步，这多走的 <code>k</code> 步其实就是 <code>fast</code> 指针在环里转圈圈，所以 <code>k</code> 的值就是环长度的「整数倍」。</p>
+<p>假设相遇点距环的起点的距离为 <code>m</code>，那么结合上图的 <code>slow</code> 指针，环的起点距头结点 <code>head</code> 的距离为 <code>k - m</code>，也就是说如果从 <code>head</code> 前进 <code>k - m</code> 步就能到达环起点。</p>
+<p>巧的是，如果从相遇点继续前进 <code>k - m</code> 步，也恰好到达环起点。因为结合上图的 <code>fast</code> 指针，从相遇点开始走k步可以转回到相遇点，那走 <code>k - m</code> 步肯定就走到环起点了：</p>
+<p><a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/images/%E5%8F%8C%E6%8C%87%E9%92%88/2.jpeg"><img src="https://labuladong.github.io/algo/images/%e5%8f%8c%e6%8c%87%e9%92%88/2.jpeg" alt="计算环的起点"></a></p>
+<p>所以，只要我们把快慢指针中的任一个重新指向 <code>head</code>，然后两个指针同速前进，<code>k - m</code> 步后一定会相遇，相遇之处就是环的起点了。</p>
 
                 
             </div>
@@ -555,7 +572,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hmwang2002/github.io/2022/10/11/cpp-multifile/">https://hmwang2002/github.io/2022/10/11/cpp-multifile/</a>
+                    <a href="https://hmwang2002/github.io/2022/10/14/lian-biao/">https://hmwang2002/github.io/2022/10/14/lian-biao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -593,8 +610,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                                    <span class="chip bg-color">C++高级程序设计</span>
+                                <a href="/tags/%E5%8F%98%E5%BC%BA/">
+                                    <span class="chip bg-color">变强</span>
                                 </a>
                             
                         </div>
@@ -638,17 +655,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/14/tan-xin-suan-fa/">
+                <a href="/2022/10/14/lian-biao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="贪心算法">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="链表">
                         
-                        <span class="card-title">贪心算法</span>
+                        <span class="card-title">链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -658,9 +676,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -673,6 +691,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -691,13 +710,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/11/cpp-shu-zu-yu-zhi-zhen/">
+                <a href="/2022/10/14/tan-xin-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Cpp_数组与指针">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="贪心算法">
                         
-                        <span class="card-title">Cpp_数组与指针</span>
+                        <span class="card-title">贪心算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -708,14 +727,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C/" class="post-category">
-                                    C++
+                            <a href="/categories/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    LeetCode刷题笔记
                                 </a>
                             
                             
@@ -725,8 +744,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-                        <span class="chip bg-color">C++高级程序设计</span>
+                    <a href="/tags/%E5%8F%98%E5%BC%BA/">
+                        <span class="chip bg-color">变强</span>
                     </a>
                     
                 </div>
