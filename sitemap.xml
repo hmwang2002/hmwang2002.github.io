@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hmwang2002/github.io/2022/10/23/er-fen-cha-zhao/</loc>
+    
+    <lastmod>2022-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hmwang2002/github.io/2022/10/14/lian-biao/</loc>
+    
+    <lastmod>2022-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hmwang2002/github.io/2022/10/23/c-di-er-ci-zuo-ye/</loc>
     
     <lastmod>2022-10-23</lastmod>
@@ -14,15 +32,6 @@
     <loc>https://hmwang2002/github.io/2022/10/21/c-di-san-ci-zuo-ye/</loc>
     
     <lastmod>2022-10-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hmwang2002/github.io/2022/10/14/lian-biao/</loc>
-    
-    <lastmod>2022-10-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
