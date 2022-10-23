@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2022-10-21T14:42:29.641Z</updated>
+  <updated>2022-10-23T03:18:52.249Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++第二次作业</title>
+    <link href="https://hmwang2002/github.io/2022/10/23/c-di-er-ci-zuo-ye/"/>
+    <id>https://hmwang2002/github.io/2022/10/23/c-di-er-ci-zuo-ye/</id>
+    <published>2022-10-23T03:18:08.000Z</published>
+    <updated>2022-10-23T03:18:52.249Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;第二次作业分析&quot;&gt;&lt;a href=&quot;#第二次作业分析&quot; class=&quot;headerlink&quot; title=&quot;第二次作业分析&quot;&gt;&lt;/a&gt;第二次作业分析&lt;/h1&gt;&lt;h2 id=&quot;1-约瑟夫问题&quot;&gt;&lt;a href=&quot;#1-约瑟夫问题&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="C++" scheme="https://hmwang2002/github.io/categories/C/"/>
+    
+    
+    <category term="菜鸟的代码作业" scheme="https://hmwang2002/github.io/tags/%E8%8F%9C%E9%B8%9F%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%9C%E4%B8%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>C++第三次作业</title>
