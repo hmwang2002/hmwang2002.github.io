@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hmwang2002/github.io/2022/09/23/c-di-yi-ci-zuo-ye/</loc>
+    
+    <lastmod>2022-10-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hmwang2002/github.io/2022/10/21/c-di-san-ci-zuo-ye/</loc>
     
     <lastmod>2022-10-24</lastmod>
@@ -122,15 +131,6 @@
     <loc>https://hmwang2002/github.io/about/index.html</loc>
     
     <lastmod>2022-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hmwang2002/github.io/2022/09/23/c-di-yi-ci-zuo-ye/</loc>
-    
-    <lastmod>2022-09-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
