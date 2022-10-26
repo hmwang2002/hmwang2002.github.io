@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2022-10-23T14:53:08.518Z</updated>
+  <updated>2022-10-26T05:26:40.377Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -21,14 +21,17 @@
     <link href="https://hmwang2002/github.io/2022/10/23/er-fen-cha-zhao/"/>
     <id>https://hmwang2002/github.io/2022/10/23/er-fen-cha-zhao/</id>
     <published>2022-10-23T14:37:38.000Z</published>
-    <updated>2022-10-23T14:53:08.518Z</updated>
+    <updated>2022-10-26T05:26:40.377Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;二分查找&quot;&gt;&lt;a href=&quot;#二分查找&quot; class=&quot;headerlink&quot; title=&quot;二分查找&quot;&gt;&lt;/a&gt;二分查找&lt;/h1&gt;&lt;h2 id=&quot;LeetCode704-二分查找&quot;&gt;&lt;a href=&quot;#LeetCode704-二分查找&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;二分查找&quot;&gt;二分查找&lt;/h1&gt;
+&lt;h2 id=&quot;leetcode704-二分查找&quot;&gt;LeetCode704 二分查找&lt;/h2&gt;
+&lt;p&gt;给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target
+，写一个函数搜索 nums 中的</summary>
         
       
     
