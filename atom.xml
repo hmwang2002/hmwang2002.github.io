@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2022-10-26T05:26:40.377Z</updated>
+  <updated>2022-10-28T11:27:40.250Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计组第5次作业</title>
+    <link href="https://hmwang2002/github.io/2022/10/28/ji-zu-di-5-ci-zuo-ye/"/>
+    <id>https://hmwang2002/github.io/2022/10/28/ji-zu-di-5-ci-zuo-ye/</id>
+    <published>2022-10-28T07:23:33.000Z</published>
+    <updated>2022-10-28T11:27:40.250Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="计算机组织与结构" scheme="https://hmwang2002/github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E7%BB%87%E4%B8%8E%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="计算机组织与结构" scheme="https://hmwang2002/github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E7%BB%87%E4%B8%8E%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二进制编码的十进制数运算</title>
+    <link href="https://hmwang2002/github.io/2022/10/28/er-jin-zhi-bian-ma-de-shi-jin-zhi-shu-yun-suan/"/>
+    <id>https://hmwang2002/github.io/2022/10/28/er-jin-zhi-bian-ma-de-shi-jin-zhi-shu-yun-suan/</id>
+    <published>2022-10-28T07:20:18.000Z</published>
+    <updated>2022-10-28T07:22:50.362Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;二进制编码的十进制数运算&quot;&gt;二进制编码的十进制数运算&lt;/h1&gt;
+&lt;h2 id=&quot;编码方式自然bcd码nbcd8421码&quot;&gt;编码方式：自然BCD码（NBCD，8421码）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;0~9：0000 ~</summary>
+        
+      
+    
+    
+    
+    <category term="计算机组织与结构" scheme="https://hmwang2002/github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E7%BB%87%E4%B8%8E%E7%BB%93%E6%9E%84/"/>
+    
+    
+    <category term="计算机组织与结构" scheme="https://hmwang2002/github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E7%BB%87%E4%B8%8E%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>二分查找</title>
