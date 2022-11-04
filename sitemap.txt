@@ -1,3 +1,5 @@
+https://hmwang2002/github.io/2022/11/04/shu-ju-lian-lu-ceng/
+https://hmwang2002/github.io/about/index.html
 https://hmwang2002/github.io/2022/10/28/ji-zu-di-5-ci-zuo-ye/
 https://hmwang2002/github.io/2022/10/28/er-jin-zhi-bian-ma-de-shi-jin-zhi-shu-yun-suan/
 https://hmwang2002/github.io/2022/10/23/er-fen-cha-zhao/
@@ -14,7 +16,6 @@ https://hmwang2002/github.io/2022/10/11/cpp-shu-zu-yu-zhi-zhen/
 https://hmwang2002/github.io/2022/10/03/fan-xing/
 https://hmwang2002/github.io/2022/10/04/yong-6-ping-nong-fu-shan-quan-de-jie-ge-shi-xian-tu-chuang-zi-you/
 https://hmwang2002/github.io/2022/10/02/c-de-io-chu-li/
-https://hmwang2002/github.io/about/index.html
 https://hmwang2002/github.io/2022/09/09/helloworld/
 https://hmwang2002/github.io/friends/index.html
 https://hmwang2002/github.io/404.html
