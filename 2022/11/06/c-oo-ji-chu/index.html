@@ -442,14 +442,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-06
+                    2022-11-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.9k
                 </div>
                 
 
@@ -758,6 +758,105 @@ const的值必须在类中定义的地方就初始化</strong>，因为static是
 <li>对于没有声明成const的函数，调用它是不允许的</li>
 </ul></li>
 </ul>
+<p><strong>如果有人尝试在f函数后面加一个const以欺骗compiler？</strong></p>
+<p>编译器会报错，因为函数本身就修改了成员变量，不能标识为const。</p>
+<p>正常来讲编译结果是这样的。show的标红的const表示A*的内容不能改变，const
+this则表示这个对象不能改变。const是函数重载的参数。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-08%2010.39.20.png" alt="编译完的结果">
+<figcaption aria-hidden="true">编译完的结果</figcaption>
+</figure>
+<p>下面这个例子的f是可以标识为const的，因为indirect_int是一个引用，指向了堆上面的内存，属于外部变量，引用本身是不能修改的，我们修改的是指向的内容。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-08%2010.47.30.png" alt="截屏2022-11-08 10.47.30">
+<figcaption aria-hidden="true">截屏2022-11-08 10.47.30</figcaption>
+</figure>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token operator">&amp;</span> indirect_int<span class="token punctuation">;</span>
+    <span class="token keyword">public</span><span class="token operator">:</span>
+        <span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">indirect_int</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+        <span class="token operator">~</span><span class="token function">A</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">delete</span> <span class="token operator">&amp;</span>indirect_int<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">void</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">&#123;</span>
+            <span class="token comment">//只要不是直接修改变量的值就OK</span>
+            <span class="token comment">//引用本身是不能修改的，所以编译器认为没问题</span>
+            indirect_int<span class="token operator">++</span><span class="token punctuation">;</span><span class="token comment">//只是指向的内容发生了变化</span>
+        <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token comment">//用a来做初始化</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol type="1">
+<li><strong>关键词mutable</strong>:表示成员可以再const中进行修改，而不是用间接的方式来做。</li>
+<li><strong>去掉const转换</strong>:<code>(const_cast)&lt;A*&gt;(this)-&gt;x</code>转换后可以修改原来的成员</li>
+</ol>
+<h2 id="静态成员">静态成员</h2>
+<h3 id="静态成员变量">静态成员变量</h3>
+<ol type="1">
+<li>类刻划了一组具有相同属性的对象</li>
+<li>对象是类的实例</li>
+<li>静态成员被类对象所共享，唯一拷贝，通过类访问控制</li>
+</ol>
+<p><strong>问题</strong>：同一个类的不同对象如何共享变量？</p>
+<ol type="1">
+<li>如果把这些共享变量定义为全局变量，则缺乏数据保护</li>
+<li>名污染</li>
+<li>为了保证只能被定义一次，因此不能写在.h中，要写在.cpp中（参考博客http://t.csdn.cn/3yJqm）</li>
+</ol>
+<h3 id="静态成员函数">静态成员函数</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-08%2011.16.18.png" alt="静态成员函数">
+<figcaption aria-hidden="true">静态成员函数</figcaption>
+</figure>
+<ol type="1">
+<li><p>可以在没有对象的情况下使用</p></li>
+<li><p>只能存取静态成员变量，调用静态成员函数</p></li>
+<li><p>遵循类访问控制</p></li>
+</ol>
+<h3 id="静态成员的使用">静态成员的使用</h3>
+<ol type="1">
+<li>通过对象使用/通过类使用</li>
+<li>C++支持观点“类也是对象”</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-08%2011.19.41.png" alt="静态成员的使用">
+<figcaption aria-hidden="true">静态成员的使用</figcaption>
+</figure>
+<h3 id="resource-control懒初始化原理">Resource control懒初始化原理</h3>
+<p>原则：谁创建，谁归还</p>
+<p>将构造函数、拷贝构造函数、移动构造函数设为private，则只能在类内new</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-08%2011.26.44.png" alt="Rsource Control">
+<figcaption aria-hidden="true">Rsource Control</figcaption>
+</figure>
+<p>封装了对象的创建过程，使得由创建者负责整个初始化过程，而使用者只能调用static方法来调用。</p>
+<h2 id="友元">友元</h2>
+<p>类外部不能访问该类的private成员</p>
+<ol type="1">
+<li>通过该类的public方法</li>
+<li>会降低对private成员的访问效率，缺乏灵活性</li>
+<li>例如：矩阵类(Matrix)、向量类(Vector)和全局函数(multiply)，全局函数实现矩阵和向量相乘</li>
+</ol>
+<p><strong>分类</strong>：</p>
+<ol type="1">
+<li>友元函数</li>
+<li>友元类</li>
+<li>友元类成员函数</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-11-08%2011.52.41.png" alt="友元分类">
+<figcaption aria-hidden="true">友元分类</figcaption>
+</figure>
+<p><strong>作用</strong>：</p>
+<ol type="1">
+<li>提高程序设计灵活性</li>
+<li>数据保护和对数据的存取效率之间的一个折中方案</li>
+</ol>
+<p><strong>两个类相互引用</strong>：</p>
+<ol type="1">
+<li>为了隔离数据，权限控制</li>
+<li>为了同时运行，派生出不同的变化</li>
+</ol>
 
                 
             </div>
@@ -1160,7 +1259,7 @@ const的值必须在类中定义的地方就初始化</strong>，因为static是
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.5k</span>&nbsp;字
+                class="white-color">46.2k</span>&nbsp;字
             
             
             
