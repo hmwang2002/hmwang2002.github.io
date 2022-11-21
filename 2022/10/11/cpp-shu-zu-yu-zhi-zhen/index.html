@@ -442,14 +442,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-11
+                    2022-11-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    757
+                    730
                 </div>
                 
 
@@ -528,33 +528,18 @@ nullptr 到底是什么 - 腾讯云开发者社区-腾讯云 (tencent.com)</a></
 <p>总之，C++里面用nullptr就对了。</p>
 <h2 id="指针和数组的使用">指针和数组的使用</h2>
 <p>a和p的区别：a是一个常量指针，值不可以改变。</p>
-<figure>
-<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011192515137.png" alt="a和p的区别">
-<figcaption aria-hidden="true">a和p的区别</figcaption>
-</figure>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011192515137.png" alt="a和p的区别"></p>
 <h3 id="多维数组">多维数组</h3>
 <p>在内存上和一维没有区别，并不是什么矩阵的模样。</p>
 <p>表示法可以理解为</p>
-<figure>
-<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011112230014.png" alt="表示法">
-<figcaption aria-hidden="true">表示法</figcaption>
-</figure>
-<figure>
-<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011112317543.png" alt="表示法">
-<figcaption aria-hidden="true">表示法</figcaption>
-</figure>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011112230014.png" alt="表示法"></p>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011112317543.png" alt="表示法"></p>
 <p>PS：Professor对蚂蚁老师和67失望了。。。</p>
-<figure>
-<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011193345540.png" alt="多维数组">
-<figcaption aria-hidden="true">多维数组</figcaption>
-</figure>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011193345540.png" alt="多维数组"></p>
 <h3 id="q1c为什么允许越界">Q1：C++为什么允许越界？</h3>
 <p>因为这样做增加了语言的灵活性</p>
 <p>多种指针表示方式：</p>
-<figure>
-<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011193413065.png" alt="两种指针表示方式">
-<figcaption aria-hidden="true">两种指针表示方式</figcaption>
-</figure>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011193413065.png" alt="两种指针表示方式"></p>
 <h3 id="数组升降维">数组升降维</h3>
 <ul>
 <li>降维</li>
@@ -574,17 +559,11 @@ nullptr 到底是什么 - 腾讯云开发者社区-腾讯云 (tencent.com)</a></
 	cout <span class="token operator">&lt;&lt;</span> “the max grade is” <span class="token operator">&lt;&lt;</span> <span class="token function">maximum</span><span class="token punctuation">(</span>A<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>	
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<figure>
-<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011193952633.png" alt="降维">
-<figcaption aria-hidden="true">降维</figcaption>
-</figure>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011193952633.png" alt="降维"></p>
 <ul>
 <li>降维</li>
 </ul>
-<figure>
-<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011194100303.png" alt="升维">
-<figcaption aria-hidden="true">升维</figcaption>
-</figure>
+<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221011194100303.png" alt="升维"></p>
 <h3 id="申请new">申请new</h3>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token operator">*</span>p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>malloc需要强制类型转换，而new不用，所以多用new</p>
@@ -923,13 +902,6 @@ nullptr 到底是什么 - 腾讯云开发者社区-腾讯云 (tencent.com)</a></
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
     <footer class="page-footer bg-color">
@@ -1001,7 +973,7 @@ nullptr 到底是什么 - 腾讯云开发者社区-腾讯云 (tencent.com)</a></
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">46.2k</span>&nbsp;字
+                class="white-color">46.4k</span>&nbsp;字
             
             
             
