@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="贪心算法, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
+    <meta name="keywords" content="第一次美赛纪实, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
     <meta name="description" content="南京大学 | 软件学院">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>贪心算法 | Kiyotaka Wang的博客</title>
+    <title>第一次美赛纪实 | Kiyotaka Wang的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">贪心算法</h1>
+                    <h1 class="description center-align post-title">第一次美赛纪实</h1>
                 </div>
             </div>
         </div>
@@ -410,8 +410,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%8F%98%E5%BC%BA/">
-                                <span class="chip bg-color">变强</span>
+                            <a href="/tags/%E7%AB%9E%E8%B5%9B/">
+                                <span class="chip bg-color">竞赛</span>
                             </a>
                         
                     </div>
@@ -422,8 +422,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="post-category">
-                                LeetCode刷题笔记
+                            <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                竞赛
                             </a>
                         
                     </div>
@@ -435,21 +435,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-14
+                    2023-04-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-21
+                    2023-04-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    382
+                    1k
                 </div>
                 
 
@@ -469,45 +469,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="贪心算法">贪心算法</h1>
-<h2 id="leetcode45-跳跃游戏ii">LeetCode45 跳跃游戏II</h2>
-<p>给你一个非负整数数组 nums ，你最初位于数组的第一个位置。</p>
-<p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
-<p>你的目标是使用最少的跳跃次数到达数组的最后一个位置。</p>
-<p>假设你总是可以到达数组的最后一个位置。</p>
-<p><strong>示例 1:</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入: nums &#x3D; [2,3,1,1,4]
-输出: 2
-解释: 跳到最后一个位置的最小跳跃数是 2。
-     从下标为 0 跳到下标为 1 的位置，跳 1 步，然后跳 3 步到达数组的最后一个位置。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>示例 2:</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">输入: nums &#x3D; [2,3,0,1,4]
-输出: 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><strong>提示:</strong></p>
-<p>1 &lt;= nums.length &lt;= 104 0 &lt;= nums[i] &lt;= 1000</p>
-<h3 id="解析"><strong>解析：</strong></h3>
-<p>头一回认真学习贪心算法，所谓贪心算法，简单理解就是在每一步都选择能效益最大化的方案。这个跳跃游戏中，显然第一个格子我们必定要经过，而在第一个格子所能跳到的范围中，我们选择其中最大的值，以此类推。只要我们每一步都选择最优的情况，那么不难想象我们必定可以用最少的步数跳到终点。图解见下图：</p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221014183224525.png"></p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221014183244929.png"></p>
-<figure>
-<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221014183354495.png" alt="image-20221014183354495">
-<figcaption aria-hidden="true">image-20221014183354495</figcaption>
-</figure>
-<h3 id="解答">解答：</h3>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-   <span class="token keyword">int</span> <span class="token function">jump</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">int</span> maxPos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> step <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  
-        maxPos <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>maxPos<span class="token punctuation">,</span> i <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> end<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            end <span class="token operator">=</span> maxPos<span class="token punctuation">;</span>
-            step<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> step<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="第一次美赛纪实">第一次美赛纪实</h1>
+<p>这是我第一次参加美赛的一些反思和总结。</p>
+<p>其实这不光是我第一次参加美赛，也是我大学期间第一次参加学科竞赛。参赛动机主要是单纯的对数学建模感兴趣，不像很多人纯粹是功利性的参赛，我想的是借美赛的机会锻炼自己数据处理和挖掘的能力。</p>
+<h2 id="赛前">赛前</h2>
+<p>今年是放完寒假考试，当时看了时间冲突了，寒假就没学习建模。<del>结果没想到COMAP铁了心要多赚中国学生的钱，为我们开了春季赛。</del>考完期末考试完全就一个想摆烂的心情，拖到比赛前五天才开始学习数学建模。</p>
+<h2 id="第一天">第一天</h2>
+<p>早晨早早起床了，第一次参加这种比赛十分亢奋，早晨喝了杯咖啡感觉自己无所不能了hhhh。上午早早敲定了做Y题，但是下午我们遇到了很多的困难，比如这类定价问题，夹杂着定类和定量数据，是我们之前没有见过的题目类型，着实让我们无从下手。此外，二手帆船的数据也不是非常好找，第一天的爬虫数据几乎是以失败告终的。作为唯一的建模手，第一天的压力是非常大的，因为整个团队的进度现在都掌握在你一个人的手上。幸运的是，晚上我先尝试K-Means进行聚类分析，然后用最基础的多元回归进行了一次模拟，得到的结论还算不错，算是为我们提供了一个定心丸。</p>
+<h2 id="第二天">第二天</h2>
+<p>早晨一位队友去考托福了，我和另一位队友分别用多元回归和随机森林解决了第一问。下午经过讨论，发现以我们的水平很难将随机森林迁移到其他地区，主要是决策树的参数并不是很理解，所以最后第二问选择了我构建的多元回归模型进行了地区因素的分析与模型的可迁移性检验。晚上我上网爬到了少量的香港二手帆船交易的数据，进行数据处理后勉强解决了第三问。</p>
+<h2 id="第三天">第三天</h2>
+<p>第三问的图形在上午画好了，但第三问确实是五道题中我们处理的最不好的一题了，因为样本实在是太少了。下午开始我这个建模手基本上是闲下来了，两位队友开始正式的论文写作，我也用markdown写了自己的建模思路给他们提供参考。</p>
+<h2 id="第四天">第四天</h2>
+<p>一整天都在修改论文，因为我们的进展很快，基本上大致的内容下午就写完了，晚上latex修改了3个多小时的样式，终于在北京时间的21：20分，我们提交了论文，结束了为期四天的美赛征程。</p>
+<h2 id="总结">总结</h2>
+<p>首先要感谢我的两位队友，我们的分工十分明确，没有进行过多的重复劳动。因为本人作为建模手的能力比较弱，所以最后建立的模型比较基础，但个人认为至少比起某些组堆砌高级模型却不知道原理，全程胡说八道，我们至少做到了合理的解释自己的模型。希望最后如果只得了S奖我的队友也不会怪罪我（bushi）。</p>
+<p>总的来说，这是本人本科阶段第一次正儿八经地参加竞赛，非常感谢两位队友的鼎力协助，也希望后面能一起参加更多的建模比赛。第一次就当作积累经验吧，下次比赛时知识储备一定会更加丰富。最近考虑认真把深度学习的书阅读、学习一遍，各种数学模型后面几个月也要好好熟悉熟悉，只会时间序列是显然不够的。</p>
 
                 
             </div>
@@ -534,7 +511,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hmwang2002/github.io/2022/10/14/tan-xin-suan-fa/">https://hmwang2002/github.io/2022/10/14/tan-xin-suan-fa/</a>
+                    <a href="https://hmwang2002/github.io/2023/04/04/di-yi-ci-mei-sai-ji-shi/">https://hmwang2002/github.io/2023/04/04/di-yi-ci-mei-sai-ji-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -572,8 +549,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%8F%98%E5%BC%BA/">
-                                    <span class="chip bg-color">变强</span>
+                                <a href="/tags/%E7%AB%9E%E8%B5%9B/">
+                                    <span class="chip bg-color">竞赛</span>
                                 </a>
                             
                         </div>
@@ -617,17 +594,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/14/lian-biao/">
+                <a href="/2023/04/04/di-yi-ci-mei-sai-ji-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="链表">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="第一次美赛纪实">
                         
-                        <span class="card-title">链表</span>
+                        <span class="card-title">第一次美赛纪实</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -637,26 +615,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    LeetCode刷题笔记
+                            <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                    竞赛
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8F%98%E5%BC%BA/">
-                        <span class="chip bg-color">变强</span>
+                    <a href="/tags/%E7%AB%9E%E8%B5%9B/">
+                        <span class="chip bg-color">竞赛</span>
                     </a>
                     
                 </div>
@@ -670,13 +649,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/11/cpp-multifile/">
+                <a href="/2022/11/06/c-oo-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Cpp_multiFile">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="C++OO基础">
                         
-                        <span class="card-title">Cpp_multiFile</span>
+                        <span class="card-title">C++OO基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -687,14 +666,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/C/" class="post-category">
-                                    C++
+                            <a href="/categories/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    C++高级程序设计
                                 </a>
                             
                             
