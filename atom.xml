@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2023-04-04T02:26:19.317Z</updated>
+  <updated>2023-07-17T07:47:48.632Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初学ZooKeeper</title>
+    <link href="https://hmwang2002/github.io/2023/07/17/chu-xue-zookeeper/"/>
+    <id>https://hmwang2002/github.io/2023/07/17/chu-xue-zookeeper/</id>
+    <published>2023-07-17T07:39:50.000Z</published>
+    <updated>2023-07-17T07:47:48.632Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;初学zookeeper&quot;&gt;初学ZooKeeper&lt;/h1&gt;
+&lt;h2 id=&quot;什么是zookeeper&quot;&gt;什么是ZooKeeper？&lt;/h2&gt;
+&lt;p&gt;ZooKeeper</summary>
+        
+      
+    
+    
+    
+    <category term="微服务" scheme="https://hmwang2002/github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+    <category term="微服务" scheme="https://hmwang2002/github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>第一次美赛纪实</title>
@@ -522,32 +549,6 @@
     
     
     <category term="互联网计算" scheme="https://hmwang2002/github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kiyotaka | Hello World!</title>
-    <link href="https://hmwang2002/github.io/2022/09/09/helloworld/"/>
-    <id>https://hmwang2002/github.io/2022/09/09/helloworld/</id>
-    <published>2022-09-09T01:56:00.000Z</published>
-    <updated>2022-09-10T07:38:39.465Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;hello-world&quot;&gt;Hello world&lt;/h1&gt;
-&lt;p&gt;欢迎来到Kiyotaka</summary>
-        
-      
-    
-    
-    
-    <category term="随笔" scheme="https://hmwang2002/github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="博客" scheme="https://hmwang2002/github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

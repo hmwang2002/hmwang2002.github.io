@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>初学ZooKeeper</title>
+      <link href="/2023/07/17/chu-xue-zookeeper/"/>
+      <url>/2023/07/17/chu-xue-zookeeper/</url>
+      
+        <content type="html"><![CDATA[<h1 id="初学zookeeper">初学ZooKeeper</h1><h2 id="什么是zookeeper">什么是ZooKeeper？</h2><p>ZooKeeper 是一个分布式的，开放源码的分布式应用程序协同服务。ZooKeeper的设计目标是将那些复杂且容易出错的分布式一致性服务封装起来，构成一个高效可靠的原语集，并以一系列简单易用的接口提供给用户使用。</p><h2 id="zookeeper应用场景">ZooKeeper应用场景</h2><p>很多分布式协调服务都可以用 ZooKeeper 来做，其中典型应用场景如下：</p><ul><li>配置管理（configuration management）：如果我们做普通的 Java应用，一般配置项就是一个本地的配置文件，如果是微服务系统，各个独立服务都要使用集中化的配置管理，这个时候就需要ZooKeeper。</li><li>DNS 服务</li><li>组成员管理（group membership）：比如上面讲到的 HBase其实就是用来做集群的组成员管理。</li><li>各种分布式锁</li></ul><p>ZooKeeper适用于存储和协同相关的关键数据，不适合用于大数据量存储。如果要存 KV或者大量的业务数据，还是要用数据库或者其他 NoSql 来做。</p><p>为什么 ZooKeeper 不适合大数据量存储呢？主要有以下两个原因：</p><ol type="1"><li>设计方面：ZooKeeper 需要把所有的数据（它的 datatree）加载到内存中。这就决定了ZooKeeper 存储的数据量受内存的限制。这一点ZooKeeper 和 Redis 比较像。一般的数据库系统例如 MySQL（使用 InnoDB存储引擎的话）可以存储大于内存的数据，这是因为 InnoDB 是基于 B-Tree的存储引擎。B-tree 存储引擎和 LSM存储引擎都可以存储大于内存的数据量。</li><li>工程方面：ZooKeeper的设计目标是为协同服务提供数据存储，数据的高可用性和性能是最重要的系统指标，处理大数量不是ZooKeeper 的首要目标。因此，ZooKeeper不会对大数量存储做太多工程上的优化。</li></ol><h2 id="参考">参考</h2><p>ZooKeeper 入门看这篇就够了 - 武培轩的文章 - 知乎https://zhuanlan.zhihu.com/p/98852358</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 微服务 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 微服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>第一次美赛纪实</title>
       <link href="/2023/04/04/di-yi-ci-mei-sai-ji-shi/"/>
       <url>/2023/04/04/di-yi-ci-mei-sai-ji-shi/</url>

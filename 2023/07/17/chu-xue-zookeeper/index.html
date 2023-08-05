@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++的io处理, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
+    <meta name="keywords" content="初学ZooKeeper, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
     <meta name="description" content="南京大学 | 软件学院">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++的io处理 | Kiyotaka Wang的博客</title>
+    <title>初学ZooKeeper | Kiyotaka Wang的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -289,12 +289,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++的io处理</h1>
+                    <h1 class="description center-align post-title">初学ZooKeeper</h1>
                 </div>
             </div>
         </div>
@@ -410,8 +410,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%8F%9C%E9%B8%9F%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%9C%E4%B8%9A/">
-                                <span class="chip bg-color">菜鸟的代码作业</span>
+                            <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                                <span class="chip bg-color">微服务</span>
                             </a>
                         
                     </div>
@@ -422,8 +422,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/C/" class="post-category">
-                                C++
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                微服务
                             </a>
                         
                     </div>
@@ -435,21 +435,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-02
+                    2023-07-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-21
+                    2023-07-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    657
+                    527
                 </div>
                 
 
@@ -469,96 +469,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="c的io处理">C++的io处理</h1>
-<p>第一次C++作业前助教gg来讲了一些io相关的内容。对于一般向的考试而言，并不会像LeetCode那样为你提供好已经声明好的函数，而需要自行地处理输入输出这些问题，这也是为什么我们考试的时候往往会在输入输出上面耗费众多时间。</p>
-<p>因此，为了防止机考的时候翻车，先记录一下第一次作业中积累的输入处理方法。</p>
-<h2 id="输入char">输入char</h2>
+                <h1 id="初学zookeeper">初学ZooKeeper</h1>
+<h2 id="什么是zookeeper">什么是ZooKeeper？</h2>
+<p>ZooKeeper 是一个分布式的，开放源码的分布式应用程序协同服务。ZooKeeper
+的设计目标是将那些复杂且容易出错的分布式一致性服务封装起来，构成一个高效可靠的原语集，并以一系列简单易用的接口提供给用户使用。</p>
+<h2 id="zookeeper应用场景">ZooKeeper应用场景</h2>
+<p>很多分布式协调服务都可以用 ZooKeeper 来做，其中典型应用场景如下：</p>
+<ul>
+<li>配置管理（configuration management）：如果我们做普通的 Java
+应用，一般配置项就是一个本地的配置文件，如果是微服务系统，各个独立服务都要使用集中化的配置管理，这个时候就需要
+ZooKeeper。</li>
+<li>DNS 服务</li>
+<li>组成员管理（group membership）：比如上面讲到的 HBase
+其实就是用来做集群的组成员管理。</li>
+<li>各种分布式锁</li>
+</ul>
+<p>ZooKeeper
+适用于存储和协同相关的关键数据，不适合用于大数据量存储。如果要存 KV
+或者大量的业务数据，还是要用数据库或者其他 NoSql 来做。</p>
+<p>为什么 ZooKeeper 不适合大数据量存储呢？主要有以下两个原因：</p>
 <ol type="1">
-<li>读入一个字符（包含空白符）</li>
+<li>设计方面：ZooKeeper 需要把所有的数据（它的 data
+tree）加载到内存中。这就决定了ZooKeeper 存储的数据量受内存的限制。这一点
+ZooKeeper 和 Redis 比较像。一般的数据库系统例如 MySQL（使用 InnoDB
+存储引擎的话）可以存储大于内存的数据，这是因为 InnoDB 是基于 B-Tree
+的存储引擎。B-tree 存储引擎和 LSM
+存储引擎都可以存储大于内存的数据量。</li>
+<li>工程方面：ZooKeeper
+的设计目标是为协同服务提供数据存储，数据的高可用性和性能是最重要的系统指标，处理大数量不是
+ZooKeeper 的首要目标。因此，ZooKeeper
+不会对大数量存储做太多工程上的优化。</li>
 </ol>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">char</span> c<span class="token punctuation">;</span>
-cin<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<ol start="2" type="1">
-<li>读入一个非空白符</li>
-</ol>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">char</span> c<span class="token punctuation">;</span>
-cin <span class="token operator">>></span> c<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<ol start="3" type="1">
-<li>读取未知个数的字符（包含空白符）</li>
-</ol>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">char</span> ch<span class="token punctuation">;</span>
-<span class="token keyword">while</span><span class="token punctuation">(</span>cin<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>ch<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-	<span class="token comment">// do something</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>get 的返回值为 istream 对象，而 istream 对象可以转换为 bool
-值，因而可以出现在 while 的条件中； &gt;&gt; 实际上会转换成函数
-operator&gt;&gt; 的调用，函数的返回值也为 istream
-对象(https://en.cppreference.com/w/cpp/io/basic_ios/operator_bool)</p>
-</blockquote>
-<h2 id="输入string">输入string</h2>
-<ol type="1">
-<li>读入，以空白字符或EOF作为结束标志</li>
-</ol>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">cin <span class="token operator">>></span> s<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol start="2" type="1">
-<li>读入一行，以换行符（默认）或指定的字符（称为
-delimiter）作为结束标志，delimiter 会被读取但不会出现在 s 中</li>
-</ol>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//以换行符为结束标志</span>
-<span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span> s<span class="token punctuation">,</span> <span class="token char">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//以，为结束标志</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221002225810729.png"></p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221002225837853.png"></p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221002225851874.png"></p>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221002225916453.png"></p>
-<h2 id="关于一行内有多种类型的输入">关于一行内有多种类型的输入</h2>
-<p><img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20221002230005939.png"></p>
-<p>比如在<strong>matrix</strong>那道题中，我直接读入了形如“1 2 3 4 5
-6”的字符串，我需要提取各个数字并转为int型存入数组中，因此我编写了一个split函数。此外main函数中使用了stoi将字符串转换为了int型变量。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">vector<span class="token operator">&lt;</span>string<span class="token operator">></span> <span class="token function">split</span><span class="token punctuation">(</span>string s<span class="token punctuation">,</span> <span class="token keyword">char</span> c<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> vec<span class="token punctuation">;</span>
-    string temp<span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> i <span class="token operator">:</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span> c<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            temp <span class="token operator">+=</span> i<span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
-            vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            temp <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    vec<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> vec<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在<strong>倒数第i个单词的长度</strong>一题中，考虑到需要排除temp有可能为空的情况，我们可以加一行判断。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-vector<span class="token operator">&lt;</span>string<span class="token operator">></span> <span class="token function">split</span><span class="token punctuation">(</span>string s<span class="token punctuation">,</span> <span class="token keyword">char</span> c<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> ret<span class="token punctuation">;</span>
-    string temp <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> c<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            temp <span class="token operator">+=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> c <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>temp<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-            ret<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            temp <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    ret<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    string input<span class="token punctuation">;</span>
-    <span class="token function">getline</span><span class="token punctuation">(</span>cin<span class="token punctuation">,</span> input<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> inputs <span class="token operator">=</span> <span class="token function">split</span><span class="token punctuation">(</span>input<span class="token punctuation">,</span> <span class="token char">' '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> inputs<span class="token punctuation">[</span>inputs<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> n<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="总结">总结</h2>
-<p>后续碰到新的io问题会继续更新在此博客中，总之我们要善用c++为我们提供的方便的STL，为我们的读写操作提供相应的便利。</p>
+<h2 id="参考">参考</h2>
+<p>ZooKeeper 入门看这篇就够了 - 武培轩的文章 - 知乎
+https://zhuanlan.zhihu.com/p/98852358</p>
 
                 
             </div>
@@ -585,7 +529,7 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hmwang2002/github.io/2022/10/02/c-de-io-chu-li/">https://hmwang2002/github.io/2022/10/02/c-de-io-chu-li/</a>
+                    <a href="https://hmwang2002/github.io/2023/07/17/chu-xue-zookeeper/">https://hmwang2002/github.io/2023/07/17/chu-xue-zookeeper/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -623,8 +567,8 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%8F%9C%E9%B8%9F%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%9C%E4%B8%9A/">
-                                    <span class="chip bg-color">菜鸟的代码作业</span>
+                                <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                                    <span class="chip bg-color">微服务</span>
                                 </a>
                             
                         </div>
@@ -668,17 +612,18 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/03/fan-xing/">
+                <a href="/2023/07/17/chu-xue-zookeeper/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="泛型">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="初学ZooKeeper">
                         
-                        <span class="card-title">泛型</span>
+                        <span class="card-title">初学ZooKeeper</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -688,26 +633,27 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category">
-                                    Java
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                    微服务
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                        <span class="chip bg-color">微服务</span>
                     </a>
                     
                 </div>
@@ -721,13 +667,13 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/01/wu-li-ceng/">
+                <a href="/2023/04/04/di-yi-ci-mei-sai-ji-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="物理层">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="第一次美赛纪实">
                         
-                        <span class="card-title">物理层</span>
+                        <span class="card-title">第一次美赛纪实</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -738,14 +684,14 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97/" class="post-category">
-                                    互联网计算
+                            <a href="/categories/%E7%AB%9E%E8%B5%9B/" class="post-category">
+                                    竞赛
                                 </a>
                             
                             
@@ -755,8 +701,8 @@ vector<span class="token operator">&lt;</span>string<span class="token operator"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97/">
-                        <span class="chip bg-color">互联网计算</span>
+                    <a href="/tags/%E7%AB%9E%E8%B5%9B/">
+                        <span class="chip bg-color">竞赛</span>
                     </a>
                     
                 </div>
