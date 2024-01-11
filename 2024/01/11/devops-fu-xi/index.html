@@ -1,0 +1,1934 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="devops复习, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
+    <meta name="description" content="南京大学 | 软件学院">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>devops复习 | Kiyotaka Wang的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Kiyotaka Wang的博客" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/favicon.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Kiyotaka Wang的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/favicon.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Kiyotaka Wang的博客</div>
+        <div class="logo-desc">
+            
+            南京大学 | 软件学院
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hmwang2002" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hmwang2002" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/IMG_6182.JPG')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">devops复习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Devops2023%E7%A7%8B/">
+                                <span class="chip bg-color">Devops2023秋</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Devops2023%E7%A7%8B/" class="post-category">
+                                Devops2023秋
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9.1k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="devops-review">Devops review</h1>
+<h2 id="devops渊源">DevOps渊源</h2>
+<h3 id="什么是devops为什么需要">什么是DevOps，为什么需要？</h3>
+<p>DevOps（开发运维一体化）是Patrick
+Debois在2009年提出的一种方法论——<strong>能否像敏捷开发一样来做运维</strong>？DevOps（Development
+Operations）加强了开发，测试和运维之间的沟通协作，打破了传统团队之间的壁垒，通过实现自动化和架构变更，从而提高研发效率，节省成本，最终更快捷地实现交付产品，并且提高产品质量。DevOps是IT价值流中应用精益理论的结果。</p>
+<p>为什么需要？</p>
+<p>软件系统互联网化和服务化的高度发展和走向成熟为DevOps的出现和普及提供了基础。这个阶段的软件具有<strong>持续</strong>的特征，要求软件系统应该始终处于一种可用的状态，即系统功能的添加或者更新不影响系统使用；同时，软件系统的复杂性日益提升、质量和安全要求以及更新频率越来越高。<strong>持续性</strong>正在成为当代软件企业关键性的能力和竞争优势......</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-29%2019.22.38.png" alt="截屏2023-12-29 19.22.38">
+<figcaption aria-hidden="true">截屏2023-12-29 19.22.38</figcaption>
+</figure>
+<h3 id="演化路径">演化路径</h3>
+<p>三步工作法</p>
+<h4 id="第一工作法">第一工作法</h4>
+<p>概念：</p>
+<ul>
+<li>充分理解工作流（开发-运维-客户）</li>
+<li>流量最大化（小批量、缩小任务间隔、缺陷控制）</li>
+<li>不断为了整体目标的实现而优化工作流</li>
+</ul>
+<p>部分关键实践和方法</p>
+<ul>
+<li>持续构建、集成以及交付</li>
+<li>按需创建环境</li>
+<li>限制半成品（WIP）</li>
+<li>构建支持顺利变更的安全系统；看板（任务可视化）</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-29%2019.29.52.png" alt="截屏2023-12-29 19.29.52">
+<figcaption aria-hidden="true">截屏2023-12-29 19.29.52</figcaption>
+</figure>
+<h4 id="第二工作法">第二工作法</h4>
+<p>概念：</p>
+<ul>
+<li>价值流（开发-运维-客户）的快速持续反馈</li>
+<li>避免问题再次发生（或者快速发现和修复）</li>
+<li>从源头上保证质量</li>
+</ul>
+<p>部分关键实践和方法：</p>
+<ul>
+<li>适时停止生产线</li>
+<li>持续改进</li>
+<li>构建自动化测试套件，确保代码随时可部署</li>
+<li>Dev和Ops共享目标和pain</li>
+<li>远程监测手段（自动化）</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-29%2019.38.17.png" alt="截屏2023-12-29 19.38.17">
+<figcaption aria-hidden="true">截屏2023-12-29 19.38.17</figcaption>
+</figure>
+<h4 id="第三工作法">第三工作法</h4>
+<p>概念：</p>
+<ul>
+<li>创建培育良好的文化（不断尝试、重复和练习）</li>
+</ul>
+<p>部分关键实践和方法</p>
+<ul>
+<li>营造用于创新、敢于冒险以及高度信任的企业文化</li>
+<li>确保至少20%资源投入在非功能需求上</li>
+<li>不断鼓励和强化改进</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-29%2019.38.33.png" alt="截屏2023-12-29 19.38.33">
+<figcaption aria-hidden="true">截屏2023-12-29 19.38.33</figcaption>
+</figure>
+<h3 id="关键术语">关键术语</h3>
+<h4 id="cicd">CI/CD</h4>
+<p>持续集成（Continious Integration，CI）</p>
+<p>持续集成是一种开发实践，要求开发人员每天多次将代码集成到共享代码库中。每次提交后，会通过自动化构建进行验证，从而使团队能够及早发现问题。</p>
+<p>持续交付（Continuous Delivery）</p>
+<p>持续交付是一组流程和实践，彻底消除了软件开发过程中的浪费，实现了更快速地交付高质量功能，并在业务和用户之间建立了快速有效的反馈循环。</p>
+<p>持续部署（Continuous Deployment，CD）</p>
+<p>持续部署（Continuous Deployment,
+CD）意味着您实际上立即部署和发布更改，使用户能够立即使用新的功能。</p>
+<p>devops使用的CD是持续部署。</p>
+<h4 id="xaas一切皆服务">XaaS——一切皆服务</h4>
+<ol type="1">
+<li>SaaS：Software as a
+service。软件即服务是一种软件许可和交付模型，其中软件以订阅方式许可，并在中心进行托管。</li>
+<li>IaaS：Infrastructure as a
+service。基础设施即服务（IaaS）是一种云计算模型，其中虚拟化机器以“按需付费”的方式提供，并由云托管。用户对机器拥有完全的控制权，但需要自行安装和配置所需的中间件和应用程序。</li>
+<li>PaaS：Platform as a
+service。平台即服务（PaaS）供应商为应用程序开发人员提供开发环境。供应商通常开发工具包和开发标准，并提供分发和支付渠道。</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231229232948272.png" alt="image-20231229232948272">
+<figcaption aria-hidden="true">image-20231229232948272</figcaption>
+</figure>
+<h4 id="docker">Docker</h4>
+<p>Docker是一个开源项目，它可以自动化部署Linux应用程序到软件容器中。Docker容器将一个软件打包到一个完整的文件系统中，其中包含运行该软件所需的所有内容：代码、运行时、系统工具、系统库
+-
+任何可以在服务器上安装的东西。这保证了它无论在何种环境下运行，都会始终保持一致。</p>
+<h4 id="ab-testing">A/B Testing</h4>
+<p>通过将新功能或不同变体的功能提供给不同的用户群体，并通过比较指标和用户行为来进行评估的技术。</p>
+<h2 id="云计算">云计算</h2>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102103242290.png" alt="image-20240102103242290">
+<figcaption aria-hidden="true">image-20240102103242290</figcaption>
+</figure>
+<h3 id="什么是云计算为什么需要云计算">什么是云计算，为什么需要云计算？</h3>
+<p>云计算是一种按使用量付费的模式，这种模式提供可用的、便捷的、按需的网络访问，进入可配置的计算资源共享池（资源包括<strong>网络，服务器，存储，应用软件，服务</strong>），这些资源能够被快速提供，只需投入很少的管理工作，或与服务提供商进行很少的交互。</p>
+<ul>
+<li>服务模式：SaaS、PaaS、IaaS等</li>
+<li>部署模式：私有云、社区（行业）云、公有云、混合云等</li>
+</ul>
+<p>why？</p>
+<ol type="1">
+<li>弹性和灵活性：云计算提供了按需、即时的资源供应，可以根据需求快速进行扩展或缩减计算资源。无需提前采购硬件设备或规划容量，从而实现更高的弹性和灵活性。</li>
+<li>降低成本：传统计算模式下，构建和维护自己的计算基础设施需要大量的资金投入。通过使用云计算服务，可以将这些成本转换为按使用量或订阅方式的付费模式，避免了高昂的初始投资和持续维护成本。</li>
+<li>高可用性和可靠性：云计算提供了分布式架构和冗余机制，在服务器故障或网络中断时能够实现高可用性和可靠性。用户可以享受到持续的服务和数据的备份，提高业务的连续性和可靠性。</li>
+<li>方便的远程访问：云计算使用户能够通过互联网从任何地点、任何设备访问其应用程序和数据。无论是在家办公、旅途中还是在不同的办公地点工作，用户都可以便捷地获取和管理数据。</li>
+<li>简化管理和维护：云计算提供了自动化的管理工具和服务，简化了资源的管理和维护过程。用户可以将更多的精力集中在核心业务上，而不是花费时间和精力来管理底层的基础设施。</li>
+</ol>
+<h3 id="什么是云原生">什么是云原生？</h3>
+<p>基于微服务的软件架构思想以及基于DevOps的软件开发实践的一组方法论，其实现了以分布式和容器技术为核心在异构云平台环境下利用云计算交付模型优势来快速构建、部署和进行企业应用。</p>
+<h3 id="xaasx-as-a-service">XaaS——"X" as a Service</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101232155327.png" alt="image-20240101232155327">
+<figcaption aria-hidden="true">image-20240101232155327</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101232216599.png" alt="image-20240101232216599">
+<figcaption aria-hidden="true">image-20240101232216599</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101232301973.png" alt="image-20240101232301973">
+<figcaption aria-hidden="true">image-20240101232301973</figcaption>
+</figure>
+<p>在线编辑文档是SaaS。</p>
+<h3 id="边缘计算">边缘计算</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101233540521.png" alt="image-20240101233540521">
+<figcaption aria-hidden="true">image-20240101233540521</figcaption>
+</figure>
+<p>边缘计算面临的挑战：</p>
+<ol type="1">
+<li>可编程性：异构平台和系统</li>
+<li>命名规则：数量众多的边缘设备</li>
+<li>数据抽象：数据多样性（频率、格式等）</li>
+<li>服务管理：D（差异性）E（可扩展性）I（隔离性）R（可靠性）模型</li>
+<li>数据隐私保护及安全：隐私、数据权属等</li>
+<li>理论基础：多学科协同</li>
+<li>商业模式：协调利益相关者</li>
+</ol>
+<h3 id="雾计算">雾计算</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102000609307.png" alt="image-20240102000609307">
+<figcaption aria-hidden="true">image-20240102000609307</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101234049121.png" alt="image-20240101234049121">
+<figcaption aria-hidden="true">image-20240101234049121</figcaption>
+</figure>
+<p>这张图是重点。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102000253756.png" alt="image-20240102000253756">
+<figcaption aria-hidden="true">image-20240102000253756</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101234100046.png" alt="image-20240101234100046">
+<figcaption aria-hidden="true">image-20240101234100046</figcaption>
+</figure>
+<h3 id="it服务标准可能考名词解释吧">IT服务标准(可能考名词解释吧)</h3>
+<h4 id="cmmi-svc">CMMI-SVC</h4>
+<p>CMMI-SVC即CMMI for
+Services服务模型，是CMMI三大套装产品中的一个，从服务的角度描述过程描述流程，为服务型的企业或组织提供建立、管理和交付服务的知道，可用来作为评估服务相关流程成熟度的标准。分为初始、可重复的、已定义级、量化管理级、优化管理级五个等级，24个流程领域。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101234149017.png" alt="image-20240101234149017">
+<figcaption aria-hidden="true">image-20240101234149017</figcaption>
+</figure>
+<h4 id="itil国际标准">ITIL（国际标准）</h4>
+<p>ITIL，全称Information Technology Infrastructure
+Library（信息技术基础架构库）</p>
+<p>ITIL最佳实践主要围绕5个部分：</p>
+<ul>
+<li>服务战略</li>
+<li>服务设计</li>
+<li>服务转换</li>
+<li>服务运营</li>
+<li>服务改进</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101234309848.png" alt="image-20240101234309848">
+<figcaption aria-hidden="true">image-20240101234309848</figcaption>
+</figure>
+<h4 id="itss中国标准">ITSS（中国标准）</h4>
+<p>信息技术服务标准(Information Technology Service
+Standards，简称ITSS)是一套成体系和综合配套的信息技术服务标准库</p>
+<p>•<strong>基础标准</strong>旨在阐述信息技术服务的业务分类和服务原理、服务质量评价方法、服务人员能力要求等。</p>
+<p>•<strong>服务管控标准</strong>是指通过对信息技术服务的治理、管理和监理活动，以确保信息技术服务的经济有效。</p>
+<p>•<strong>业务标准</strong>按业务类型分为面向IT
+的服务标准（咨询设计标准、集成实施标准和运行维护标准）和IT
+驱动的服务标准（服务运营标准）。</p>
+<p>•<strong>服务外包标准</strong>是对信息技术服务采用外包方式时的通用要求及规范。</p>
+<p>•<strong>安全标准</strong>重点规定事前预防、事中控制、事后审计服务安全以及整个过程的持续改进，并提出组织的服务安全治理规范，以确保服务安全可控。</p>
+<p>•<strong>行业应用标准</strong>是对各行业进行定制化应用落地的实施指南。</p>
+<h3 id="传统运维转型之路">传统运维转型之路</h3>
+<p>运维主要指软件系统测试交付后的发布和管理工作，其核心目标是将交付的业务软件和硬件基础设施高效合理的整合，转换为可持续提供高质量服务的产品，同时最大限度降低服务运行的成本，保障服务运行的安全。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101234840254.png" alt="image-20240101234840254">
+<figcaption aria-hidden="true">image-20240101234840254</figcaption>
+</figure>
+<p>互联网式运维：互联网业务系统具有快速迭代的特点，这就要求互联网系统的运维具有快速发布的能力，甚至能针对特定用户进行灰度发布的能力。此外，还应具备更全面的安全知识来应对未知的安全威胁。</p>
+<p>云计算下的运维：可分为云计算系统本身的运维和基于云计算的应用系统运维。需要应对如何在云平台上实现应用的快速部署、快速更新、实时监控，要求运维人员能够自动化部署应用、动态扩容或者缩小系统部署、适应不同平台的差异。</p>
+<p>大规模下的运维：运维工作必须向标准化、自动化、智能化转变。</p>
+<p>“提前”运维：<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101235616473.png" alt="image-20240101235616473"></p>
+<h2 id="软件架构的演进">软件架构的演进</h2>
+<h3 id="软件架构">软件架构</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102000902360.png" alt="image-20240102000902360">
+<figcaption aria-hidden="true">image-20240102000902360</figcaption>
+</figure>
+<h4 id="架构模型重要尤其是干嘛的">4 +
+1架构模型（重要，尤其是干嘛的）</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102001033706.png" alt="image-20240102001033706">
+<figcaption aria-hidden="true">image-20240102001033706</figcaption>
+</figure>
+<h5 id="逻辑视图面向对象的分解">逻辑视图——面向对象的分解</h5>
+<ul>
+<li>体现功能需求/服务</li>
+<li>一般用类图或ER图来描述</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102001145268.png" alt="image-20240102001145268">
+<figcaption aria-hidden="true">image-20240102001145268</figcaption>
+</figure>
+<h5 id="进程视图">进程视图</h5>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102001210511.png" alt="image-20240102001210511">
+<figcaption aria-hidden="true">image-20240102001210511</figcaption>
+</figure>
+<h5 id="开发视图子系统分解">开发视图——子系统分解</h5>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102001324858.png" alt="image-20240102001324858">
+<figcaption aria-hidden="true">image-20240102001324858</figcaption>
+</figure>
+<h5 id="物理部署视图建立软件和硬件之间的映射关系">物理（部署）视图——建立软件和硬件之间的映射关系</h5>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102001548712.png" alt="image-20240102001548712">
+<figcaption aria-hidden="true">image-20240102001548712</figcaption>
+</figure>
+<h5 id="场景视图综合所有的视图">场景视图——综合所有的视图</h5>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102001650810.png" alt="image-20240102001650810">
+<figcaption aria-hidden="true">image-20240102001650810</figcaption>
+</figure>
+<p>1.Joe的电话控制器
+(controller)检测到Joe拿起电话听筒，随即它发了条消息来唤醒相对应的终端(terminal)</p>
+<p>2.终端分配了一些资源，同时告诉控制器发出拨号音</p>
+<p>3.控制器开始接收到Joe拨的数字，同时把他们传给终端</p>
+<p>4.终端调用编号方案服务来分析数字序列</p>
+<p>5.当一串有效的数字被输入以后，终端打开一个会话</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102001833866.png" alt="image-20240102001833866">
+<figcaption aria-hidden="true">image-20240102001833866</figcaption>
+</figure>
+<h3 id="不同架构的优缺点和适用场景">不同架构的优缺点和适用场景</h3>
+<p>这边重点关注微服务和SOA，不过感觉rgp这边写的很乱，可以看后面lss的ppt，比较详细。</p>
+<h4 id="单体架构和分层模型">单体架构和分层模型</h4>
+<p>软件架构一直是跟随着需求而做出的高层设计决策，由于传统软件一般用户量不大、数据量不大、业务相对固定、变化不大、系统部署相对简单，容易维护等，所以，并不需要一个非常复杂的系统。最常见的方法是采用单体架构，一般所有的层都运行在一个进程里
+。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102092902328.png" alt="image-20240102092902328">
+<figcaption aria-hidden="true">image-20240102092902328</figcaption>
+</figure>
+<h4 id="简单的资源分离">简单的资源分离</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102092922653.png" alt="image-20240102092922653">
+<figcaption aria-hidden="true">image-20240102092922653</figcaption>
+</figure>
+<h4 id="一体式应用的高性能分布式系统架构">一体式应用的高性能分布式系统架构</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102092959731.png" alt="image-20240102092959731">
+<figcaption aria-hidden="true">image-20240102092959731</figcaption>
+</figure>
+<p>一般传统软件的架构到这步，已经能很好的支持业务需求。而且，一般传统软件部署环境相对简单，系统维护员会比较关注数据备份，准备好主备机切换等维护操作，即可顺利得进行系统维护。</p>
+<h4 id="单体架构在互联网时代面临的挑战">单体架构在互联网时代面临的挑战</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102093111411.png" alt="image-20240102093111411">
+<figcaption aria-hidden="true">image-20240102093111411</figcaption>
+</figure>
+<p>单体-&gt;分布式异步架构</p>
+<h4 id="大型互联网软件架构事件驱动架构">大型互联网软件架构——事件驱动架构</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102094039638.png" alt="image-20240102094039638">
+<figcaption aria-hidden="true">image-20240102094039638</figcaption>
+</figure>
+<p>是一个通用mediator模型。一个事件通过消息队列发给Event
+Mediator的时候，Event
+Mediator会根据预配置的步骤分成多个子事件，通过Event
+Channel分发给具体的Event Processor。这里Event
+Channel可以采用消息队列或者消息主题的方式。大多Mediator模式会采用的是消息主题的方式，从而Event
+Mediator产生的子事件可以同时被多个不同的Event Processor接收处理。</p>
+<p>下图是搬家之后的保险处理步骤。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102094123280.png" alt="image-20240102094123280">
+<figcaption aria-hidden="true">image-20240102094123280</figcaption>
+</figure>
+<p>下图是一个通用的Broker模型，它没有中央控制的event
+mediator。每个消息处理器接收到一个事件，处理，然后生产一个新的事件给下游的消息处理器。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102094208610.png" alt="image-20240102094208610">
+<figcaption aria-hidden="true">image-20240102094208610</figcaption>
+</figure>
+<p>这是一个Mediator模式的示例，假设你在A地的保险公司有一份保险合约，你需要搬家到B地，那么保险合约需要重新调整保费的一系列步骤。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102094239947.png" alt="image-20240102094239947">
+<figcaption aria-hidden="true">image-20240102094239947</figcaption>
+</figure>
+<h4 id="大型互联网软件架构微服务架构重要">大型互联网软件架构——微服务架构（重要）</h4>
+<ul>
+<li>它把单体应用垂直拆分，分成一个小的垂直模块，每一个模块都是一个完整的，自包含的服务。</li>
+<li>在这个垂直服务内，有可能还是采用单体的架构方式。</li>
+<li>每个服务对外提供API，并且可以独立被调用，可以独立烟花。</li>
+<li>在微服务架构中，每个服务只包含少量的模块，被独立部署在各自的容器中，提供REST接口，并有一层独立的API
+gateway
+(API网关)把细粒度的微服务进行组合，协议转换等，封装成新的粗粒度接口提供给客户端使用。</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102094524725.png" alt="image-20240102094524725">
+<figcaption aria-hidden="true">image-20240102094524725</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102095154978.png" alt="image-20240102095154978">
+<figcaption aria-hidden="true">image-20240102095154978</figcaption>
+</figure>
+<h4 id="大型互联网软件架构小结">大型互联网软件架构小结</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102094647768.png" alt="image-20240102094647768">
+<figcaption aria-hidden="true">image-20240102094647768</figcaption>
+</figure>
+<p>事件驱动架构和微服务架构都能很好得完成应用的垂直划分。两种架构方式并不是完全互斥的，在一个真实的应用场景中，往往会共存，尤其是一个大型应用里面有很多子系统共存的时候。这种情况下，一般用微服务架构为应用提供服务治理的方案，事件驱动架构来异步得整合多个子系统。</p>
+<ul>
+<li><p>A和B这两个子系统与其他子系统（日志系统，监控与报警系统）的交互通过消息队列进行，采用事件驱动的方式，驱动日志系统和监控报警系统</p></li>
+<li><p>A和B应用服务器只处理最简单的一些业务逻辑或界面相关部分，把真正的业务逻辑采用微服务的方式，独立划分成多个服务专门部署在分布式服务N服务器里</p></li>
+<li><p>随着流量的剧增，应用数量的提高，数据库也会爆炸，我们对数据库也进行垂直划分和水平划分，把数据库变成一个分布式数据库集群</p></li>
+<li><p>从运维的角度来看，系统必须有即时的监控和报警机制。</p></li>
+<li><p>另外，现在互联网企业越来越重视日志系统，最直接的原因是分布式系统难以进行调试，所以通过日志系统来记录日志以便还原现场；其次，日志记录了海量的用户行为，之后可以用来分析用户行为，挖掘出有价值的信息。</p></li>
+<li><p>当然大部分流量大的网站还会增加CDN (Content Delivery
+Network，即内容分发网络)，反向代理（一种代理服务器，用来接受连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给请求连接的客户端），采用NoSQL数据库（泛指非关系型的数据库）或者使用Spark（为大规模数据处理而设计的快速通用的计算引擎）等平台做实时推荐引擎</p></li>
+</ul>
+<h4 id="单体架构">单体架构</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102095258765.png" alt="image-20240102095258765">
+<figcaption aria-hidden="true">image-20240102095258765</figcaption>
+</figure>
+<h4 id="分层架构">分层架构</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102095328812.png" alt="image-20240102095328812">
+<figcaption aria-hidden="true">image-20240102095328812</figcaption>
+</figure>
+<h4 id="soa架构重要">SOA架构（重要）</h4>
+<ul>
+<li><p>面向服务的体系结构是构造分布式计算的应用程序的方法。</p></li>
+<li><p>它将应用程序功能作为服务发送给最终用户或者其他服务。</p></li>
+<li><p>它采用开放标准、与软件资源进行交互并采用表示的标准方式。</p></li>
+<li><p>SOA架构中一般都会涉及到企业消息总线(Enterprise Service Bus,
+ESB)和服务编排(Service, Orchestration)。</p></li>
+<li><p>总之SOA架构是在企业需要把很多系统集成到一起工作的工作中逐步演化而来的，每个系统本身是高内聚，对外以暴露接口的方式提供服务，而SOA架构则会提供ESB以及服务编排，将不同协议的接口编排起来，最后满足特定的业务需求。</p></li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102100131328.png" alt="image-20240102100131328">
+<figcaption aria-hidden="true">image-20240102100131328</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102100245199.png" alt="image-20240102100245199">
+<figcaption aria-hidden="true">image-20240102100245199</figcaption>
+</figure>
+<h2 id="软件过程和方法">软件过程和方法</h2>
+<h3 id="软件过程">软件过程</h3>
+<p>理论基石——软件产品和服务的质量，很大程度上取决于生产和维护该软件或者服务的过程的质量。</p>
+<p>软件过程是为了实现一个或者多个事先定义的目标而建立起来的一组实践的集合，这组实践之间往往有一定的先后顺序，作为一个整体来实现事先定义的一个或者多个目标。</p>
+<h3 id="psp">PSP</h3>
+<p>个体软件过程：Personal Software Process</p>
+<p>是一种个人级用于控制、管理和改进软件工程师个人工作方式的持续改进过程。</p>
+<h4 id="作用">作用</h4>
+<p>•个人级管理实践和过程估算和计划</p>
+<p>•承诺和拒绝承诺</p>
+<p>•理解和改进</p>
+<p>•工业水准的过程和规范</p>
+<p>•客观决策的数据</p>
+<h4 id="典型psp过程">典型PSP过程</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102100838253.png" alt="image-20240102100838253">
+<figcaption aria-hidden="true">image-20240102100838253</figcaption>
+</figure>
+<h4 id="psp基本原理">PSP基本原理</h4>
+<p>•软件系统的整体质量由该系统中质量最差的某些组件所决定；</p>
+<p>•软件组件的质量取决于开发这些组件的软件工程师，更加确切的说，是由这些工程师所使用的开发过程所决定；</p>
+<p>•作为合格的软件工程师，应当自己度量、跟踪自己的工作，应当自己管理软件组件的质量；</p>
+<p>•作为合格的软件工程师，应当从自己开发过程的偏差中学习、总结，并将这些经验教训整合到自己的开发实践中，也就是说，应当建立持续地自我改进机制。</p>
+<p>上述基本原理除了继续肯定“过程质量决定最终产品质量”这一软件过程改进的基石之外，更加突出了个体软件工程师在管理和改进自身过程中的能动性。这也就形成了PSP的理论基础。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102102748643.png" alt="image-20240102102748643">
+<figcaption aria-hidden="true">image-20240102102748643</figcaption>
+</figure>
+<h3 id="tsp">TSP</h3>
+<p>团队软件过程：Team Software Process</p>
+<p>TSP注重团队的高效工作和产品交付能力，结合PSP的工程技能，使软件工程师将个体过程结合进小组软件过程，并通过指导管理层如何支持和授权项目小组，坚持团队的高质量的工作，并且依据数据进行项目管理，以达到生产高质量产品的目的。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102104201595.png" alt="image-20240102104201595">
+<figcaption aria-hidden="true">image-20240102104201595</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102104150309.png" alt="image-20240102104150309">
+<figcaption aria-hidden="true">image-20240102104150309</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102104548840.png" alt="image-20240102104548840">
+<figcaption aria-hidden="true">image-20240102104548840</figcaption>
+</figure>
+<h3 id="挣值管理方法">挣值管理方法</h3>
+<p>项目的挣值管理方法（Earned Value
+Management，简称EVM）是用来客观度量项目进度的一种管理方法。</p>
+<ul>
+<li>每项任务实现附以一定价值（credit）</li>
+<li>100%完成该项任务，就获得相应价值</li>
+</ul>
+<p>EVM采用与进度计划、成本预算和实际成本相联系的三个独立的变量，进行项目绩效测量。</p>
+<ul>
+<li><p>简单实现：这种方式仅仅关注进度信息。在实现时，首先需要建立WBS，定义工作范围；其次为WBS中每一项工作定义一个价值（PV）；最后按照一定的规则将某一数值赋给已经完成的工作或者正在进行的工作。常用规则分别为0-100规则和50-50规则，前者只有当某项任务完成时，该任务的PV值将转化成EV值；后者只需要开始某项任务，即可以赋原PV值的50%作为EV值，完成时，再加上另外的50%。而实际完成的工作所需成本AC不对EV值产生任何影响。</p></li>
+<li><p>中级实现：在简单实现的基础上，加入日程偏差的计算。典型计算方式有：</p>
+<ul>
+<li><p>日程偏差SV = EV – PV;</p></li>
+<li><p>日程偏差指数SPI = EV/PV；</p></li>
+</ul></li>
+<li><p>高级实现：在中级实现的基础上，还需要考察项目的实际成本。</p></li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102110012758.png" alt="image-20240102110012758">
+<figcaption aria-hidden="true">image-20240102110012758</figcaption>
+</figure>
+<p>"Hours to date"
+是一个用来描述在某个日期之前总共工作的小时数的术语。这通常用于追踪和记录个人或团队在特定项目、任务或工作岗位上的工作时间。</p>
+<h4 id="evm的局限性">EVM的局限性</h4>
+<ul>
+<li>EVM一般不能应用软件项目的质量管理</li>
+<li>EVM需要定量化的管理机制，这就使其在一些探索型项目以及常用的敏捷开发方法中的应用受到限制。</li>
+<li>EVM完全依赖项目的准确估算，然而在项目早期，很难对项目进行非常准确的估算。</li>
+</ul>
+<h3 id="敏捷方法">敏捷方法</h3>
+<h4 id="xp">XP</h4>
+<p>极限编程（eXtreme
+Programming）是敏捷过程中最负盛名的一个，其名称“极限”二字的含义是指把好的开发实践运用到极致。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102111131354.png" alt="image-20240102111131354">
+<figcaption aria-hidden="true">image-20240102111131354</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102111143667.png" alt="image-20240102111143667">
+<figcaption aria-hidden="true">image-20240102111143667</figcaption>
+</figure>
+<p>极限编程开发过程框架</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102111216737.png" alt="image-20240102111216737">
+<figcaption aria-hidden="true">image-20240102111216737</figcaption>
+</figure>
+<h4 id="scrum在英语的意思是橄榄球里的争球">SCRUM（在英语的意思是橄榄球里的争球）</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102111312453.png" alt="image-20240102111312453">
+<figcaption aria-hidden="true">image-20240102111312453</figcaption>
+</figure>
+<ul>
+<li>Scrum是一种迭代式增量软件开发过程，通常用于敏捷软件开发。</li>
+<li>虽然Scrum是为管理软件开发项目而开发的，它同样可以用于运行软件维护团队。</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102111506828.png" alt="image-20240102111506828">
+<figcaption aria-hidden="true">image-20240102111506828</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102111513403.png" alt="image-20240102111513403">
+<figcaption aria-hidden="true">image-20240102111513403</figcaption>
+</figure>
+<h3 id="摩尔定律和反摩尔定律">摩尔定律和反摩尔定律</h3>
+<p>摩尔定律：集成电路上的晶体管数量大约每18个月翻倍一次。（ppt）每18个月后，同样的价格可以买到两倍的产品性能。</p>
+<p>反摩尔定律：如果我们18个月后卖出和今天相同的产品，就只能得到和今天相比一半的价值</p>
+<h3 id="精益产品开发屋">精益产品开发屋</h3>
+<p>这张图很重要。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102114139184.png" alt="image-20240102114139184">
+<figcaption aria-hidden="true">image-20240102114139184</figcaption>
+</figure>
+<h2 id="devsecops">DevSecOps</h2>
+<h3 id="起源">起源</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102114748846.png" alt="image-20240102114748846">
+<figcaption aria-hidden="true">image-20240102114748846</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102115042182.png" alt="image-20240102115042182">
+<figcaption aria-hidden="true">image-20240102115042182</figcaption>
+</figure>
+<h3 id="devsecops原则">DevSecOps原则</h3>
+<p>DevSecOps原则是对DevSecOps核心理念的总结，对DevSecOps实践有着重要的指导作用。</p>
+<ul>
+<li>偏理念的CAMS（Culture，Automation，Measurement，Share）原则</li>
+<li>偏实践的NCSC（National Cyber Security
+Center，英国国家网络安全中心）安全开发和部署八原则（不考）</li>
+</ul>
+<h3 id="cams原则重点关注">CAMS原则（重点关注）</h3>
+<p>CAMS原则是由John和Damon Edwards两位先驱针对DevOps率
+先提出，并随着DevOps的不断发展而日趋成熟。CAMS原则从四个方面高度概括了DevOps价值观，为正确实施DevOps实践提供
+了概念上的指导。目前，在DevSecOps背景下，CAMS原则也相
+应地需要在安全领域增添新的内容。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102120048957.png" alt="image-20240102120048957">
+<figcaption aria-hidden="true">image-20240102120048957</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102120126099.png" alt="image-20240102120126099">
+<figcaption aria-hidden="true">image-20240102120126099</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102120216815.png" alt="image-20240102120216815">
+<figcaption aria-hidden="true">image-20240102120216815</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102120332523.png" alt="image-20240102120332523">
+<figcaption aria-hidden="true">image-20240102120332523</figcaption>
+</figure>
+<h3 id="devsecops典型实践和典型工具估计会考">DevSecOps典型实践和典型工具（估计会考）</h3>
+<p>典型实践（至少要知道一些，说不全也说几个）：阶段实践和通用实践。</p>
+<p>典型工具（静态扫描、动态扫描工具至少知道几个）：指的是阶段里的一些工具，我加粗了6个。</p>
+<h4 id="阶段实践">阶段实践</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102120507444.png" alt="image-20240102120507444">
+<figcaption aria-hidden="true">image-20240102120507444</figcaption>
+</figure>
+<h5 id="计划阶段">计划阶段</h5>
+<p>•安全知识管理：安全知识管理要求组织在管理显性知识的时候加入信息安全的知识体系。</p>
+<p>•安全需求工程：DevOps对安全需求工程提出了更多响应速度上的要求。</p>
+<p>•固有风险评估：风险评估的目的在于识别威胁(Threat)、判断威胁转变成现实可能带来的影响以及判断这种转变的可能性。</p>
+<p>•威胁建模：威胁建模是一种用来识别、量化并正确应对系统所面临的威胁的结构化方法。</p>
+<h5 id="创建阶段">创建阶段</h5>
+<p>•开发环境扫描：为了始终保障开发环境本身的安全可靠，我们需要对开
+发环境进行一定的安全扫描工作 。</p>
+<p>•<strong>开源组件安全扫描</strong>：我们需要通过合适的安全扫描工具，如FOSSID、</p>
+<p>BlackDuck等，来对项目中使用的开源组件进行安全扫描 。</p>
+<p>•<strong>容器安全扫描</strong>：容器安全扫描保障的是镜像源和镜像文件本身的安全。</p>
+<p>•集成安全插件：为及时发现自身开发的代码中的安全问题，我们鼓励开
+发人员在集成开发环境中安装统一的安全插件。</p>
+<p>•安全框架：使用全面的安全框架能够很好地处理常见的安全问题，能够极大地提高开发人员的开发效率和编码质量。</p>
+<p>•代码审查：一般是通过人工审阅的方式来查看提交的代码是否合乎公司的代码规范，是否功能齐全，是否使用了危险函数，是否考虑到安全编码等相关问题。</p>
+<p>•编码规范：趋于一致的代码风格反而会有助于公司进行代码审查，来降低隐藏</p>
+<p>在高复杂度背后的漏洞风险，也能够提高代码的可读性和健壮性。</p>
+<p>•可重复性构建：相同的源代码在经过两次编译后，应当能够始终输出比特位相同的二进制，这对于我们确保源代码到二进制的过程中没有被中途篡改，具有
+重要意义。</p>
+<h5 id="验证阶段">验证阶段</h5>
+<p>•<strong>SAST</strong>：Static Application Security
+Testing，即静态应用程序安全检测，是进 一步加强代码安全的手段之一。</p>
+<p>•<strong>DAST</strong>：Dynamic Application Security
+Testing，即动态应用程序安全检测。</p>
+<p>•<strong>IAST</strong>：Interactive Application Security
+Testing，即交互式应用程序安全检 测，IAST分为主动IAST和被动IAST。</p>
+<p>•<strong>TDS</strong>：Test Driven
+Security，即测试驱动安全，是由Mozilla提出的。TDS主
+张将安全测试集成到交付管道中，是验证系统、网络和服务是否符合安全策略
+的过程。</p>
+<h5 id="预生产阶段">预生产阶段</h5>
+<p>•渗透测试：渗透测试是从攻击者的视角出发，通过模拟恶意黑客的进攻
+手段对系统进行攻击，主动去发现系统中存在的安全隐患和弱点的一种 测试方法
+。</p>
+<p>•模糊测试：模糊测试是一种向系统提供非预期的随机输入，并监视可能
+发生的异常结果的自动化技术。</p>
+<p>•混沌工程：混沌工程是一门在生产中对软件系统进行试验的学科，其目
+的是建立对系统抵抗动荡和意外情况能力的信心。该方法允许在生产中
+随机关闭服务、模拟网络故障等多种手段来测试系统的弹性恢复能力，
+以保证系统在部分节点故障的情况下，仍然能够提供高质量的服务。</p>
+<h5 id="发布阶段">发布阶段</h5>
+<p>•强化云部署：DevOps与云技术结合得愈加紧密，在多云环境中进行安全
+部署仍然需要考虑很多方面的问题，比如，如何在确保安全的情况下保
+障计算资源的高可用、如何实现相对均衡的负载、如何对存储资源进行
+合理分配等等。</p>
+<p>•添加数字签名：在发布软件包之前，都应该为其添加数字签名，以增加
+该软件的可信度和公信力。</p>
+<p>•容器加固：在确保容器镜像来源和镜像内容本身的安全可靠之后，容器安全还需要其他的加固保护措施，其目的主要是为了减小潜在的攻击面。</p>
+<h5 id="预防阶段">预防阶段</h5>
+<p>•数字签名检查：在使用相关应用或者文件前，我们应当检查它们是否含有数字签名。</p>
+<p>•证书完整性验证：数字证书由受信任的第三方颁发，用于验证证书持有者的身份。</p>
+<p>•敏感信息保护：大多数应用系统在正常工作时需要访问敏感信息，而这些敏感信息如果不加以管理和保护，可以在互联网上肆意传播，这无疑会大大增加系统的安全漏洞风险。</p>
+<p>•安全漏洞修复计划：组织内应该具备这样一个流程，专门用于支持安全漏洞的确认以及采取相应补救措施，从而达到持续保护整个应用系统的安全性能的目的。</p>
+<h5 id="检测阶段">检测阶段</h5>
+<p>•欺诈检测：欺诈问题涉及多个行业，据不完全统计，每年因被欺诈而损失数亿美元。</p>
+<p>•合规监控：合规监控是评估我们对公司政策和程序的遵守程度，这些政策和程序</p>
+<p>控制着对业务构成合规风险的活动，并帮助业务在持续的基础上有效地管理风险。</p>
+<p>•入侵检测：入侵检测系统是一种检测网络流量以发现可疑活动，并在发现此类活动时发出警报的检测系统。</p>
+<p>•红蓝对抗：红蓝对抗是在了解企业实际安全状况的基础上，针对企业重要的核心业务模拟真实的网络攻防场景，从而揭示系统中实际存在的脆弱环节，主动提升企业自身的安全能力。</p>
+<h5 id="响应阶段">响应阶段</h5>
+<p>•问题跟踪：问题跟踪系统是一种软件应用程序，它允许企业记录和跟踪计算机系
+统用户识别的每个问题或“问题”的进展，直到问题得到解决 。</p>
+<p>•应用屏蔽：应用屏蔽技术是一项修改应用程序的二进制代码的技术，用以加强应
+用程序抵御入侵、篡改和逆向工程的能力。使用应用屏蔽技术可以很好地保护应
+用软件的资产安全，防止出现盗版、数字信息盗窃等情况。</p>
+<h5 id="预测阶段">预测阶段</h5>
+<p>•舆情监控：在实际应用正式发布前，由于时间要求、测试资源限制等因素，我们
+很难测试出全部的安全威胁。很多被忽视的安全漏洞，往往是在生产环境下由用
+户发现的，因此企业应当密切关注各大网站、各大论坛讨论的安全问题和安全动
+态，在可能的安全漏洞被利用之前，尽快完成相应的检查和修复工作。</p>
+<p>•漏洞智能分析预测：对特定的软件系统使用漏洞智能分析技术，我们一般需要提
+取出漏洞的基本特征，并使用机器学习方法进行建模、训练，再对系统中潜在漏
+洞进行预测。</p>
+<h5 id="调整阶段">调整阶段</h5>
+<p>•控制技术债务：技术债务是指在进行软件开发时，开发团队从短期效应的角度选
+择了易于实现的解决方案而导致的额外的返工成本。技术债务的不断积累，会严
+重阻碍系统长期的可扩展性和安全性，并使得公司需要花费更多的时间来解决这
+些债务。</p>
+<p>•调整安全机制：系统的整体运行应当具备动态调整功能，管理人员可以根据实际
+业务目标或者资源限制等，根据既定的优先级，对整个系统的安全机制做出动态
+的调整。</p>
+<h4 id="通用实践">通用实践</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240106233558285.png" alt="image-20240106233558285">
+<figcaption aria-hidden="true">image-20240106233558285</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240106233619185.png" alt="image-20240106233619185">
+<figcaption aria-hidden="true">image-20240106233619185</figcaption>
+</figure>
+<h5 id="协作实践">协作实践</h5>
+<p>•开发/运维人员安全培训：DevSecOps要求团队中的每一个成员都需要具备一定的安全意识。</p>
+<p>•任命DevSecOps团队负责人：任命一些DevSecOps的负责人来推动项目的进行。</p>
+<p>•安全责任共享：安全是整个IT团队每个人的责任。</p>
+<p>•常用工具共享：在大多数情况下，开发、运维和安全人员很少使用相同的工具，
+这使得他们相互之间难以高效地进行协作。</p>
+<p>•建立知识共享体系：知识共享是消除不同部门之间的分歧的有效手段之一。</p>
+<h5 id="过程实践">过程实践</h5>
+<p>•创建安全反馈循环：正如CI/CD可以通过持续测试和建立反馈循环更早更快地
+发现并处理软件产品中的Bug以提高软件质量，安全反馈循环的建立也可以帮
+助软件开发团队高效地处理安全问题。</p>
+<p>•事件管理：DevOps中提出了智能运维的理念，使用脚本化、自动化的方式来
+处理一些重复出现的常见运维问题，DevSecOps对这一理念在安全领域进行
+了拓展，即对于安全事件采用标准化的方式进行响应。</p>
+<p>•变更管理：变更管理包括了所有与应用程序和平台本身的版本控制相关的标准
+和规范，对代码的任何更改在部署到生产环境之前都需要通过变更管理进行审
+查和批准。</p>
+<h2 id="微服务架构设计">微服务架构设计</h2>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102124725669.png" alt="image-20240102124725669">
+<figcaption aria-hidden="true">image-20240102124725669</figcaption>
+</figure>
+<h3 id="单体架构-1">单体架构</h3>
+<p><strong>单体架构应用的全部功能被集成在一起作为一个单一的单元。</strong></p>
+<ul>
+<li>Java Web应用程序（WAR）文件</li>
+<li>GoLang语言，交付形态为单一可执行文件</li>
+<li>Ruby或Node.js，交付形态为目录和子目录下各种源码</li>
+<li>初始化、配置、监控、管理等功能</li>
+</ul>
+<p>好处：</p>
+<ul>
+<li>易于开发：一个应用（不复杂）</li>
+<li>易于修改：代码和数据库模式</li>
+<li>易于测试：端到端测试、UI测试</li>
+<li>易于部署：WAR文件复制</li>
+<li>易于伸缩：多个实例负载均衡</li>
+</ul>
+<p>问题：</p>
+<ul>
+<li>过度复杂性：
+<ul>
+<li>理解、数以千计JAR文件和百万行代码</li>
+<li>修复bug和实现新功能易出错、脏泥球</li>
+</ul></li>
+<li>开发速度缓慢：
+<ul>
+<li>IDE编辑-构建-启动运行</li>
+</ul></li>
+<li>部署周期长且易出错：
+<ul>
+<li>微小变更同一代码库提交、构建</li>
+<li>变更测试（持续集成测试套件、手动）</li>
+</ul></li>
+<li>难以扩展
+<ul>
+<li>资源冲突</li>
+</ul></li>
+<li>可靠性差
+<ul>
+<li>无法全面测试</li>
+<li>缺少故障隔离</li>
+</ul></li>
+<li>过期技术栈</li>
+</ul>
+<h3 id="微服务架构">微服务架构</h3>
+<p>概括性描述：微服务架构是把应用程序<strong>功能性分解</strong>为一组服务的架构风格，每一个服务都是由一组<strong>专注、内聚</strong>的功能职责组成。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102142718345.png" alt="image-20240102142718345">
+<figcaption aria-hidden="true">image-20240102142718345</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102142910699.png" alt="image-20240102142910699">
+<figcaption aria-hidden="true">image-20240102142910699</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102142933394.png" alt="image-20240102142933394">
+<figcaption aria-hidden="true">image-20240102142933394</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102142942980.png" alt="image-20240102142942980">
+<figcaption aria-hidden="true">image-20240102142942980</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102142956794.png" alt="image-20240102142956794">
+<figcaption aria-hidden="true">image-20240102142956794</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102143007337.png" alt="image-20240102143007337">
+<figcaption aria-hidden="true">image-20240102143007337</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102143015574.png" alt="image-20240102143015574">
+<figcaption aria-hidden="true">image-20240102143015574</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102143027994.png" alt="image-20240102143027994">
+<figcaption aria-hidden="true">image-20240102143027994</figcaption>
+</figure>
+<h3 id="微服务-vs-soa重要">微服务 vs SOA（重要）</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102143108750.png" alt="image-20240102143108750">
+<figcaption aria-hidden="true">image-20240102143108750</figcaption>
+</figure>
+<h3 id="微服务拆分设计重要">微服务拆分设计（重要）</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102143553591.png" alt="image-20240102143553591">
+<figcaption aria-hidden="true">image-20240102143553591</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102143638172.png" alt="image-20240102143638172">
+<figcaption aria-hidden="true">image-20240102143638172</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102144112005.png" alt="image-20240102144112005">
+<figcaption aria-hidden="true">image-20240102144112005</figcaption>
+</figure>
+<h4 id="领域驱动设计domain-driven-designddd">领域驱动设计（Domain-Driven
+Design，DDD）</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102144253470.png" alt="image-20240102144253470">
+<figcaption aria-hidden="true">image-20240102144253470</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102144329061.png" alt="image-20240102144329061">
+<figcaption aria-hidden="true">image-20240102144329061</figcaption>
+</figure>
+<p>记住战略设计包括问题域和架构方面两部分。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102144426318.png" alt="image-20240102144426318">
+<figcaption aria-hidden="true">image-20240102144426318</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102144442880.png" alt="image-20240102144442880">
+<figcaption aria-hidden="true">image-20240102144442880</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102144541214.png" alt="image-20240102144541214">
+<figcaption aria-hidden="true">image-20240102144541214</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102144657424.png" alt="image-20240102144657424">
+<figcaption aria-hidden="true">image-20240102144657424</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102145109575.png" alt="image-20240102145109575">
+<figcaption aria-hidden="true">image-20240102145109575</figcaption>
+</figure>
+<p>战术设计。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102145343559.png" alt="image-20240102145343559">
+<figcaption aria-hidden="true">image-20240102145343559</figcaption>
+</figure>
+<p>下面这张图比较重要。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102145429468.png" alt="image-20240102145429468">
+<figcaption aria-hidden="true">image-20240102145429468</figcaption>
+</figure>
+<p><strong>实体与值对象</strong></p>
+<p>实体不是通过它们的属性而是连续性和标识定义的。（也就是id）</p>
+<p>说白了也就是是不是持久化数据的问题。也就是entity和vo嘛。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102145648325.png" alt="image-20240102145648325">
+<figcaption aria-hidden="true">image-20240102145648325</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102145653455.png" alt="image-20240102145653455">
+<figcaption aria-hidden="true">image-20240102145653455</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102145732097.png" alt="image-20240102145732097">
+<figcaption aria-hidden="true">image-20240102145732097</figcaption>
+</figure>
+<p><strong>聚合是领域模型的概念边界</strong></p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102145825731.png" alt="image-20240102145825731">
+<figcaption aria-hidden="true">image-20240102145825731</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102145840497.png" alt="image-20240102145840497">
+<figcaption aria-hidden="true">image-20240102145840497</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102150040737.png" alt="image-20240102150040737">
+<figcaption aria-hidden="true">image-20240102150040737</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102150111530.png" alt="image-20240102150111530">
+<figcaption aria-hidden="true">image-20240102150111530</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102150317773.png" alt="image-20240102150317773">
+<figcaption aria-hidden="true">image-20240102150317773</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102150346713.png" alt="image-20240102150346713">
+<figcaption aria-hidden="true">image-20240102150346713</figcaption>
+</figure>
+<p><strong>例子</strong></p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102150940537.png" alt="image-20240102150940537">
+<figcaption aria-hidden="true">image-20240102150940537</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102151039906.png" alt="image-20240102151039906">
+<figcaption aria-hidden="true">image-20240102151039906</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102151225774.png" alt="image-20240102151225774">
+<figcaption aria-hidden="true">image-20240102151225774</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102151259120.png" alt="image-20240102151259120">
+<figcaption aria-hidden="true">image-20240102151259120</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102151346717.png" alt="image-20240102151346717">
+<figcaption aria-hidden="true">image-20240102151346717</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102151412063.png" alt="image-20240102151412063">
+<figcaption aria-hidden="true">image-20240102151412063</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102151420772.png" alt="image-20240102151420772">
+<figcaption aria-hidden="true">image-20240102151420772</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102151702065.png" alt="image-20240102151702065">
+<figcaption aria-hidden="true">image-20240102151702065</figcaption>
+</figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Kiyotaka Wang</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hmwang2002/github.io/2024/01/11/devops-fu-xi/">https://hmwang2002/github.io/2024/01/11/devops-fu-xi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Kiyotaka Wang</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Devops2023%E7%A7%8B/">
+                                    <span class="chip bg-color">Devops2023秋</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/11/fu-wu-duan-kai-fa-fu-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="服务端开发复习">
+                        
+                        <span class="card-title">服务端开发复习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/" class="post-category">
+                                    服务端开发2023秋
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/">
+                        <span class="chip bg-color">服务端开发2023秋</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/07/17/chu-xue-zookeeper/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="初学ZooKeeper">
+                        
+                        <span class="card-title">初学ZooKeeper</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                    微服务
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                        <span class="chip bg-color">微服务</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <span id="year">2022</span>
+            <a href="/about" target="_blank">Kiyotaka Wang</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">77.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hmwang2002" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

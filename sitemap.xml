@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hmwang2002/github.io/2024/01/11/devops-fu-xi/</loc>
+    
+    <lastmod>2024-01-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hmwang2002/github.io/2024/01/11/ruan-jian-ce-shi-fu-xi/</loc>
     
     <lastmod>2024-01-11</lastmod>
@@ -364,6 +373,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://hmwang2002/github.io/tags/Devops2023%E7%A7%8B/</loc>
+    <lastmod>2024-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -452,6 +468,13 @@
   
   <url>
     <loc>https://hmwang2002/github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%952023%E7%A7%8B/</loc>
+    <lastmod>2024-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hmwang2002/github.io/categories/Devops2023%E7%A7%8B/</loc>
     <lastmod>2024-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

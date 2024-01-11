@@ -1,3 +1,4 @@
+https://hmwang2002/github.io/2024/01/11/devops-fu-xi/
 https://hmwang2002/github.io/2024/01/11/ruan-jian-ce-shi-fu-xi/
 https://hmwang2002/github.io/2024/01/11/ren-ji-jiao-hu-xi-tong/
 https://hmwang2002/github.io/2024/01/11/fu-wu-duan-kai-fa-fu-xi/
@@ -41,6 +42,7 @@ https://hmwang2002/github.io/tags/%E7%AB%9E%E8%B5%9B/
 https://hmwang2002/github.io/tags/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F2023%E7%A7%8B/
 https://hmwang2002/github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/
 https://hmwang2002/github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%952023%E7%A7%8B/
+https://hmwang2002/github.io/tags/Devops2023%E7%A7%8B/
 https://hmwang2002/github.io/categories/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/
 https://hmwang2002/github.io/categories/C/
 https://hmwang2002/github.io/categories/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/
@@ -54,3 +56,4 @@ https://hmwang2002/github.io/categories/%E7%AB%9E%E8%B5%9B/
 https://hmwang2002/github.io/categories/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F2023%E7%A7%8B/
 https://hmwang2002/github.io/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/
 https://hmwang2002/github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%952023%E7%A7%8B/
+https://hmwang2002/github.io/categories/Devops2023%E7%A7%8B/
