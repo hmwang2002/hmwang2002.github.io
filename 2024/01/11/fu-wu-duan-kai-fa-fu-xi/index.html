@@ -1,0 +1,2662 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="服务端开发复习, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
+    <meta name="description" content="南京大学 | 软件学院">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>服务端开发复习 | Kiyotaka Wang的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Kiyotaka Wang的博客" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/favicon.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Kiyotaka Wang的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/favicon.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Kiyotaka Wang的博客</div>
+        <div class="logo-desc">
+            
+            南京大学 | 软件学院
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hmwang2002" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hmwang2002" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">服务端开发复习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/">
+                                <span class="chip bg-color">服务端开发2023秋</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/" class="post-category">
+                                服务端开发2023秋
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.1k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="复习">复习</h1>
+<p>考试：每次课前的复习，就是考试重点</p>
+<p>题目分多选题和问答题，问答题5道题</p>
+<p>web开发框架的分层、web框架请求的处理过程、spring
+security中web请求的保护以及有哪些步骤、反应式编程的4个接口、AOP编程解决什么问题以及开发的要点、Oauth2基于授权码的授权以及系统组成和处理流程（那张图要重点看）、spring的集成流解决什么问题。</p>
+<p>今年考试很抽象（但也还好），主要是最后一题这老师的语文表达能力实在不敢恭维，感觉我被坑了。。。</p>
+<p>什么叫做Spring初始化数据库的时机，怎么全答的是课上说的3个方法，这不显然是问在启动的哪个阶段初始化吗？？？何况初始化数据库方法多的去了，又不是只有那三个，我创个initializingbean不是也行？😅</p>
+<h2 id="开发环境搭建">开发环境搭建</h2>
+<h3 id="源代码仓库管理">源代码仓库管理</h3>
+<p>也称为版本控制（version
+control）系统，常用工具有：GitLab、SVN（Subversion）、Bitbucket等。</p>
+<p>需纳入版本控制的有：<strong>功能代码、测试代码、测试脚本、构建脚本、部署脚本、配置文件</strong>等。</p>
+<h3 id="git关键概念">Git关键概念</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101152043494.png" alt="image-20240101152043494">
+<figcaption aria-hidden="true">image-20240101152043494</figcaption>
+</figure>
+<p>在把本地修改的代码添加到本地仓库之前，一般先存放到暂存区（index），git
+commit将暂存区的代码提交到本地仓库，从本地到远程push。</p>
+<h3 id="spring是java生态圈的主流开发框架">Spring是Java生态圈的主流开发框架</h3>
+<p>开发框架(Framework)是整个或部分系统的可重用设计，表现为一组抽象构件及构件实例间交互的方法；另一
+种定义认为，框架是可被应用开发者定制的应用骨架</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101152440594.png" alt="image-20240101152440594">
+<figcaption aria-hidden="true">image-20240101152440594</figcaption>
+</figure>
+<p>Spring的核心是提供一个容器（container），也叫Spring应用上下文，容器里存放的是bean，容器负责对象的创建和消亡。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101152542739.png" alt="image-20240101152542739">
+<figcaption aria-hidden="true">image-20240101152542739</figcaption>
+</figure>
+<p>Spring的衍生。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101152603251.png" alt="image-20240101152603251">
+<figcaption aria-hidden="true">image-20240101152603251</figcaption>
+</figure>
+<h3 id="spring-web开发框架的分层重要">Spring
+Web开发框架的分层（重要）</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101152858883.png" alt="image-20240101152858883">
+<figcaption aria-hidden="true">image-20240101152858883</figcaption>
+</figure>
+<h3 id="junit测试框架">JUnit测试框架</h3>
+<p>注意测试用例的写法。<span class="citation" data-cites="Test注解">@Test注解</span>，测试方法必须用void（public可选）修饰，并且不能有参数。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101153456759.png" alt="image-20240101153456759">
+<figcaption aria-hidden="true">image-20240101153456759</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101153657169.png" alt="image-20240101153657169">
+<figcaption aria-hidden="true">image-20240101153657169</figcaption>
+</figure>
+<h3 id="spring-boot-devtools工具重要">Spring Boot
+DevTools工具（重要）</h3>
+<p>但感觉也没什么考头其实。。。</p>
+<p>这只是运行态下的功能，在编译的时候没有任何作用。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101153914019.png" alt="image-20240101153914019">
+<figcaption aria-hidden="true">image-20240101153914019</figcaption>
+</figure>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-devtools<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>runtime<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="依赖注入dependency-injection">依赖注入（Dependency
+Injection）</h2>
+<h3 id="spring的模块组成">Spring的模块组成</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101154248443.png" alt="image-20240101154248443">
+<figcaption aria-hidden="true">image-20240101154248443</figcaption>
+</figure>
+<h3 id="spring的两个核心技术">Spring的两个核心技术</h3>
+<h4 id="didependency-injection">DI（Dependency Injection）</h4>
+<p>又叫控制反转（IoC）。保留抽象接口，让组件（Component）依赖于抽象接口，当组件要与其他实际的对象发生依赖关系时，由抽象接口来注入依赖的实际对象。</p>
+<h4 id="aopaspect-oriented-programming">AOP（Aspect Oriented
+Programming）</h4>
+<p>通过预编译方式和运行期间动态代理实现功能的统一维护的一种技术。</p>
+<p>利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发效率。</p>
+<h3 id="spring的核心是提供了一个容器container">Spring的核心是提供了一个容器（container）</h3>
+<p>也就是applicationContext，spring上下文。</p>
+<h4 id="问spring如何把b对象注入到a对象当中">问：Spring如何把B对象注入到A对象当中？</h4>
+<ol type="1">
+<li>通过构造方法</li>
+<li>通过setter方法，设置一个属性</li>
+<li>在私有的属性字段上加@Autowired注解</li>
+</ol>
+<p>不可以通过方法的参数注入。</p>
+<h3 id="bean的生命周期">bean的生命周期</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101155242332.png" alt="image-20240101155242332">
+<figcaption aria-hidden="true">image-20240101155242332</figcaption>
+</figure>
+<h3 id="spring配置方案">Spring配置方案</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101155345006.png" alt="image-20240101155345006">
+<figcaption aria-hidden="true">image-20240101155345006</figcaption>
+</figure>
+<p>自动化配置相关的注解一共有4个：<span class="citation" data-cites="Component">@Component</span>,<span class="citation" data-cites="ComponentScan">@ComponentScan</span>,<span class="citation" data-cites="Autowired">@Autowired</span>,<span class="citation" data-cites="Configuration">@Configuration</span></p>
+<h3 id="组件扫描">组件扫描</h3>
+<p>组件扫描在搜索包的时候也会递归搜索子包。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101160731654.png" alt="image-20240101160731654">
+<figcaption aria-hidden="true">image-20240101160731654</figcaption>
+</figure>
+<h3 id="自动装配">自动装配</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101160905946.png" alt="image-20240101160905946">
+<figcaption aria-hidden="true">image-20240101160905946</figcaption>
+</figure>
+<h3 id="javaconfig">JavaConfig</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101160940415.png" alt="image-20240101160940415">
+<figcaption aria-hidden="true">image-20240101160940415</figcaption>
+</figure>
+<h3 id="混合配置留意有这方面的题目">混合配置（留意，有这方面的题目）</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101161007695.png" alt="image-20240101161007695">
+<figcaption aria-hidden="true">image-20240101161007695</figcaption>
+</figure>
+<p>开发时候不会将所有的bean都放在一个配置文件中，一般会有一个根配置，其他的配置可能会导入根配置类，根配置类也可能会导入其他配置类。</p>
+<p><span class="citation" data-cites="Import导入其它配置类">@Import导入其它配置类</span></p>
+<p><span class="citation" data-cites="ImportResource导入xml文件">@ImportResource导入xml文件</span></p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101161129015.png" alt="image-20240101161129015">
+<figcaption aria-hidden="true">image-20240101161129015</figcaption>
+</figure>
+<h3 id="bean的作用域">Bean的作用域</h3>
+<p>课上说不考。</p>
+<p><code>@Scope</code> 可以与 <code>@Component</code> 和
+<code>@Bean</code> 一起使用，指定作用域</p>
+<ul>
+<li><code>Singleton</code>，单例，不使用 <code>@Scope</code>
+时默认，在整个应用中，只创建 bean 的一个实例</li>
+<li><code>Prototype</code>，原型，每次注入或者通过 Spring
+应用上下文获取的时候，都会创建一个新 bean 实例</li>
+<li><code>Session</code>，会话，在 Web 应用中，为每个会话创建一个 bean
+实例</li>
+<li><code>Request</code>，请求，在 Web 应用中，为每个请求创建一个 bean
+实例</li>
+</ul>
+<p>使用会话和请求作用域：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@Scope</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token class-name">WebApplicationContext</span><span class="token punctuation">.</span><span class="token constant">SCOPE_SESSION</span><span class="token punctuation">,</span> proxyMode<span class="token operator">=</span><span class="token class-name">ScopedProxyMode</span><span class="token punctuation">.</span><span class="token constant">INTERFACES</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">ShoppingCart</span> <span class="token function">cart</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="面向切面编程aop">面向切面编程（AOP）</h2>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101163332888.png" alt="image-20240101163332888">
+<figcaption aria-hidden="true">image-20240101163332888</figcaption>
+</figure>
+<h3 id="横切关注点背下来这4个">横切关注点（背下来这4个）</h3>
+<p>不需要知道4个横切关注点之间的业务逻辑，背下来就可以了。</p>
+<p>日志、安全、事务、缓存</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101163432054.png" alt="image-20240101163432054">
+<figcaption aria-hidden="true">image-20240101163432054</figcaption>
+</figure>
+<h3 id="aop术语">AOP术语</h3>
+<ul>
+<li>通知（Advice）：切面做什么以及何时做</li>
+<li>切点（Pointcut）：何处，如"execution(* concert.Performance.perform(
+.. ))"切点表达式</li>
+<li>切面（Aspect）：Advice 和 Pointcut 的结合</li>
+<li>连接点（Join
+point）：方法、字段修改、构造方法。就是允许作为切入点的资源，所有类的所有方法均可以作为连接点</li>
+<li>引入（introduction）：引入新的行为和状态</li>
+<li>织入（Weaving）：切面应用到目标对象的过程</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Aspect</span> <span class="token comment">// 并不具有 @Component 的效果，不能在扫描时实例化，因此需要添加 @Component 注解或在 JavaConfig 类中主动实例化</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Audience</span> <span class="token punctuation">&#123;</span>
+	<span class="token annotation punctuation">@Before</span><span class="token punctuation">(</span><span class="token string">"execution(* concert.Performance.perform( .. ))"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">silenceCellPhones</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Silencing cell phones"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token annotation punctuation">@Before</span><span class="token punctuation">(</span><span class="token string">"execution(* concert.Performance.perform( .. ))"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">takeSeats</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Taking seats"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token annotation punctuation">@AfterReturning</span><span class="token punctuation">(</span><span class="token string">"execution(* concert.Performance.perform( .. ))"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">applause</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CLAP CLAP CLAP!!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token annotation punctuation">@AfterThrowing</span><span class="token punctuation">(</span><span class="token string">"execution(* concert.Performance.perform( .. ))"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">demandRefund</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Demand a refund"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token annotation punctuation">@Aspect</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Audience1</span> <span class="token punctuation">&#123;</span>
+	<span class="token annotation punctuation">@Pointcut</span><span class="token punctuation">(</span><span class="token string">"execution(* concert.Performance.perform( .. ))"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">performance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token annotation punctuation">@Before</span><span class="token punctuation">(</span><span class="token string">"performance()"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">silenceCellPhones</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Silencing cell phones"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token annotation punctuation">@Before</span><span class="token punctuation">(</span><span class="token string">"performance()"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">takeSeats</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Taking seats"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token annotation punctuation">@AfterReturning</span><span class="token punctuation">(</span><span class="token string">"performance()"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">applause</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CLAP CLAP CLAP!!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token annotation punctuation">@AfterThrowing</span><span class="token punctuation">(</span><span class="token string">"performance()"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">demandRefund</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Demand a refund"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token annotation punctuation">@Aspect</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Audience2</span> <span class="token punctuation">&#123;</span>
+	<span class="token annotation punctuation">@Pointcut</span><span class="token punctuation">(</span><span class="token string">"execution(* concert.Performance.perform( .. )) "</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">performance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token annotation punctuation">@Around</span><span class="token punctuation">(</span><span class="token string">"performance()"</span><span class="token punctuation">)</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">watchPerformance</span><span class="token punctuation">(</span><span class="token class-name">ProceedingJoinPoint</span> joinPoint<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">".Silencing cell phones"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">".Taking seats"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			joinPoint<span class="token punctuation">.</span><span class="token function">proceed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">".CLAP CLAP CLAP!!!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">".Demanding a refund"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token annotation punctuation">@EnableAspectJAutoProxy</span> <span class="token comment">// 开启 AspectJ 的自动代理机制</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcertConfig</span> <span class="token punctuation">&#123;</span>
+	<span class="token annotation punctuation">@Bean</span>
+	<span class="token keyword">public</span> <span class="token class-name">Performance</span> <span class="token function">concert</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Concert</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+
+	<span class="token annotation punctuation">@Bean</span>
+	<span class="token keyword">public</span> <span class="token class-name">EncoreableIntroducer</span> <span class="token function">encoreableIntroducer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">EncoreableIntroducer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>@Controller</code>、<code>@Service</code> 和
+<code>@Repository</code> 三个注解本身有 <code>@Component</code>
+的实例化效果。</p>
+<h3 id="通知advice类型">通知（Advice）类型</h3>
+<p><span class="citation" data-cites="Before">@Before</span>：在一个方法调用之前切</p>
+<p><span class="citation" data-cites="After">@After</span>：在一个方法执行结束之后切</p>
+<p><span class="citation" data-cites="AfterReturning">@AfterReturning</span>：在一个方法成功执行之后切</p>
+<p><span class="citation" data-cites="AfterThrowing">@AfterThrowing</span>：在一个方法抛出异常后切</p>
+<p><span class="citation" data-cites="Around">@Around</span>：在一个方法前后切（环绕）</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101164503856.png" alt="image-20240101164503856">
+<figcaption aria-hidden="true">image-20240101164503856</figcaption>
+</figure>
+<p>多选题：在一个方法成功运行之后切可以用哪些注解？after、aftereturning、around。</p>
+<h3 id="织入时机">织入时机</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101164929804.png" alt="image-20240101164929804">
+<figcaption aria-hidden="true">image-20240101164929804</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101164941435.png" alt="image-20240101164941435">
+<figcaption aria-hidden="true">image-20240101164941435</figcaption>
+</figure>
+<h3 id="aspectj切点指示器pointcut-designator重要">AspectJ切点指示器（pointcut
+designator）重要</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101165648321.png" alt="image-20240101165648321">
+<figcaption aria-hidden="true">image-20240101165648321</figcaption>
+</figure>
+<p>通过切点指示器可以达到的5种效果：</p>
+<ol type="1">
+<li>我们可以指定在哪些方法上来做切入</li>
+<li>在切面逻辑里带有调用者带来的参数</li>
+<li>指定在哪些包路径的对象进行切入</li>
+<li>指定在哪些特定的bean上进行切入</li>
+<li>限定注解，只在某些特定注解的方法上进行切入。如图中有@InnerAuth注解的方法。</li>
+</ol>
+<h3 id="引入接口introduction-重要">引入接口（introduction） 重要</h3>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Aspect</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EncoreableIntroducer</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@DeclareParents</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"concert.Performance+"</span><span class="token punctuation">,</span><span class="token comment">//后面的+表示应用到所有实现了该接口的Bean</span>
+            defaultImpl <span class="token operator">=</span> <span class="token class-name">DefaultEncoreable</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Encoreable</span> encoreable<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这个切面定义一个静态的字段，上面的@DeclareParents表示我需要给实现了这个接口的对象引入这个行为。每一个对象之后都会实例化这个被切入的Encoreable接口。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101170526219.png" alt="image-20240101170526219">
+<figcaption aria-hidden="true">image-20240101170526219</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101171007745.png" alt="image-20240101171007745">
+<figcaption aria-hidden="true">image-20240101171007745</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101171334306.png" alt="image-20240101171334306">
+<figcaption aria-hidden="true">image-20240101171334306</figcaption>
+</figure>
+<h2 id="spring-mvc">Spring MVC</h2>
+<h3 id="spring-mvc-1">Spring MVC</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101181737259.png" alt="image-20240101181737259">
+<figcaption aria-hidden="true">image-20240101181737259</figcaption>
+</figure>
+<h3 id="重要必考spring-mvc的请求处理过程">(重要：必考)Spring
+MVC的请求处理过程</h3>
+<ol type="1">
+<li>请求先到DispatcherServlet（Spring官方开发）。</li>
+<li>首先先根据url在Handler mapping中查找映射关系找到对应的控制器。</li>
+<li>将请求转交给对应的控制器</li>
+<li>从控制器拿到请求的参数，转给业务层，在此进行处理并且可能会对数据进行一些持久化，最后生成相应的模型Model和逻辑视图名</li>
+<li>控制器将Model和逻辑视图名返还给DispatcherServlet，再将其转交给视图解析器</li>
+<li>视图解析器根据处理结果中的逻辑视图名（View
+Name），将其解析为具体的视图对象。</li>
+<li>视图渲染后的响应内容返回给浏览器端</li>
+</ol>
+<p>前后端分离的场景就直接返回json格式串，就没有页面渲染那些步骤了。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101182029943.png" alt="image-20240101182029943">
+<figcaption aria-hidden="true">image-20240101182029943</figcaption>
+</figure>
+<h3 id="spring-mvc获取参数的几种方式">Spring MVC获取参数的几种方式</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101182304094.png" alt="image-20240101182304094">
+<figcaption aria-hidden="true">image-20240101182304094</figcaption>
+</figure>
+<h3 id="slf4j注解是谁提供的"><span class="citation" data-cites="Slf4j注解是谁提供的">@Slf4j注解是谁提供的</span>？</h3>
+<p>lombok提供的。</p>
+<h3 id="model">Model</h3>
+<p>Model和thymeleaf的关系，thymeleaf是负责渲染页面的，model是渲染页面的输入，model提供动态的一些输入数据。注意Model属性会复制到Servlet
+Request属性中，这样视图中就可以使用它们用于渲染页面。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101184059898.png" alt="image-20240101184059898">
+<figcaption aria-hidden="true">image-20240101184059898</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101184510853.png" alt="image-20240101184510853">
+<figcaption aria-hidden="true">image-20240101184510853</figcaption>
+</figure>
+<h3 id="处理表单请求">处理表单请求</h3>
+<p>302状态码就是重定向。浏览器得到这个响应之后拿出返回的url再请求服务端。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101184537257.png" alt="image-20240101184537257">
+<figcaption aria-hidden="true">image-20240101184537257</figcaption>
+</figure>
+<h2 id="spring-data-jdbcjpa">Spring Data JDBC、JPA</h2>
+<p>三种方式：</p>
+<ol type="1">
+<li>基于JDBCTemplate模板</li>
+<li>Spring Data JDBC</li>
+<li>Spring Data JPA</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101190206702.png" alt="image-20240101190206702">
+<figcaption aria-hidden="true">image-20240101190206702</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101190446587.png" alt="image-20240101190446587">
+<figcaption aria-hidden="true">image-20240101190446587</figcaption>
+</figure>
+<p>重点分析三个例子的区别。</p>
+<table>
+<colgroup>
+<col style="width: 34%">
+<col style="width: 13%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>特点</th>
+<th>JdbcTemplate</th>
+<th>Spring Data JDBC</th>
+<th>JDA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>实现具体类</td>
+<td>需要</td>
+<td>不需要，只要写明继承关系</td>
+<td>不需要，只要写明继承关系</td>
+</tr>
+<tr class="even">
+<td>定义实体类和数据库表的映射关系</td>
+<td>不需要</td>
+<td>需要</td>
+<td>需要</td>
+</tr>
+<tr class="odd">
+<td>程序员维护表之间的关系</td>
+<td>需要</td>
+<td>不需要</td>
+<td>不需要</td>
+</tr>
+<tr class="even">
+<td>显式提供表结构（建表 SQL 脚本）</td>
+<td>需要</td>
+<td>需要</td>
+<td>不需要，可以自动推断</td>
+</tr>
+</tbody>
+</table>
+<h3 id="使用-jdbctemplate">使用 JdbcTemplate</h3>
+<blockquote>
+<p>参考代码 <code>taco-cloud-jdbctemplate</code></p>
+</blockquote>
+<p>特点：</p>
+<ul>
+<li>解决 <code>RawJdbcIngredientRepository</code>
+样板式代码的问题，只需要提供查询逻辑；</li>
+<li>需要实现具体类 <code>JdbcIngredientRepository</code>
+而其他两种方法不用；</li>
+<li>需要提供 <code>src/main/resources/schema.sql</code>
+文件作为表结构的定义（建表脚本）。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-jdbc&lt;&#x2F;artifactId&gt;
+&lt;&#x2F;dependency&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;com.h2database&lt;&#x2F;groupId&gt;
+	&lt;artifactId&gt;h2&lt;&#x2F;artifactId&gt;
+	&lt;scope&gt;runtime&lt;&#x2F;scope&gt;
+&lt;&#x2F;dependency&gt;
+@Repository
+public class JdbcIngredientRepository implements IngredientRepository &#123;
+
+	private JdbcTemplate jdbcTemplate;
+
+	public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) &#123;
+		this.jdbcTemplate &#x3D; jdbcTemplate;
+	&#125;
+
+	@Override
+	public Iterable&lt;Ingredient&gt; findAll() &#123;
+		return jdbcTemplate.query(
+				&quot;select id, name, type from Ingredient&quot;,
+				this::mapRowToIngredient);
+	&#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="使用-spring-data-jdbc">使用 Spring Data JDBC</h3>
+<blockquote>
+<p>参考代码 <code>taco-cloud-jdbc</code></p>
+</blockquote>
+<p>特点：</p>
+<ul>
+<li>需要定义实体类和数据库表的映射关系；</li>
+<li>不需要实现具体类，只需要写好继承关系；</li>
+<li>需要提供 <code>src/main/resources/schema.sql</code>
+文件作为表结构的定义（建表脚本）。</li>
+</ul>
+<p>CrudRepository&lt;Ingredient,
+String&gt;第一个类型对应查询的类，第二个对应id的类型</p>
+<pre class="line-numbers language-none"><code class="language-none">public interface IngredientRepository
+		extends CrudRepository&lt;Ingredient, String&gt; &#123;
+
+&#125;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Data
+@Table
+@AllArgsConstructor
+@NoArgsConstructor(access &#x3D; AccessLevel.PRIVATE, force &#x3D; true)
+public class Ingredient implements Persistable&lt;String&gt; &#123;
+
+	@Id
+	private String id;
+
+	private String name;
+	private Type type;
+
+	@Override
+	public boolean isNew() &#123;
+		return true;
+	&#125;
+
+	public enum Type &#123;
+		WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+	&#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="使用-jpa">使用 JPA</h3>
+<blockquote>
+<p>参考代码 <code>taco-cloud-jpa</code></p>
+</blockquote>
+<p>特点：</p>
+<ul>
+<li>需要定义实体类和数据库表的映射关系；</li>
+<li>不需要实现具体类，只需要写好继承关系；</li>
+<li>依据实体类推断表结构，不需要建表脚本；</li>
+<li>可以自定义查询方法。</li>
+</ul>
+<p><span class="citation" data-cites="Entity">@Entity</span>（来自javax.persistence.*）</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+ * 原料仓库
+ * 实体类型 Ingredient，ID 类型 String
+ * @author EagleBear2002
+ * @date 2023&#x2F;04&#x2F;07
+ *&#x2F;
+public interface IngredientRepository
+		extends CrudRepository&lt;Ingredient, String&gt; &#123;
+
+&#125;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Data
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor(access &#x3D; AccessLevel.PRIVATE, force &#x3D; true)
+public class Ingredient &#123;
+
+	@Id
+	private String id;
+	private String name;
+	private Type type;
+
+	public enum Type &#123;
+		WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+	&#125;
+
+&#125;
+@Data
+@Entity
+public class Taco &#123;
+
+	@Id
+	@GeneratedValue(strategy &#x3D; GenerationType.AUTO)
+	private Long id;
+
+	@NotNull
+	@Size(min &#x3D; 5, message &#x3D; &quot;Name must be at least 5 characters long&quot;)
+	private String name;
+
+	private Date createdAt &#x3D; new Date();
+
+	@Size(min &#x3D; 1, message &#x3D; &quot;You must choose at least 1 ingredient&quot;)
+	@ManyToMany()
+	private List&lt;Ingredient&gt; ingredients &#x3D; new ArrayList&lt;&gt;();
+
+	public void addIngredient(Ingredient ingredient) &#123;
+		this.ingredients.add(ingredient);
+	&#125;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="自定义的查询方法">自定义的查询方法</h3>
+<p>定义查询方法，无需实现：</p>
+<ul>
+<li>领域特定语言（domain specific language DSL）spring data
+的命名约定</li>
+<li>查询动词 + 主题 + 断言</li>
+<li>查询动词： get 、 read 、 find 、 count</li>
+<li>例子：</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">List&lt;TacoOrder&gt; findByDeliveryZip( String deliveryZip );<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>声明自定义查询（JDQL 面向对象查询语言）：</p>
+<p>不符合方法命名约定时，或者命名太长时</p>
+<pre class="line-numbers language-none"><code class="language-none">@Query(&quot;Order o where o.deliveryCity &#x3D; &#39;Seattle&#39;&quot;)
+List&lt;TacoOrder&gt; readOrdersDeliveredInSeattle( );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="jpahibernatespring-data-jpa-三者之间的关系">Jpa、Hibernate、Spring
+Data Jpa 三者之间的关系</h3>
+<ul>
+<li>JPA 的宗旨是为 POJO 提供持久化标准规范；</li>
+<li>Hibernate 作为厂家实现了这一规范；</li>
+</ul>
+<figure>
+<img src="https://eaglebear2002.github.io/2023Spring-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91-%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20230407005727833.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h2 id="spring-data-mongodbredis">Spring Data Mongodb、Redis</h2>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101193956770.png" alt="image-20240101193956770">
+<figcaption aria-hidden="true">image-20240101193956770</figcaption>
+</figure>
+<h3 id="mongodb">MongoDB</h3>
+<p>文档存储一般用类似json的格式存储，存储的内容是文档型的。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101193840464.png" alt="image-20240101193840464">
+<figcaption aria-hidden="true">image-20240101193840464</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101194346078.png" alt="image-20240101194346078">
+<figcaption aria-hidden="true">image-20240101194346078</figcaption>
+</figure>
+<h3 id="redis">Redis</h3>
+<p>Redis是key-value结构，value是某数据结构。内存数据库，主要用于缓存。通常部署在多台机器上做集群，冗余存储
++ 加快读取速度。Redis是区分大小写的。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101194441879.png" alt="image-20240101194441879">
+<figcaption aria-hidden="true">image-20240101194441879</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101194757339.png" alt="image-20240101194757339">
+<figcaption aria-hidden="true">image-20240101194757339</figcaption>
+</figure>
+<h4 id="redis数据类型">Redis数据类型</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101194826981.png" alt="image-20240101194826981">
+<figcaption aria-hidden="true">image-20240101194826981</figcaption>
+</figure>
+<h4 id="jedis和lettuce">Jedis和Lettuce</h4>
+<p>RedisConnectionFactory接口配置了ip、端口、用户名、密码等信息。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101194841620.png" alt="image-20240101194841620">
+<figcaption aria-hidden="true">image-20240101194841620</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101195145385.png" alt="image-20240101195145385">
+<figcaption aria-hidden="true">image-20240101195145385</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101195150520.png" alt="image-20240101195150520">
+<figcaption aria-hidden="true">image-20240101195150520</figcaption>
+</figure>
+<h4 id="序列化">序列化</h4>
+<p>不同于mongodb，redis需要提供序列化器。否则存入redis中的是字节码，可读性很差。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101195226182.png" alt="image-20240101195226182">
+<figcaption aria-hidden="true">image-20240101195226182</figcaption>
+</figure>
+<h2 id="spring-security">Spring Security</h2>
+<p>划分成两类权限控制。一是外部请求，外部的url的控制。二是方法级别的权限控制。</p>
+<h3 id="cookie">cookie</h3>
+<p>Cookie，有时也用其复数形式
+Cookies。类型为“<strong>小型文本文件</strong>”，是某些网站为了辨别用户身份，进行Session跟踪而储存在用户本地终端上的数据（通常经过加密），由用户客户端计算机暂时或永久保存的信息。</p>
+<h3 id="服务端和浏览">服务端和浏览</h3>
+<p>Spring
+Security当访问网站的时候请求头没有JSESSIONID时，就跳转到登录页面。（第一次访问时的处理）</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101203227326.png" alt="image-20240101203227326">
+<figcaption aria-hidden="true">image-20240101203227326</figcaption>
+</figure>
+<h3 id="重要spring-security对web请求拦截">（重要）Spring
+Security对Web请求拦截</h3>
+<p>在请求被处理之前会被若干过滤器拦截。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101203243397.png" alt="image-20240101203243397">
+<figcaption aria-hidden="true">image-20240101203243397</figcaption>
+</figure>
+<p>下面这张图很重要。开发人员需要做什么。</p>
+<ol type="1">
+<li>UserDetailsService在Spring里就是一个bean对象，给Spring框架提供用户的详细信息。</li>
+<li>实现PasswordEncoder，密码编码器，也是需要我们创建一个bean对象。</li>
+<li>实现用户登录页面。</li>
+<li>调用HttpSecurity进行权限设置。两种实现方式，一是放进SecurityFilterChain这个bean中，二是通过继承WebSecurityConfigurerAdapter。</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101203338115.png" alt="image-20240101203338115">
+<figcaption aria-hidden="true">image-20240101203338115</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101205423312.png" alt="image-20240101205423312">
+<figcaption aria-hidden="true">image-20240101205423312</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101205450002.png" alt="image-20240101205450002">
+<figcaption aria-hidden="true">image-20240101205450002</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101205457561.png" alt="image-20240101205457561">
+<figcaption aria-hidden="true">image-20240101205457561</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101205555856.png" alt="image-20240101205555856">
+<figcaption aria-hidden="true">image-20240101205555856</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101205654365.png" alt="image-20240101205654365">
+<figcaption aria-hidden="true">image-20240101205654365</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101205659085.png" alt="image-20240101205659085">
+<figcaption aria-hidden="true">image-20240101205659085</figcaption>
+</figure>
+<p>在SecurityConfig的configure方法中这样修改，显示指定username和password读取的参数，就可以改变使用的表单中传输的参数，原先用来作为密码的password参数可以用于其他作用。(也就是当我不想用username和password作为参数名时这么改)</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231016201928089.png" alt="image-20231016201928089">
+<figcaption aria-hidden="true">image-20231016201928089</figcaption>
+</figure>
+<h3 id="启用http-basic认证">启用HTTP Basic认证</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101205856438.png" alt="image-20240101205856438">
+<figcaption aria-hidden="true">image-20240101205856438</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101210006026.png" alt="image-20240101210006026">
+<figcaption aria-hidden="true">image-20240101210006026</figcaption>
+</figure>
+<h3 id="csrf">CSRF</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231016204204429.png" alt="image-20231016204204429">
+<figcaption aria-hidden="true">image-20231016204204429</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231016204211622.png" alt="image-20231016204211622">
+<figcaption aria-hidden="true">image-20231016204211622</figcaption>
+</figure>
+<ol type="1">
+<li>用户输入账号信息请求登录A网站。</li>
+<li>A网站验证用户信息，通过验证后返回给用户一个cookie</li>
+<li>在未退出网站A之前，在同一浏览器中请求了黑客构造的恶意网站B</li>
+<li>B网站收到用户请求后返回攻击性代码，构造访问A网站的语句</li>
+<li>浏览器收到攻击性代码后，在用户不知情的情况下携带cookie信息请求了A网站。此时A网站不知道这是由B发起的。那么这时黑客就可以进行一下骚操作了！</li>
+</ol>
+<p>两个条件：a 用户访问站点A并产生了cookie</p>
+<p>b 用户没有退出A同时访问了B</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231016210256095.png" alt="image-20231016210256095">
+<figcaption aria-hidden="true">image-20231016210256095</figcaption>
+</figure>
+<p>使用disable可以取消。ignoringAntMatchers可以对于某些服务不用生成csrf验证。</p>
+<h3 id="在内存当中存取一些用户">在内存当中存取一些用户</h3>
+<p>两种写法在内存中存取一些用户。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231016211027728.png" alt="image-20231016211027728">
+<figcaption aria-hidden="true">image-20231016211027728</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231016212002699.png" alt="image-20231016212002699">
+<figcaption aria-hidden="true">image-20231016212002699</figcaption>
+</figure>
+<h3 id="实现方法级别的安全">实现方法级别的安全</h3>
+<p>config类上要加一个@EnableGlobalMethodSecurity</p>
+<p><span class="citation" data-cites="PreAuthorize">@PreAuthorize</span></p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101210616284.png" alt="image-20240101210616284">
+<figcaption aria-hidden="true">image-20240101210616284</figcaption>
+</figure>
+<p>本质是AOP技术。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231016211909918.png" alt="image-20231016211909918">
+<figcaption aria-hidden="true">image-20231016211909918</figcaption>
+</figure>
+<h3 id="获取当前登录的用户">获取当前登录的用户</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231029214549850.png" alt="image-20231029214549850">
+<figcaption aria-hidden="true">image-20231029214549850</figcaption>
+</figure>
+<h2 id="配置属性">配置属性</h2>
+<h3 id="属性来源">属性来源</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101213120096.png" alt="image-20240101213120096">
+<figcaption aria-hidden="true">image-20240101213120096</figcaption>
+</figure>
+<h3 id="yaml文件">YAML文件</h3>
+<p><strong>不允许使用Tab键，只允许使用空格</strong>。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101213138245.png" alt="image-20240101213138245">
+<figcaption aria-hidden="true">image-20240101213138245</figcaption>
+</figure>
+<h3 id="建立https安全通道">建立HTTPS安全通道</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101213406606.png" alt="image-20240101213406606">
+<figcaption aria-hidden="true">image-20240101213406606</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101213418587.png" alt="image-20240101213418587">
+<figcaption aria-hidden="true">image-20240101213418587</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101213727079.png" alt="image-20240101213727079">
+<figcaption aria-hidden="true">image-20240101213727079</figcaption>
+</figure>
+<h3 id="配置日志">配置日志</h3>
+<p>在level可以配置包路径下的日志级别。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101214401890.png" alt="image-20240101214401890">
+<figcaption aria-hidden="true">image-20240101214401890</figcaption>
+</figure>
+<h3 id="自定义配置属性">自定义配置属性</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101214553950.png" alt="image-20240101214553950">
+<figcaption aria-hidden="true">image-20240101214553950</figcaption>
+</figure>
+<p>四个来源：profile、命令行、jvm属性、操作系统环境变量</p>
+<p><span class="citation" data-cites="ConfigurationProperties">@ConfigurationProperties</span>(prefix="taco.orders")注解在Configration、Bean上</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">taco</span><span class="token punctuation">:</span>
+    <span class="token key atrule">orders</span><span class="token punctuation">:</span>
+        <span class="token key atrule">pageSize</span><span class="token punctuation">:</span> <span class="token number">20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><span class="citation" data-cites="Value">@Value</span>("${user.name}")注解在变量上</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">user</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> zhangsan<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>还可以是数组，Map， <span class="citation" data-cites="Value">@Value</span>("${tools}") private String[]
+toolArray;</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">tools</span><span class="token punctuation">:</span> car<span class="token punctuation">,</span>train<span class="token punctuation">,</span>airplane<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="spring-profile">Spring Profile</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101214609872.png" alt="image-20240101214609872">
+<figcaption aria-hidden="true">image-20240101214609872</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101214617844.png" alt="image-20240101214617844">
+<figcaption aria-hidden="true">image-20240101214617844</figcaption>
+</figure>
+<p>application-{profile名}.yml
+同一个yml文件通过3个短线进行分隔多个profile，spring.profiles属性命名profile</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+    <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+        <span class="token key atrule">active</span><span class="token punctuation">:</span> dev
+<span class="token punctuation">---</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+    <span class="token key atrule">profiles</span><span class="token punctuation">:</span> dev
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8081</span>
+<span class="token punctuation">---</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+    <span class="token key atrule">profiles</span><span class="token punctuation">:</span> prod
+<span class="token key atrule">server</span><span class="token punctuation">:</span>
+    <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8082</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>激活profile的方式：</p>
+<ol type="1">
+<li>application.yml中指定spring.profiles.active</li>
+<li>命令行参数：--spring.profiles.active=dev</li>
+<li>jvm参数：-Dspring.profiles.active=dev</li>
+<li><span class="citation" data-cites="Profile注解">@Profile注解</span>（用在@Configration和<span class="citation" data-cites="Bean上">@Bean上</span>）</li>
+</ol>
+<h3 id="actuator">Actuator</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101214806833.png" alt="image-20240101214806833">
+<figcaption aria-hidden="true">image-20240101214806833</figcaption>
+</figure>
+<h3 id="分布式系统的配置数据来源">分布式系统的配置数据来源</h3>
+<p>Spring Cloud Config Server:
+集中管理配置，通过git仓库管理配置文件，客户端通过http请求获取配置</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101215234895.png" alt="image-20240101215234895">
+<figcaption aria-hidden="true">image-20240101215234895</figcaption>
+</figure>
+<h2 id="rest-api">REST API</h2>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102230229014.png" alt="image-20240102230229014">
+<figcaption aria-hidden="true">image-20240102230229014</figcaption>
+</figure>
+<h3 id="rest原则重要">REST原则（重要）</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102230246008.png" alt="image-20240102230246008">
+<figcaption aria-hidden="true">image-20240102230246008</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102230346622.png" alt="image-20240102230346622">
+<figcaption aria-hidden="true">image-20240102230346622</figcaption>
+</figure>
+<p>加了@RestController或<span class="citation" data-cites="ResponseBody则控制器返回客户端的就是json格式串">@ResponseBody则控制器返回客户端的就是json格式串</span>，而之前MVC时候@Controller返回的是一个视图名。</p>
+<p><span class="citation" data-cites="RequestMapping的produces属性的作用是用于索取Response的格式">@RequestMapping的produces属性的作用是用于索取Response的格式</span></p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102230715305.png" alt="image-20240102230715305">
+<figcaption aria-hidden="true">image-20240102230715305</figcaption>
+</figure>
+<h3 id="响应头与响应体">响应头与响应体</h3>
+<p>201状态码：服务端创建了一个新的资源。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102230807341.png" alt="image-20240102230807341">
+<figcaption aria-hidden="true">image-20240102230807341</figcaption>
+</figure>
+<h3 id="接口设计重要">接口设计（重要）</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102231039316.png" alt="image-20240102231039316">
+<figcaption aria-hidden="true">image-20240102231039316</figcaption>
+</figure>
+<h3 id="client">Client</h3>
+<p>RestTemplate: 用于发送HTTP请求，访问REST API</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">RestTemplate</span> <span class="token function">rest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RestTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TacoCloudClient</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">RestTemplate</span> rest<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">URI</span> baseUrl<span class="token punctuation">;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">TacoCloudClient</span><span class="token punctuation">(</span><span class="token class-name">String</span> url<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>baseUrl <span class="token operator">=</span> <span class="token constant">URI</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>rest <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RestTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">Ingredient</span> <span class="token function">getIngredientById</span><span class="token punctuation">(</span><span class="token class-name">String</span> ingredientId<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> rest<span class="token punctuation">.</span><span class="token function">getForObject</span><span class="token punctuation">(</span>baseUrl <span class="token operator">+</span> <span class="token string">"/ingredients/&#123;id&#125;"</span><span class="token punctuation">,</span> <span class="token class-name">Ingredient</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> ingredientId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">Ingredient</span> <span class="token function">addIngredient</span><span class="token punctuation">(</span><span class="token class-name">Ingredient</span> ingredient<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> rest<span class="token punctuation">.</span><span class="token function">postForObject</span><span class="token punctuation">(</span>baseUrl <span class="token operator">+</span> <span class="token string">"/ingredients"</span><span class="token punctuation">,</span> ingredient<span class="token punctuation">,</span> <span class="token class-name">Ingredient</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Ingredient</span> <span class="token function">getIngredientById</span><span class="token punctuation">(</span><span class="token class-name">String</span> ingredientId<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ResponseEntity</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Ingredient</span><span class="token punctuation">></span></span> responseEntity <span class="token operator">=</span> rest<span class="token punctuation">.</span><span class="token function">getForEntity</span><span class="token punctuation">(</span>baseUrl <span class="token operator">+</span> <span class="token string">"/ingredients/&#123;id&#125;"</span><span class="token punctuation">,</span> <span class="token class-name">Ingredient</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> ingredientId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"Fetched time: "</span> <span class="token operator">+</span> responseEntity<span class="token punctuation">.</span><span class="token function">getHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> responseEntity<span class="token punctuation">.</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//exchage: 底层方法，可以设置请求头</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="oauth2">OAuth2</h2>
+<h3 id="授权码授权模式必考">授权码授权模式（必考）</h3>
+<p>9步：</p>
+<ol type="1">
+<li>用户和客户端程序交互</li>
+<li>如果未登录，返回状态码302和重定向的redirect_url，浏览器重定向到授权服务器</li>
+<li>授权服务器向用户询问是否同意授权</li>
+<li>用户同意授权</li>
+<li>授权服务器重定向回到客户端程序，并且携带授权码</li>
+<li>客户端用授权码向授权服务器请求access token</li>
+<li>客户端向资源服务器请求资源（携带access
+token），为了确定签名的合法性，资源服务器会去向授权服务器索取公钥验证签名的合法性。</li>
+<li>资源服务器返回资源</li>
+<li>客户端向用户响应</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231111094845150.png" alt="image-20231111094845150">
+<figcaption aria-hidden="true">image-20231111094845150</figcaption>
+</figure>
+<ol type="1">
+<li>授权服务器：所有的授权都在这边进行。需要我们自己实现。</li>
+<li>资源服务器：是我们需要保护的。</li>
+<li>客户端应用：消费资源服务器上的Rest API。第三方的应用。</li>
+<li>用户</li>
+</ol>
+<p>授权服务器有公钥和私钥，资源服务器向授权服务器获取公钥，验证json web
+token（jwt）的合法性。</p>
+<p>第5步url参数中先返回一个code，第6步客户端再去向授权服务器交换token。</p>
+<h4 id="问题为什么不直接返回token">问题：为什么不直接返回token？</h4>
+<p>中间跳转很多，但是客户端后台的密码一直没有在浏览器间传来传去。后端服务器和授权服务器共享的secret是不会出现在浏览器，因此就算黑客从浏览器的response截获了code，也没有办法获取token。token一直只存储在客户端服务器中，从未出现在浏览器中。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231111115747390.png" alt="image-20231111115747390">
+<figcaption aria-hidden="true">image-20231111115747390</figcaption>
+</figure>
+<p>可以看到授权服务器配置了clientSecret。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231111120528243.png" alt="image-20231111120528243">
+<figcaption aria-hidden="true">image-20231111120528243</figcaption>
+</figure>
+<p>客户端后台在配置文件中也配置了client-secret。使用第三方的时候，你注册过oauth服务就会给你这个secret。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231111120659909.png" alt="image-20231111120659909">
+<figcaption aria-hidden="true">image-20231111120659909</figcaption>
+</figure>
+<h4 id="其他模式">其他模式</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231111104001307.png" alt="image-20231111104001307">
+<figcaption aria-hidden="true">image-20231111104001307</figcaption>
+</figure>
+<h2 id="消息中间件">消息中间件</h2>
+<h3 id="broker">broker</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103092354062.png" alt="image-20240103092354062">
+<figcaption aria-hidden="true">image-20240103092354062</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103092419284.png" alt="image-20240103092419284">
+<figcaption aria-hidden="true">image-20240103092419284</figcaption>
+</figure>
+<h3 id="基于jms编程">基于jms编程</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103092441597.png" alt="image-20240103092441597">
+<figcaption aria-hidden="true">image-20240103092441597</figcaption>
+</figure>
+<p>需要注意的东西有ConnectionFactory、Connection、Session、Destination。这些是Jms规范定义的。</p>
+<p>需要注意连接工厂用的是Activemq实现的工厂。</p>
+<p>ActiveMQ现在也支持AMQP(Advanced Message Queuing Protocol,
+RabbitMQ也支持此协议)，MQTT(Message Queue Telemetry Transport)协议</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103091318323.png" alt="image-20240103091318323">
+<figcaption aria-hidden="true">image-20240103091318323</figcaption>
+</figure>
+<h3 id="消息转换器messageconverter">消息转换器（MessageConverter）</h3>
+<p>typeid告诉了对方这是什么类型，以便于反序列化。</p>
+<p>SimpleMessageConverter:
+只支持基本类型，如String、Integer、Map、List等
+MappingJackson2MessageConverter: 支持JSON格式，需要添加依赖（常用）</p>
+<p>消息包括消息头、属性集和消息体</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103092513934.png" alt="image-20240103092513934">
+<figcaption aria-hidden="true">image-20240103092513934</figcaption>
+</figure>
+<h3 id="发送消息">发送消息</h3>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">JmsTemplate</span> jmsTemplate<span class="token punctuation">;</span>    <span class="token comment">//添加依赖后自动注入</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendOrder1</span><span class="token punctuation">(</span><span class="token class-name">Order</span> order<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    jmsTemplate<span class="token punctuation">.</span><span class="token function">convertAndSend</span><span class="token punctuation">(</span><span class="token string">"tacocloud.order.queue"</span><span class="token punctuation">,</span> order<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token operator">::</span><span class="token function">addOrderSource</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//convertAndSend(destination, message, messagePostProcessor) 消息将被序列化，序列化逻辑在Config中通过@Bean注入Converter</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//如果不提供Destination，则需要在application中配置spring.jms.template.default-destination</span>
+
+<span class="token comment">//处理消息</span>
+<span class="token keyword">private</span> <span class="token class-name">Message</span> <span class="token function">addOrderSource</span><span class="token punctuation">(</span><span class="token class-name">Message</span> message<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">JMSException</span> <span class="token punctuation">&#123;</span>
+    message<span class="token punctuation">.</span><span class="token function">setStringProperty</span><span class="token punctuation">(</span><span class="token string">"X_ORDER_SOURCE"</span><span class="token punctuation">,</span> <span class="token string">"WEB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">//设置消息属性</span>
+    <span class="token keyword">return</span> message<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendOrder2</span><span class="token punctuation">(</span><span class="token class-name">Order</span> order<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    jmsTemplate<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>session <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Message</span> message <span class="token operator">=</span> session<span class="token punctuation">.</span><span class="token function">createObjectMessage</span><span class="token punctuation">(</span>order<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        message<span class="token punctuation">.</span><span class="token function">setStringProperty</span><span class="token punctuation">(</span><span class="token string">"X_ORDER_SOURCE"</span><span class="token punctuation">,</span> <span class="token string">"WEB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> message<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">//比较原始</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="接收消息拉取模式">接收消息：拉取模式</h3>
+<p>需要注意无论是拉取还是推送模式都需要消息转换器。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103092712498.png" alt="image-20240103092712498">
+<figcaption aria-hidden="true">image-20240103092712498</figcaption>
+</figure>
+<h3 id="接收消息推送模式">接收消息：推送模式</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103092745008.png" alt="image-20240103092745008">
+<figcaption aria-hidden="true">image-20240103092745008</figcaption>
+</figure>
+<h3 id="rabbitmq">RabbitMQ</h3>
+<p>支持的协议是AMQP协议。同样需要消息转换器，不过所属的包是不同的。</p>
+<p>要使用先要去rabbit控制台创建交换机、Queue和binding（绑定关系）。<strong>routing
+key和binding key</strong>的概念在jms中是没有的！！！</p>
+<ul>
+<li>ConnectionFactory、Connection、Channel（对应JMS的Session）</li>
+<li>Exchange（交换机）：Default、Direct（根据routing
+key路由到对应Binding的Queue）、Topic、Fanout（广播到所有绑定的Queue）、Headers、Dead
+letter</li>
+<li>Queue</li>
+<li>routing key（来自Sender，消息转发到对应Binding key的Queue）</li>
+<li>Binding key（Queue绑定到交换机的key）</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103093107873.png" alt="image-20240103093107873">
+<figcaption aria-hidden="true">image-20240103093107873</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103092909026.png" alt="image-20240103092909026">
+<figcaption aria-hidden="true">image-20240103092909026</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103092949243.png" alt="image-20240103092949243">
+<figcaption aria-hidden="true">image-20240103092949243</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103093002669.png" alt="image-20240103093002669">
+<figcaption aria-hidden="true">image-20240103093002669</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103093022089.png" alt="image-20240103093022089">
+<figcaption aria-hidden="true">image-20240103093022089</figcaption>
+</figure>
+<h2 id="spring-integration">Spring Integration</h2>
+<h3 id="解决什么问题重要">解决什么问题（重要）</h3>
+<p>解决企业在各个系统之间的交互。</p>
+<h3 id="eipenterprise-integration-patterns企业集成模式">EIP（Enterprise
+Integration Patterns，企业集成模式）</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103093802565.png" alt="image-20240103093802565">
+<figcaption aria-hidden="true">image-20240103093802565</figcaption>
+</figure>
+<h3 id="集成流integration-flow">集成流（integration flow）</h3>
+<p>gateway是集成流的入口，adapter是与外部系统的交界。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103093858539.png" alt="image-20240103093858539">
+<figcaption aria-hidden="true">image-20240103093858539</figcaption>
+</figure>
+<ul>
+<li>Channels（通道）：把消息从一个组件传到另一个</li>
+<li>Filters（过滤器）：判断消息能否进入下一个通道</li>
+<li>Transformers（转换器）：转换消息（值和类型）</li>
+<li>Routers（路由器）：多个输出通道，判断消息被路由到哪个通道</li>
+<li>Splitters（切分器）：把一个消息切分为多个消息输出到多个通道（内置一个路由器）</li>
+<li>Aggregators（聚合器）：把来自多个流的消息聚合为一个消息输出到一个通道</li>
+<li>Service
+activators（服务激活器）：消息会激活一个服务（Handler），可以只有输入通道（集成流到此结束），也可以有输出通道，消息会继续向下流动</li>
+<li>Channel
+adapters（通道适配器）：与外部系统交界，Inbound/Outbound</li>
+<li>Gateways（网关）：消息从外部应用进入集成流的入口，双向网关可以从返回通道得到一个消息</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103093908444.png" alt="image-20240103093908444">
+<figcaption aria-hidden="true">image-20240103093908444</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103093951474.png" alt="image-20240103093951474">
+<figcaption aria-hidden="true">image-20240103093951474</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103094041227.png" alt="image-20240103094041227">
+<figcaption aria-hidden="true">image-20240103094041227</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103094053077.png" alt="image-20240103094053077">
+<figcaption aria-hidden="true">image-20240103094053077</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103094104111.png" alt="image-20240103094104111">
+<figcaption aria-hidden="true">image-20240103094104111</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103094111354.png" alt="image-20240103094111354">
+<figcaption aria-hidden="true">image-20240103094111354</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103094119644.png" alt="image-20240103094119644">
+<figcaption aria-hidden="true">image-20240103094119644</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103094133493.png" alt="image-20240103094133493">
+<figcaption aria-hidden="true">image-20240103094133493</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103094146810.png" alt="image-20240103094146810">
+<figcaption aria-hidden="true">image-20240103094146810</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103094154294.png" alt="image-20240103094154294">
+<figcaption aria-hidden="true">image-20240103094154294</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103094221331.png" alt="image-20240103094221331">
+<figcaption aria-hidden="true">image-20240103094221331</figcaption>
+</figure>
+<h3 id="集成流配置">集成流配置</h3>
+<ol type="1">
+<li>XML配置：定义Gateway接口+编写XML文件</li>
+<li>Java配置：定义Gateway接口+transformer+fileWriter</li>
+<li>DSL(domain specific
+language)配置：Gateway接口+IntegrationFlows类</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">IntegrationFlow</span> <span class="token function">fileWriterFlow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token class-name">IntegrationFlows</span>
+        <span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token class-name">MessageChannels</span><span class="token punctuation">.</span><span class="token function">direct</span><span class="token punctuation">(</span><span class="token string">"textChannel"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token function">transform</span><span class="token punctuation">(</span>t <span class="token operator">-></span> t<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>
+            <span class="token class-name">Files</span>
+            <span class="token punctuation">.</span><span class="token function">outboundAdapter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">fileExistsMode</span><span class="token punctuation">(</span><span class="token class-name">FileExistsMode</span><span class="token punctuation">.</span><span class="token constant">APPEND</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">appendNewLine</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="反应式编程基础">反应式编程基础</h2>
+<p>Reactive Programming:
+反应式编程，异步非阻塞编程，基于事件驱动，数据流动，数据变化时通知订阅者</p>
+<h3 id="命令式-vs-反应式">命令式 vs 反应式</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201193432546.png" alt="image-20231201193432546">
+<figcaption aria-hidden="true">image-20231201193432546</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201193403463.png" alt="image-20231201193403463">
+<figcaption aria-hidden="true">image-20231201193403463</figcaption>
+</figure>
+<p>反应式声明了一个流，流里面有很多环节，每一个环节需要做处理。</p>
+<h3 id="解决什么问题">解决什么问题</h3>
+<ol type="1">
+<li>IO密集型</li>
+<li>同步阻塞式编程：一个请求一个线程，线程池线程有限，线程切换开销大</li>
+<li>管理多线程意味着更高的复杂度</li>
+</ol>
+<p>IO的典型特点就是会有长时间的等待（延迟）。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201194249072.png" alt="image-20231201194249072">
+<figcaption aria-hidden="true">image-20231201194249072</figcaption>
+</figure>
+<h3 id="reactor项目比较重要"><em>Reactor项目（比较重要）</em></h3>
+<ul>
+<li>Reactive Streams:
+制定于2013年的一种规范，旨在提供无阻塞回压的异步流处理标准，定义了异步流处理的接口，规范了流处理的行为，</li>
+<li>Reactor: 一个实现了Reactive
+Streams规范的库，提供了异步流处理的实现，提供了Flux和Mono两个类，Flux表示的是包含0到N个元素的异步序列，Mono表示的是包含0或者1个元素的异步序列</li>
+<li>Spring WebFlux:
+基于Reactor实现，提供了基于反应式编程的Web编程框架，提供类似于MVC的注解编程模型</li>
+</ul>
+<p>Reactive的stream和jdk的stream是不一样的。</p>
+<p>jdk的流是同步的，反应式的流是异步的。</p>
+<p>jdk9也提供了反应式流，叫Flow API。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201195333174.png" alt="image-20231201195333174">
+<figcaption aria-hidden="true">image-20231201195333174</figcaption>
+</figure>
+<h3 id="反应式流规范定义的4个接口非常重要">反应式流规范定义的4个接口（非常重要）</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201195456258.png" alt="image-20231201195456258">
+<figcaption aria-hidden="true">image-20231201195456258</figcaption>
+</figure>
+<ul>
+<li>Publisher:
+发布者，定义了如何生产数据流的接口，包含一个subscribe方法，接收Subscriber作为参数，当Publisher有数据流时，通过Subscriber的onNext方法传递给Subscriber</li>
+<li>Subscriber:
+订阅者，定义了如何消费数据流的接口，包含onSubscribe、onNext、onError、onComplete四个方法，onSubscribe方法接收Subscription作为参数，用于接收Publisher的订阅，onNext方法用于接收Publisher传递的数据，onError方法用于接收Publisher传递的异常，onComplete方法用于接收Publisher传递的完成信号</li>
+<li>Subscription:
+订阅，定义了如何控制数据流的接口，包含request和cancel两个方法，request方法用于请求Publisher传递数据，cancel方法用于取消订阅，一个Subscription对应一个Subscriber。相当于是协调者，协调订阅者和发布者。发布者有数据了就通过subscription告诉订阅者，订阅者通过subscription告诉发布者发送多少数据给它。</li>
+<li>Processor:
+处理器，继承了Publisher和Subscriber接口，既是Publisher也是Subscriber，用于转换数据流</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201210422576.png" alt="image-20231201210422576">
+<figcaption aria-hidden="true">image-20231201210422576</figcaption>
+</figure>
+<h3 id="两个概念flux-mono">两个概念：Flux Mono</h3>
+<ul>
+<li>Flux：包含 0 到 N 个元素的异步序列</li>
+<li>Mono：包含 0 或者 1 个元素的异步序列</li>
+<li>消息：正常的包含元素的消息、序列结束的消息和序列出错的消息</li>
+<li>操作符（Operator）：对流上元素的操作</li>
+</ul>
+<h3 id="操作类型">操作类型</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201210911166.png" alt="image-20231201210911166">
+<figcaption aria-hidden="true">image-20231201210911166</figcaption>
+</figure>
+<p>Flux和Mono的操作都是一样的，所以就用Flux举例了。</p>
+<h3 id="创建flux">创建Flux</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201210949029.png" alt="image-20231201210949029">
+<figcaption aria-hidden="true">image-20231201210949029</figcaption>
+</figure>
+<p>一个简单的创建和消费的例子。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201211356237.png" alt="image-20231201211356237">
+<figcaption aria-hidden="true">image-20231201211356237</figcaption>
+</figure>
+<p>下面的作用是进行一个订阅。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201211524069.png" alt="image-20231201211524069">
+<figcaption aria-hidden="true">image-20231201211524069</figcaption>
+</figure>
+<p>基于jdk的list和stream创建flux。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201211739735.png" alt="image-20231201211739735">
+<figcaption aria-hidden="true">image-20231201211739735</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201211747796.png" alt="image-20231201211747796">
+<figcaption aria-hidden="true">image-20231201211747796</figcaption>
+</figure>
+<p>按照一定时间间隔生成flux。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201211703341.png" alt="image-20231201211703341">
+<figcaption aria-hidden="true">image-20231201211703341</figcaption>
+</figure>
+<h3 id="组合flux流">组合Flux流</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201212758156.png" alt="image-20231201212758156">
+<figcaption aria-hidden="true">image-20231201212758156</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201212817537.png" alt="image-20231201212817537">
+<figcaption aria-hidden="true">image-20231201212817537</figcaption>
+</figure>
+<h3 id="过滤flux流">过滤Flux流</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201213139879.png" alt="image-20231201213139879">
+<figcaption aria-hidden="true">image-20231201213139879</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201213146167.png" alt="image-20231201213146167">
+<figcaption aria-hidden="true">image-20231201213146167</figcaption>
+</figure>
+<h3 id="转换flux流">转换Flux流</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201213854596.png" alt="image-20231201213854596">
+<figcaption aria-hidden="true">image-20231201213854596</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201213934549.png" alt="image-20231201213934549">
+<figcaption aria-hidden="true">image-20231201213934549</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201213959188.png" alt="image-20231201213959188">
+<figcaption aria-hidden="true">image-20231201213959188</figcaption>
+</figure>
+<p>flatmap返回出来的也是一个流，map返回的则是一个具体的数据。</p>
+<p>flatMap与map相比转换出来的是一个Mono。flatMap可以使得每个处理并行处理（异步），并且你可以控制是否异步。由于flatMap是并发的处理，因此流上的顺序是不可控的。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201214450940.png" alt="image-20231201214450940">
+<figcaption aria-hidden="true">image-20231201214450940</figcaption>
+</figure>
+<h3 id="逻辑操作">逻辑操作</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231201215404207.png" alt="image-20231201215404207">
+<figcaption aria-hidden="true">image-20231201215404207</figcaption>
+</figure>
+<h3 id="类消息">3类消息</h3>
+<p>目前学过3种消息：反应式编程的消息，Spring
+Integration的消息，消息队列rabbitmq等的消息。</p>
+<p>区别：</p>
+<p>rabbitmq因为消息是远程传输，所以一定需要给它序列化和反序列化。而其余两种都是内部的消息流动，所以不需要序列化和反序列化。Spring
+Integration的消息是有消息头和消息体的。</p>
+<h2 id="spring-webflux">Spring WebFlux</h2>
+<h3 id="异步web框架的事件轮询event-looping机制">异步Web框架的事件轮询（event
+looping）机制</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231207185505701.png" alt="image-20231207185505701">
+<figcaption aria-hidden="true">image-20231207185505701</figcaption>
+</figure>
+<h3 id="spring-mvc与spring-webflux的共性与不同">Spring MVC与Spring
+WebFlux的共性与不同</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231207190314235.png" alt="image-20231207190314235">
+<figcaption aria-hidden="true">image-20231207190314235</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231207190401870.png" alt="image-20231207190401870">
+<figcaption aria-hidden="true">image-20231207190401870</figcaption>
+</figure>
+<p>端到端全部是反应式的。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231207190538482.png" alt="image-20231207190538482">
+<figcaption aria-hidden="true">image-20231207190538482</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103103023856.png" alt="image-20240103103023856">
+<figcaption aria-hidden="true">image-20240103103023856</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103103033270.png" alt="image-20240103103033270">
+<figcaption aria-hidden="true">image-20240103103033270</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103103058363.png" alt="image-20240103103058363">
+<figcaption aria-hidden="true">image-20240103103058363</figcaption>
+</figure>
+<h3 id="rest-api-1">REST API</h3>
+<p>与MVC架构类似</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/flux"</span><span class="token punctuation">,</span> produces <span class="token operator">=</span> <span class="token class-name">MediaType</span><span class="token punctuation">.</span><span class="token constant">TEXT_EVENT_STREAM_VALUE</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token class-name">Flux</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">produceFlux</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">Flux</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> stringFlux <span class="token operator">=</span> <span class="token class-name">Flux</span><span class="token punctuation">.</span><span class="token function">fromStream</span><span class="token punctuation">(</span><span class="token class-name">IntStream</span><span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mapToObj</span><span class="token punctuation">(</span>i<span class="token operator">-></span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">SECONDS</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" in Supplier thread: "</span> <span class="token operator">+</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token string">"java north flux："</span><span class="token operator">+</span>i<span class="token operator">+</span><span class="token string">", date time: "</span><span class="token operator">+</span><span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"thread: "</span> <span class="token operator">+</span> <span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">", time:"</span> <span class="token operator">+</span> <span class="token class-name">LocalDateTime</span><span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> stringFlux<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>当发送请求时，后端终端将先打印<code>"thread: " + Thread.currentThread().getName() + ", time:" + LocalDateTime.now()</code></strong>，因为Flux已经返回了，但还没触发operate</p>
+<h3 id="server">Server</h3>
+<p>HandlerFunction: 处理请求，返回Mono或Flux</p>
+<p>RouterFunction:
+路由，将请求映射到HandlerFunction（代替@RequestMapping注解）</p>
+<p>route(RequestPredicate, HandlerFunction)</p>
+<p>HandlerFunction(handle函数): ServerRequest -&gt;
+Mono<ServerResponse></ServerResponse></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloHandler</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Mono</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ServerResponse</span><span class="token punctuation">></span></span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token class-name">ServerRequest</span> request<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">ok</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span><span class="token class-name">BodyInserters</span><span class="token punctuation">.</span><span class="token function">fromValue</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">RouterFunction</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ServerResponse</span><span class="token punctuation">></span></span> <span class="token function">route</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token function">route</span><span class="token punctuation">(</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+        request <span class="token operator">-></span> <span class="token function">ok</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span><span class="token class-name">BodyInserters</span><span class="token punctuation">.</span><span class="token function">fromValue</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andRoute</span><span class="token punctuation">(</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"/hello2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">and</span><span class="token punctuation">(</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token class-name">MediaType</span><span class="token punctuation">.</span><span class="token constant">APPLICATION_JSON</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+        request <span class="token operator">-></span> <span class="token function">ok</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span><span class="token function">just</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">andRoute</span><span class="token punctuation">(</span><span class="token function">GET</span><span class="token punctuation">(</span><span class="token string">"/hello3"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        helloHandler<span class="token operator">::</span><span class="token function">hello</span><span class="token punctuation">;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="client-1">Client</h3>
+<p>WebClient: 发送请求，返回Mono或Flux，类似于RestTemplate</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloClient</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">WebClient</span> client<span class="token punctuation">;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">HelloClient</span><span class="token punctuation">(</span><span class="token class-name">WebClient<span class="token punctuation">.</span>Builder</span> builder<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>client <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">baseUrl</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8080"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    
+    <span class="token keyword">public</span> <span class="token class-name">Mono</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> client<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">uri</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token class-name">MediaType</span><span class="token punctuation">.</span><span class="token constant">APPLICATION_JSON</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">retrieve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bodyToMono</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">ConfigurableApplicationContext</span> context <span class="token operator">=</span> <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">HelloClient</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">HelloClient</span> client <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token class-name">HelloClient</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        client<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="test">Test</h3>
+<p>WebTestClient: 测试请求，返回Mono或Flux</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span><span class="token punctuation">(</span>webEnvironment <span class="token operator">=</span> <span class="token class-name">SpringBootTest<span class="token punctuation">.</span>WebEnvironment</span><span class="token punctuation">.</span><span class="token constant">RANDOM_PORT</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloHandlerTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">WebTestClient</span> client<span class="token punctuation">;</span>
+    
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        client<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">uri</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token class-name">MediaType</span><span class="token punctuation">.</span><span class="token constant">APPLICATION_JSON</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">exchange</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">expectStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isOk</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">expectBody</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isEqualTo</span><span class="token punctuation">(</span><span class="token string">"Hello World"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="docker">Docker</h2>
+<h3 id="什么是容器">什么是容器？</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223090622986.png" alt="image-20231223090622986">
+<figcaption aria-hidden="true">image-20231223090622986</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223090655960.png" alt="image-20231223090655960">
+<figcaption aria-hidden="true">image-20231223090655960</figcaption>
+</figure>
+<h3 id="必考问答题docker的三部分">必考问答题：Docker的三部分</h3>
+<ol type="1">
+<li>Docker engine：又叫docker
+daemon，是最核心的部分，是docker的服务端，负责管理容器的生命周期、镜像、network、volume等等资源。</li>
+<li>client：客户端，是一个命令行程序，负责和docker daemon交互。</li>
+<li>registry：容器的镜像仓库，负责管理容器镜像。</li>
+</ol>
+<h3 id="docker-run命令重要">docker run命令（重要）</h3>
+<p>需要记住一些参数</p>
+<p>-p 端口号的顺序，冒号左边是宿主机的端口号，右边是容器的端口</p>
+<p>-v 冒号左边是宿主机的目录，右边是容器的目录</p>
+<p>-d 是在后端运行容器</p>
+<p>-it 是命令行交互方式运行容器</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223091512767.png" alt="image-20231223091512767">
+<figcaption aria-hidden="true">image-20231223091512767</figcaption>
+</figure>
+<p>如何查容器的ip地址？</p>
+<p>容器中：<code>cat /etc/hosts</code>, <code>ip a</code></p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223091720175.png" alt="image-20231223091720175">
+<figcaption aria-hidden="true">image-20231223091720175</figcaption>
+</figure>
+<p>推荐使用vscode的docker插件来进行docker开发管理，非常方便。</p>
+<h3 id="镜像分层">镜像分层</h3>
+<p>写时复制，只有在容器中修改了文件，才会在容器中创建新的文件层，否则使用镜像层。</p>
+<p>docker history {image}: 查看镜像分层及生成过程</p>
+<p>dangling images: 无标签的镜像</p>
+<p>docker image prune: 清理无用镜像</p>
+<p>docker container prune: 清理无用容器</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223111808996.png" alt="image-20231223111808996">
+<figcaption aria-hidden="true">image-20231223111808996</figcaption>
+</figure>
+<h3 id="三种挂载方式">三种挂载方式</h3>
+<p>如果是宿主机目录直接挂载，必须为绝对路径</p>
+<p>docker run -v {hostDir}:{containerDir} {image}: 挂载目录</p>
+<p>docker volume create {volume}: 创建卷</p>
+<p>docker run -v {volume}:{containerDir} {image}: 挂载volume</p>
+<p>tmpfs: 内存挂载，docker run --tmpfs {containerDir} {image}</p>
+<h3 id="volume数据卷">Volume数据卷</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223112043459.png" alt="image-20231223112043459">
+<figcaption aria-hidden="true">image-20231223112043459</figcaption>
+</figure>
+<p>tmpfs如果容器挂了你的数据就丢了。要想持久化可以用volume或bind
+mounts。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223112351676.png" alt="image-20231223112351676">
+<figcaption aria-hidden="true">image-20231223112351676</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223092308827.png" alt="image-20231223092308827">
+<figcaption aria-hidden="true">image-20231223092308827</figcaption>
+</figure>
+<h2 id="容器镜像构建与编排">容器镜像构建与编排</h2>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230090532921.png" alt="image-20231230090532921">
+<figcaption aria-hidden="true">image-20231230090532921</figcaption>
+</figure>
+<h3 id="dockerfile文件的指令">Dockerfile文件的指令</h3>
+<p>重要的几个，FROM、ADD、COPY（要知道ADD和COPY的区别）</p>
+<p>docker build -t {image}:{tag} {DockerfileDir}: 构建镜像</p>
+<p>docker run -d -p {hostPort}:{containerPort} {image}:{tag}:
+运行镜像</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230090712799.png" alt="image-20231230090712799">
+<figcaption aria-hidden="true">image-20231230090712799</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230092209859.png" alt="image-20231230092209859">
+<figcaption aria-hidden="true">image-20231230092209859</figcaption>
+</figure>
+<p>注意生成镜像指令还有最后一个参数 .</p>
+<p>代表上下文的环境</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230092252877.png" alt="image-20231230092252877">
+<figcaption aria-hidden="true">image-20231230092252877</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230092505779.png" alt="image-20231230092505779">
+<figcaption aria-hidden="true">image-20231230092505779</figcaption>
+</figure>
+<h3 id="镜像分层-1">镜像分层</h3>
+<p>感觉不重要</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230092521035.png" alt="image-20231230092521035">
+<figcaption aria-hidden="true">image-20231230092521035</figcaption>
+</figure>
+<h3 id="docker-compose常用命令">docker-compose常用命令</h3>
+<p>注意up、ps这些指令</p>
+<p>需要注意docker-compose
+ps/images显示的是你compose编排的容器和镜像，不是整个docker环境的</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230092536844.png" alt="image-20231230092536844">
+<figcaption aria-hidden="true">image-20231230092536844</figcaption>
+</figure>
+<h2 id="k8s">k8s</h2>
+<p>复习的时候记住k8s调度的最小单元是Pod，还有Pod、ingress、service、deployment的资源（主要了解service和ingress，ingress不可以路由到pod，只能路由到service，service有一个集群ip，这个ip是不变的，我们可以通过集群ip或服务名访问到服务，注意pod的ip可能是变的，所以用service的ip）。还有一个autoscale命令需要了解。</p>
+<h3 id="k8s基本架构">k8s基本架构</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230094419426.png" alt="image-20231230094419426">
+<figcaption aria-hidden="true">image-20231230094419426</figcaption>
+</figure>
+<p>Node就是指docker的宿主机，k8s在其中一个节点上部署k8s的master，这个节点就是master节点。余下的其他节点是提供容器的节点，所以需要在上面安装docker，这样就组成了集群的环境。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230094625690.png" alt="image-20231230094625690">
+<figcaption aria-hidden="true">image-20231230094625690</figcaption>
+</figure>
+<p>master节点我们需要装Scheduler和Controller，在Node上装kubelet和kube-proxy，通过kebulet和master节点交互。flannel是容器网络的一个第三方的实现，提供虚拟的网络。etcd是一个类似redis的缓存的系统，分布式系统需要一个集中的数据存储，因此使用etcd（同时它也可以是分布式的，做主从复制这些）。</p>
+<h3 id="k8s中的资源">k8s中的资源</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230095004919.png" alt="image-20231230095004919">
+<figcaption aria-hidden="true">image-20231230095004919</figcaption>
+</figure>
+<p>Ingress相当于k8s的网关。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230100221769.png" alt="image-20231230100221769">
+<figcaption aria-hidden="true">image-20231230100221769</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230100229139.png" alt="image-20231230100229139">
+<figcaption aria-hidden="true">image-20231230100229139</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230100341599.png" alt="image-20231230100341599">
+<figcaption aria-hidden="true">image-20231230100341599</figcaption>
+</figure>
+<h4 id="pod">Pod</h4>
+<p><strong>Pod是k8s调度的最小单元</strong>，k8s不是以容器为单元而是以Pod为单元。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230100503115.png" alt="image-20231230100503115">
+<figcaption aria-hidden="true">image-20231230100503115</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230105854402.png" alt="image-20231230105854402">
+<figcaption aria-hidden="true">image-20231230105854402</figcaption>
+</figure>
+<h4 id="service">service</h4>
+<p>这张图清晰的解释了service和pod的关系。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230111821199.png" alt="image-20231230111821199">
+<figcaption aria-hidden="true">image-20231230111821199</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230111853146.png" alt="image-20231230111853146">
+<figcaption aria-hidden="true">image-20231230111853146</figcaption>
+</figure>
+<h4 id="ingress">Ingress</h4>
+<p>相当于路由，指定域名映射到指定service的端口</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230102942864.png" alt="image-20231230102942864">
+<figcaption aria-hidden="true">image-20231230102942864</figcaption>
+</figure>
+<h4 id="deployment">deployment</h4>
+<p>deployment相比于run是一个声明式的部署。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230105746574.png" alt="image-20231230105746574">
+<figcaption aria-hidden="true">image-20231230105746574</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230111153260.png" alt="image-20231230111153260">
+<figcaption aria-hidden="true">image-20231230111153260</figcaption>
+</figure>
+<p>想记录和查看历史版本在create和set的时候要加上--record参数。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230111343820.png" alt="image-20231230111343820">
+<figcaption aria-hidden="true">image-20231230111343820</figcaption>
+</figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Kiyotaka Wang</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hmwang2002/github.io/2024/01/11/fu-wu-duan-kai-fa-fu-xi/">https://hmwang2002/github.io/2024/01/11/fu-wu-duan-kai-fa-fu-xi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Kiyotaka Wang</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/">
+                                    <span class="chip bg-color">服务端开发2023秋</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/11/ren-ji-jiao-hu-xi-tong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="人机交互系统">
+                        
+                        <span class="card-title">人机交互系统</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F2023%E7%A7%8B/" class="post-category">
+                                    人机交互系统2023秋
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F2023%E7%A7%8B/">
+                        <span class="chip bg-color">人机交互系统2023秋</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/07/17/chu-xue-zookeeper/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="初学ZooKeeper">
+                        
+                        <span class="card-title">初学ZooKeeper</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                    微服务
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                        <span class="chip bg-color">微服务</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <span id="year">2022</span>
+            <a href="/about" target="_blank">Kiyotaka Wang</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">68.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hmwang2002" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

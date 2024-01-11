@@ -1,0 +1,2116 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="人机交互系统, NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
+    <meta name="description" content="南京大学 | 软件学院">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>人机交互系统 | Kiyotaka Wang的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Kiyotaka Wang的博客" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/favicon.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Kiyotaka Wang的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/favicon.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Kiyotaka Wang的博客</div>
+        <div class="logo-desc">
+            
+            南京大学 | 软件学院
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/hmwang2002" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/hmwang2002" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">人机交互系统</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F2023%E7%A7%8B/">
+                                <span class="chip bg-color">人机交互系统2023秋</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F2023%E7%A7%8B/" class="post-category">
+                                人机交互系统2023秋
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.3k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="人机复习">人机复习</h1>
+<h2 id="人机交互概述">人机交互概述</h2>
+<h3 id="什么是人机交互">什么是人机交互</h3>
+<p>HCI是一门与人类使用的交互式计算系统的设计、评估和实施有关的学科，并且研究了它们周围的主要现象。</p>
+<h4 id="重要性">重要性</h4>
+<p>市场角度</p>
+<ul>
+<li>用户期望简单易用的系统</li>
+<li>对设计低劣系统的容忍度越来越差</li>
+</ul>
+<p>企业角度</p>
+<ul>
+<li>提高员工的生产效率</li>
+<li>降低产品的开发成本</li>
+<li>降低产品的后续支持成本</li>
+</ul>
+<p>用户角度</p>
+<ul>
+<li>获得较高的主观满意度</li>
+<li>减少时间、金钱、生命损失</li>
+</ul>
+<h4 id="相关领域">相关领域</h4>
+<h3 id="人机交互的发展历史">人机交互的发展历史</h3>
+<ul>
+<li><strong>旧的交互形式作为特例保存下来</strong></li>
+</ul>
+<p>主要发展阶段（4个）及时代特点。注：不是后面的阶段出现前面的阶段就消失了。</p>
+<ol type="1">
+<li>批处理卡片</li>
+<li>命令行终端</li>
+<li>图形界面：特征：直接操纵</li>
+<li>多通道用户界面</li>
+</ol>
+<p>问题：图形用户界面优于字符界面？不同的交互方式本身在可用性方面并没有根本性的不同，更重要的是认真对待界面设计的态度。【Whiteside
+1985】</p>
+<p>问题：我们当前的交互时代是？GUI Graphical User
+Interface图形用户界面时期</p>
+<h3 id="人机交互与软件工程">人机交互与软件工程</h3>
+<ul>
+<li>前者是对后者的促进和补充</li>
+<li>二者结合存在许多困难</li>
+</ul>
+<h4 id="相互独立">相互独立？</h4>
+<ol type="1">
+<li>软件工程师与人机交互设计人员关注的重点有很大不同：以功能为中心 vs
+以用户为中心</li>
+<li>交互设计的评估方式也与一般软件工程方法存在不同</li>
+<li>二者经常分开讨论</li>
+</ol>
+<figure>
+<img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/lec1/4.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h4 id="hci对se的促进作用">HCI对SE的促进作用</h4>
+<ol type="1">
+<li>传统SE方法在实现交互式系统方面的缺陷
+<ul>
+<li>没有提出明确地对用户界面及可用性需求进行描述的方法</li>
+<li>不能够在系统开发过程进行中对用户界面进行终端测试</li>
+<li>具有完善的系统功能：产品的可用性、有效性以及满意度并不高</li>
+</ul></li>
+</ol>
+<h4 id="二者在系统工程中的关系">二者在系统工程中的关系</h4>
+<figure>
+<img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/lec1/5.png" alt="img">
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h4 id="将二者结合的困难">将二者结合的困难</h4>
+<ol type="1">
+<li>价值观不同
+<ul>
+<li>SE：实施策略和方法选择上常有一定的倾向性</li>
+<li>HCI：包含较多的主观性和灵活性</li>
+</ul></li>
+<li>方法论存在差异
+<ul>
+<li>SE：形式化分析方法</li>
+<li>HCI：非形式化方法</li>
+</ul></li>
+</ol>
+<h2 id="人机交互基础知识">人机交互基础知识</h2>
+<h3 id="交互框架">交互框架</h3>
+<p>作用：</p>
+<ol type="1">
+<li>提供理解或定义某种事物的一种结构</li>
+<li>能够帮助人们结构化设计过程</li>
+<li>认识设计过程中的主要问题</li>
+<li>还有助于定义问题所涉及的领域</li>
+</ol>
+<h4 id="执行评估活动周期eec">执行评估/活动周期EEC</h4>
+<ul>
+<li><p>最有影响力的框架</p></li>
+<li><p>定义了活动的四个组成部分</p>
+<ul>
+<li><p>目标（Goal）不等于
+意图（Intention）：单个目标可对应多个意图</p></li>
+<li><p>执行（Execution）</p></li>
+<li><p>客观因素（World）</p></li>
+<li><p>评估（Evaluation）</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-21%2019.52.28.png" alt="截屏2023-12-21 19.52.28">
+<figcaption aria-hidden="true">截屏2023-12-21 19.52.28</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-21%2020.00.08.png" alt="截屏2023-12-21 20.00.08">
+<figcaption aria-hidden="true">截屏2023-12-21 20.00.08</figcaption>
+</figure></li>
+</ul></li>
+</ul>
+<h3 id="交互形式重点关注">交互形式（重点关注）</h3>
+<ul>
+<li>直接操纵、隐喻、问答</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103230746185.png" alt="image-20240103230746185">
+<figcaption aria-hidden="true">image-20240103230746185</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103230821928.png" alt="image-20240103230821928">
+<figcaption aria-hidden="true">image-20240103230821928</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103230902917.png" alt="image-20240103230902917">
+<figcaption aria-hidden="true">image-20240103230902917</figcaption>
+</figure>
+<h3 id="信息处理模型">信息处理模型</h3>
+<h4 id="人类处理机模式">人类处理机模式</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231220222931418.png" alt="image-20231220222931418">
+<figcaption aria-hidden="true">image-20231220222931418</figcaption>
+</figure>
+<p>包含3个交互式组件</p>
+<ol type="1">
+<li>感知处理器：信息将被输出到声音存储和视觉存储区域</li>
+<li>认知处理器：输入将被输出到工作记忆</li>
+<li>动作处理器：执行动作</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231220223758199.png" alt="image-20231220223758199">
+<figcaption aria-hidden="true">image-20231220223758199</figcaption>
+</figure>
+<h4 id="格式塔心理学">格式塔心理学</h4>
+<ol type="1">
+<li>研究人是如何感知一个良好组织的模式的，而不是将其视为一系列相互独立的部分：事物的整体区别于部分的组合。</li>
+<li>“Gestalt”
+<ul>
+<li>德语，“完型（configuration）”或“型式（pattern）”</li>
+<li>格式塔心理学又称完形心理学</li>
+</ul></li>
+<li>表明
+<ul>
+<li>用户在感知事物的时候总是尽可能将其视为一个“好”的型式</li>
+<li>相近性原则、相似性原则、连续性原则、对称性原则、完整性和闭合性原则</li>
+</ul></li>
+</ol>
+<h5 id="格式塔心理学有几个原则可能会让你去说说">格式塔心理学，有几个原则可能会让你去说说</h5>
+<ol type="1">
+<li>相近性原则：空间上比较靠近的物体容易被视为整体：设计界面时，应按照相关性对组件进行分组</li>
+<li>相似性原则：人们习惯将看上去相似的物体看成一个整体：功能相近的组件应该使用相同或相近的表现形式</li>
+<li>连续性原则：共线或具有相同方向的物体会被组合在一起：将组件对齐，更有助于增强用户的主观感知效果</li>
+<li>对称性原则：相互对称且能够组合为有意义单元的物体会被组合在一起。<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231220225742643.png" alt="image-20231220225742643"></li>
+<li>完整和闭合性原则：人们倾向于忽视轮廓的间隙而将其视作一个完整的整体：页面上的空白可帮助实现分组</li>
+</ol>
+<h4 id="记忆特性">记忆特性</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231220230325260.png" alt="image-20231220230325260">
+<figcaption aria-hidden="true">image-20231220230325260</figcaption>
+</figure>
+<ol type="1">
+<li><p>感觉记忆</p>
+<ol type="1">
+<li>又称瞬时记忆</li>
+<li>在人脑中持续约为1秒钟</li>
+<li>帮助我们把相继出现的一组图片组合成一个连续的图像序列，产生动态的影像信息</li>
+</ol></li>
+<li><p>短时记忆</p>
+<ol type="1">
+<li>感觉记忆经编码后形成</li>
+<li>又称工作记忆，约保持30秒</li>
+<li>储存的是当前正在使用的信息，是信息加工系统的核心，可理解为计算机的内存</li>
+<li>短时记忆的存储能力约为7±2个信息单元</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231220230524093.png" alt="image-20231220230524093">
+<figcaption aria-hidden="true">image-20231220230524093</figcaption>
+</figure>
+<ol start="3" type="1">
+<li><p>长时记忆</p>
+<ul>
+<li><p>短时记忆-&gt;长时记忆</p>
+<ol type="1">
+<li><p>短时记忆中的信息经进一步加工后会变为长时记忆</p></li>
+<li><p>只有与长时记忆区的信息具有某种联系的新信息才能够进入长时记忆</p></li>
+</ol></li>
+<li><p>长时记忆的信息容量几乎是无限的</p></li>
+<li><p>启发</p>
+<ol type="1">
+<li>注意使用线索来引导用户完成特定任务</li>
+<li>在追求独特的创新设计时也应注重结合优秀的交互范型</li>
+</ol></li>
+<li><p>遗忘</p>
+<ol type="1">
+<li><p>长时记忆中的信息有时是无法提取</p></li>
+<li><p>不代表长时记忆区的信息丢失了</p></li>
+</ol></li>
+<li><p>易出错</p>
+<ol type="1">
+<li><p>“人为错误”被定义为“人未发挥自身所具备的功能而产生的失误，它可能降低交互系统的功能”</p></li>
+<li><p>从表面上看是由于用户的误解、误操作或一时大意</p></li>
+<li><p>大部分交互问题都源于系统设计本身</p></li>
+</ol></li>
+</ul></li>
+</ol></li>
+</ol>
+<h3 id="交互设备应该不重要">交互设备（应该不重要）</h3>
+<p>命令行交互、菜单驱动界面、基于表格的界面、直接操纵、问答界面Wizard、隐喻界面、自然语言交互、其他交互形式（虚拟现实交互、增强现实/混合现实、触觉交互、手势/体感交互、笔式交互、脑机交互）</p>
+<h2 id="交互设计目标与原则">交互设计目标与原则</h2>
+<h3 id="可用性目标重要">可用性目标（重要）</h3>
+<p>目的是为交互人员提供一个评估交互式产品和用户体验各方面的具体方法。</p>
+<p>5个属性：</p>
+<ol type="1">
+<li>易学性</li>
+<li>易记性</li>
+<li>效用性</li>
+<li>高效率</li>
+<li>安全性</li>
+</ol>
+<h4 id="易学性">易学性</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2017.55.09.png" alt="截屏2023-12-23 17.55.09">
+<figcaption aria-hidden="true">截屏2023-12-23 17.55.09</figcaption>
+</figure>
+<h4 id="易记性">易记性</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2017.57.40.png" alt="截屏2023-12-23 17.57.40">
+<figcaption aria-hidden="true">截屏2023-12-23 17.57.40</figcaption>
+</figure>
+<h4 id="效用性">效用性</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2019.22.45.png" alt="截屏2023-12-23 19.22.45">
+<figcaption aria-hidden="true">截屏2023-12-23 19.22.45</figcaption>
+</figure>
+<h4 id="高效率">高效率</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2019.23.29.png" alt="截屏2023-12-23 19.23.29">
+<figcaption aria-hidden="true">截屏2023-12-23 19.23.29</figcaption>
+</figure>
+<h4 id="安全性">安全性</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2019.26.04.png" alt="截屏2023-12-23 19.26.04">
+<figcaption aria-hidden="true">截屏2023-12-23 19.26.04</figcaption>
+</figure>
+<h3 id="用户体验目标">用户体验目标</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2019.59.22.png" alt="截屏2023-12-23 19.59.22">
+<figcaption aria-hidden="true">截屏2023-12-23 19.59.22</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2020.02.19.png" alt="截屏2023-12-23 20.02.19">
+<figcaption aria-hidden="true">截屏2023-12-23 20.02.19</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2020.05.03.png" alt="截屏2023-12-23 20.02.36">
+<figcaption aria-hidden="true">截屏2023-12-23 20.02.36</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2020.05.20.png" alt="截屏2023-12-23 20.05.20">
+<figcaption aria-hidden="true">截屏2023-12-23 20.05.20</figcaption>
+</figure>
+<h3 id="简易可用性工程">简易可用性工程</h3>
+<h4 id="特点">特点</h4>
+<ul>
+<li>以提高产品的可用性为目标的先进的产品开发方法论</li>
+<li>借鉴了许多不同领域的方法和技术</li>
+<li>强调以人为中心来进行交互式产品的设计研发</li>
+</ul>
+<h4 id="历史">历史</h4>
+<ul>
+<li>上世纪80年代获得工业应用</li>
+<li>90年代得到迅速普及</li>
+</ul>
+<h4 id="实例">实例</h4>
+<p>IBM公司：“可用性方面的投入是一本万利的”</p>
+<p>MS已有14个可用性实验室近200名可用性专业员工</p>
+<h4 id="四种主要技术">四种主要技术</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2020.09.07.png" alt="截屏2023-12-23 20.09.07">
+<figcaption aria-hidden="true">截屏2023-12-23 20.09.07</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-23%2020.16.00.png" alt="截屏2023-12-23 20.16.00">
+<figcaption aria-hidden="true">截屏2023-12-23 20.16.00</figcaption>
+</figure>
+<h3 id="交互设计原则">交互设计原则</h3>
+<h4 id="启发式原则-十项">启发式原则 ：十项</h4>
+<ol type="1">
+<li>系统状态的可见度<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231052034.png" alt="image-20231223231052034"></li>
+<li>系统和现实世界的吻合<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231221263.png" alt="image-20231223231221263"></li>
+<li>用户享有控制权和自主权<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231302744.png" alt="image-20231223231302744"></li>
+<li>一致性和标准化<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231346132.png" alt="image-20231223231346132"></li>
+<li>避免出错<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231444291.png" alt="image-20231223231444291"></li>
+<li>依赖识别而非记忆<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231453197.png" alt="image-20231223231453197"></li>
+<li>使用的灵活性和高效性<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231549368.png" alt="image-20231223231549368"></li>
+<li>审美感和最小化设计<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231732321.png" alt="image-20231223231732321"></li>
+<li>帮助用户识别、诊断和恢复错误<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231713732.png" alt="image-20231223231713732"></li>
+<li>帮助和文档<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223231703056.png" alt="image-20231223231703056"></li>
+</ol>
+<h4 id="黄金规则">黄金规则</h4>
+<ol type="1">
+<li>尽可能保证一致<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223225308925.png" alt="image-20231223225308925"></li>
+<li>符合普遍可用性<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223225408159.png" alt="image-20231223225408159"></li>
+<li>提供信息丰富的反馈<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223230014638.png" alt="image-20231223230014638"></li>
+<li>设计说明对话框以生成结束信息<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223230029421.png" alt="image-20231223230029421"></li>
+<li>预防并处理错误<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223230102000.png" alt="image-20231223230102000"></li>
+<li>让操作容易撤销<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223230207174.png" alt="image-20231223230207174"></li>
+<li>支持内部控制点<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223230300441.png" alt="image-20231223230300441"></li>
+<li>减轻短时记忆负担<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231223230311925.png" alt="image-20231223230311925"></li>
+</ol>
+<h4 id="七项原理">七项原理</h4>
+<p>TODO</p>
+<p><strong>设计过程取消掉了</strong></p>
+<h2 id="交互式系统的需求">交互式系统的需求</h2>
+<p>产品特性、用户特性、用户建模（人物角色）</p>
+<h3 id="产品特性">产品特性</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230145351150.png" alt="image-20231230145351150">
+<figcaption aria-hidden="true">image-20231230145351150</figcaption>
+</figure>
+<h3 id="用户特性">用户特性</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230145512759.png" alt="image-20231230145512759">
+<figcaption aria-hidden="true">image-20231230145512759</figcaption>
+</figure>
+<h3 id="用户建模">用户建模</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230150142277.png" alt="image-20231230150142277">
+<figcaption aria-hidden="true">image-20231230150142277</figcaption>
+</figure>
+<h4 id="人物角色的作用">人物角色的作用</h4>
+<p>解决产品开发过程中出现的3个设计问题</p>
+<ul>
+<li>弹性用户
+<ul>
+<li>为弹性用户设计赋予了开发者根据自己的意愿编码，而仍然能够为“用户”服务的许可</li>
+<li>如设计医院产品时，考虑设计能够满足所有护士的产品</li>
+</ul></li>
+<li>自参考设计
+<ul>
+<li>设计者或者程序员将其自己的目标、动机、技巧及心智模型投射到产品的设计中</li>
+</ul></li>
+<li>边缘情况设计
+<ul>
+<li>必须考虑边缘情况，但它们又不应该成为设计的关注点</li>
+<li>问：A会经常进行这种操作吗？</li>
+</ul></li>
+</ul>
+<h4 id="人物角色的构造">人物角色的构造</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230150839075.png" alt="image-20231230150839075">
+<figcaption aria-hidden="true">image-20231230150839075</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230150846411.png" alt="image-20231230150846411">
+<figcaption aria-hidden="true">image-20231230150846411</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230151456984.png" alt="image-20231230151456984">
+<figcaption aria-hidden="true">image-20231230151456984</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230151504838.png" alt="image-20231230151504838">
+<figcaption aria-hidden="true">image-20231230151504838</figcaption>
+</figure>
+<h4 id="建模过程">建模过程</h4>
+<ul>
+<li>拼凑：采用头脑风暴方法，产生一些零碎概念或模型的片段，先不去考虑他们的细节</li>
+<li>组织：将这些片段按照所构造模型的需要进行分组和分类，归并或删除那些冗余重叠的东西</li>
+<li>细节：建立和完善相应描述，补充遗漏的数据</li>
+<li>求精：对模型进行推敲，以便改进和完善</li>
+<li>以上过程循环反复</li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230152426518.png" alt="image-20231230152426518">
+<figcaption aria-hidden="true">image-20231230152426518</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230152433513.png" alt="image-20231230152433513">
+<figcaption aria-hidden="true">image-20231230152433513</figcaption>
+</figure>
+<h3 id="需求获取分析和验证">需求获取、分析和验证</h3>
+<ul>
+<li>场景和观察（易考）</li>
+<li>HTA（易考）</li>
+<li>原型</li>
+</ul>
+<h4 id="需求获取观察">需求获取——观察</h4>
+<p>原因：设计的最初，可能不知道问什么问题或由谁来回答这些问题</p>
+<p>分类：</p>
+<ol type="1">
+<li>直接观察（陪同他们工作而直接获得信息，可能影响被观察者的日常活动）</li>
+<li>间接观察（用视频/录音获得信息，观察者更舒适）</li>
+</ol>
+<h4 id="需求获取场景">需求获取——场景</h4>
+<ol type="1">
+<li>表示任务和工作结构的“非正式的叙述性描述”
+<ul>
+<li>以叙述的方式描述人的行为或任务，从中发掘出任务的上下文环境、用户的需要、需求</li>
+<li>形式可以类似一篇故事、一个小品或者在给定环境下按照时间顺序的一段情节</li>
+</ul></li>
+<li>“讲故事”是人们解释自己做什么或者希望执行某个任务的最自然方式
+<ul>
+<li>故事的焦点就是用户希望达到的目标</li>
+<li>若场景说明不断提到某个特定形式、行为或者地点，就表明它是该活动的核心</li>
+</ul></li>
+<li>场景说明通常来自专题讨论或者访谈，目的是解释或讨论有关用户目标的一些问题</li>
+</ol>
+<p>举例</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230155716566.png" alt="image-20231230155716566">
+<figcaption aria-hidden="true">image-20231230155716566</figcaption>
+</figure>
+<h4 id="人物角色-场景剧本---需求">人物角色 + 场景剧本 -&gt; 需求</h4>
+<p>需求定义的5个步骤</p>
+<ol type="1">
+<li>创建问题和前景综述</li>
+<li>头脑风暴</li>
+<li>确定人物角色的期望</li>
+<li>构建情境场景剧本</li>
+<li>确立需求</li>
+</ol>
+<p>迭代的过程：知道需求变得稳定</p>
+<h4 id="概念模型和心智模型">概念模型和心智模型</h4>
+<p>制作原型之前要首先关注用户的心智模型</p>
+<p>概念模型是对系统如何组织和操作的高级描述</p>
+<p>理想情况下，用户的心智模型应该与设计师的概念模型相同</p>
+<p>基于对象的概念模型</p>
+<ol type="1">
+<li>通常是基于物理世界的类比，如书籍、工具、车辆</li>
+<li>隐喻的优势
+<ul>
+<li>使学习新系统更容易</li>
+<li>帮助用户理解底层的概念模型</li>
+<li>能够非常创新，并使计算机领域及其应用程序更容易被更多不同的用户访问</li>
+</ul></li>
+</ol>
+<h4 id="需求验证">需求验证</h4>
+<h5 id="原型">原型</h5>
+<ol type="1">
+<li>在某一方面和真正产品比较接近、以便人们能对这一方面的各种技术方案进行不断评估和改进的一种接近于实际产品的模型</li>
+<li>借助于原型，当事人就能与未来的产品交互，从中获得一些实际的使用体验，并发掘新思路</li>
+</ol>
+<p>原型的重要性：</p>
+<ol type="1">
+<li>评估和反馈是交互设计的核心</li>
+<li>用户往往不能准确描述自己的需要;但用户在看到或尝试某些事物后，就能立即知道自己不需要什么</li>
+<li>与文档相比，涉众能够更容易地看到、持有和与原型进行交互</li>
+<li>团队成员能够有效沟通</li>
+<li>原型回答问题，并支持设计师在备选方案中进行选择</li>
+</ol>
+<h5 id="原型分类">原型分类</h5>
+<ol type="1">
+<li>低保真原型（多数项目的首选）：与最终产品不太相似的原型。使用与最终产品不同的材料，如纸张、纸板
+<ul>
+<li>优点：简单、便宜、易于制作和修改</li>
+<li>例子：草图、故事板、绿野仙踪法</li>
+</ul></li>
+<li>高保真原型：与最终产品更为接近，使用相同的材料
+<ul>
+<li>风险：用户会认为原型就是系统；开发人员可能认为已找到了一个用户满意的设计</li>
+<li>缺点：制作时间长，难以修改</li>
+</ul></li>
+</ol>
+<h4 id="任务分析">任务分析</h4>
+<p>记录人们如何完成任务的一种方式</p>
+<p>作用：</p>
+<ol type="1">
+<li>可以用来了解通过观察和访谈目前参与工作流程的人收集到的数据</li>
+<li>主要用于调查现有情形，而不是展望新系统或设备</li>
+<li>分析基本原理，了解人们想要达到什么目标，如何达到这些目标，并由此建立需求</li>
+</ol>
+<h5 id="重点层次化任务分析hta是应用最广的任务分析技术">（重点）层次化任务分析（HTA）是应用最广的任务分析技术</h5>
+<p>把任务分解为若干子任务，再把子任务进一步分解为更细致的子任务。之后，把他们组织成一个“执行次序”，说明在实际情形下如何执行各项任务</p>
+<p>HTA的文字描述</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230164647080.png" alt="image-20231230164647080">
+<figcaption aria-hidden="true">image-20231230164647080</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230164653687.png" alt="image-20231230164653687">
+<figcaption aria-hidden="true">image-20231230164653687</figcaption>
+</figure>
+<p>终止规则</p>
+<ol type="1">
+<li>任务分析是一个迭代过程</li>
+<li><strong>终止点</strong>：
+<ul>
+<li>任务包含了复杂机械响应的地方，如鼠标移动，此时分解没有价值</li>
+<li>涉及内部决断的地方：若决断和查找文档等外部动作相关，则分解；若为纯粹认知性，则终止。</li>
+</ul></li>
+</ol>
+<p>HTA的图形描述</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230165048572.png" alt="image-20231230165048572">
+<figcaption aria-hidden="true">image-20231230165048572</figcaption>
+</figure>
+<h2 id="交互式系统的设计">交互式系统的设计</h2>
+<p>哪边可以删是会考简答题的</p>
+<h3 id="设计框架">设计框架</h3>
+<h4 id="注意点">注意点</h4>
+<ol type="1">
+<li>过早地把重点放在小细节、小部件和精细地交互上会妨碍产品的设计
+<ul>
+<li>先站在一个高层次上关注用户界面和相关行为的整体结构</li>
+<li>房屋设计举例</li>
+</ul></li>
+<li>设计框架
+<ul>
+<li>定义高层次上的屏幕布局</li>
+<li>定义产品的工作流、行为和组织</li>
+</ul></li>
+</ol>
+<h3 id="简化交互设计的策略">简化交互设计的策略</h3>
+<h4 id="策略一删除大概率考这个">策略一：删除（大概率考这个）</h4>
+<p><strong>最明显</strong>的简化设计方法：64%的软件功能“从未使用或极少使用”—《Standish
+Group 2002》</p>
+<p>删除杂乱的特性：可以让设计师专注于把有限的重要问题解决好；有助于用户心无旁骛地完成自己的目标。</p>
+<p>“把一切难以实现的功能统统抹杀？”
+错。避免得到由简单功能叠加起来的毫无特色的产品；保证只交付那些真正有价值的功能和内容。</p>
+<h5 id="如何删除">如何删除？</h5>
+<ol type="1">
+<li>关注核心：</li>
+</ol>
+<ul>
+<li>与新增功能相比，客户更关注基本功能的改进</li>
+<li>影响到用户日常使用体验的功能</li>
+</ul>
+<ol start="2" type="1">
+<li>砍掉残缺功能：</li>
+</ol>
+<ul>
+<li>“沉默成本误区”</li>
+<li>“为什么要留着它？”而非“为什么应该去掉它”</li>
+</ul>
+<ol start="3" type="1">
+<li>加入用户想......？</li>
+</ol>
+<ul>
+<li>目标用户经常会遇到这个问题吗？</li>
+<li>不要简单地因为客户要求就增加功能：要倾听客户的意见，但绝不能盲从。</li>
+</ul>
+<ol start="4" type="1">
+<li><p>删除错误</p></li>
+<li><p>选择未必比键入更优:例如输入文本</p></li>
+<li><p>删除视觉混乱：减少用户必须处理的信息，集中注意力在真正重要的内容上</p>
+<ul>
+<li>使用空白或轻微背景来划分页面，不要使用线条</li>
+<li>尽可能少使用强调，仅加粗就可以了</li>
+<li>别使用粗黑线，匀称、浅色的线更好</li>
+<li>控制信息的层次，标题，子标题，正文</li>
+<li>减少元素大小的变化</li>
+<li>减少元素形状的变化</li>
+</ul></li>
+<li><p>删除文字：删除不必要内容可以让读者对自己看到的内容更有自信</p>
+<ul>
+<li>删除引见性文字：“欢迎光临我们的网站，我们希望您心情愉快。。。”</li>
+<li>删除不必要的说明：“填写完这些字段后，请按提交按钮把申请提交给我们”</li>
+<li>删除繁琐的解释：“产品搜索：回答几个简单的问题，即可帮您找到合适的产品”</li>
+<li>使用描述性链接：“单机这里”或“更多内容”</li>
+</ul></li>
+<li><p>精简句子：让文字变得更加简洁、清晰、有说服力</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230191904747.png" alt="image-20231230191904747">
+<figcaption aria-hidden="true">image-20231230191904747</figcaption>
+</figure></li>
+<li><p>不要删减过多：人们希望自己能够掌控局面，让人们能够控制结果，足够多的控制可以让他们消除因基本需求得不到满足而引发的焦虑（源于十条启发式规则中的“用户享有控制权和自主权”）</p></li>
+</ol>
+<h4 id="策略二组织">策略二：组织</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230192131441.png" alt="image-20231230192131441">
+<figcaption aria-hidden="true">image-20231230192131441</figcaption>
+</figure>
+<ol type="1">
+<li><strong>最快捷</strong>的简化设计方式</li>
+<li>分块
+<ol type="1">
+<li>用户界面设计离不开分块</li>
+<li>“7+2法则”</li>
+<li>名词:可以按字母表、时间或空间顺序排列的清单</li>
+<li>动词:围绕行为进行组织</li>
+</ol></li>
+<li>确定清晰的分类标准:建议多找一些用户，询问他们的分类标准</li>
+<li>利用不可见的网格来对齐界面元素</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/exam4/17.png"><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/exam4/17.png" alt="img"></a></p>
+<ol type="1">
+<li>大小和位置
+<ol type="1">
+<li>重要的元素大一些，不太重要的界面元素应该小一些</li>
+<li>把相似元素放在一起，如导航、图标、按钮等，让用户的注意力更集中.</li>
+</ol></li>
+<li>感知分层:眯起眼睛观察屏幕，看是否能区分不同的层</li>
+<li>期望路径:在描述用户使用软件的路径时，千万不要被自己规划图中清晰的线条和整洁的布局所迷惑</li>
+</ol>
+<h4 id="策略三隐藏">策略三：隐藏</h4>
+<ol type="1">
+<li>隐藏是一种低成本的简化方案
+<ol type="1">
+<li>用户不会因不常用的功能分散注意力</li>
+<li>可作为删除不必要功能的开始</li>
+<li>必须仔细权衡要隐藏哪些功能</li>
+</ol></li>
+<li>隐藏内容
+<ol type="1">
+<li>主流用户很少使用，但自身需要更新的功能，</li>
+<li>事关细节(对服务器进行配置或设计邮件签名)</li>
+<li>选项和偏好(修改绘图应用的单位)</li>
+<li>特定于地区的信息(如时间和日期需频繁自动更新的信息)</li>
+</ol></li>
+<li>自定义
+<ol type="1">
+<li>是否应该给用户自己选择的权利？自定义工具、自定义功能</li>
+<li>一般来说，不应该让用户去自定义他们的软件</li>
+</ol></li>
+<li>渐进展示
+<ol type="1">
+<li>隐藏精确的控制部件
+<ol type="1">
+<li>一项功能包含少数核心的供主流用户使用的控制部件，另有一些为专家级用户准备的扩展性的精确的控制部件</li>
+<li>如“保存对话框”的核心功能有哪些？</li>
+<li>比自定义的效果更好
+<ol type="1">
+<li>自动保存用户的选择</li>
+<li>核心功能加扩展功能模式</li>
+</ol></li>
+</ol></li>
+<li>对于用户期望的功能，要在正确的环境下给出明确的提示</li>
+</ol></li>
+<li>适时出现
+<ol type="1">
+<li>过分强调隐藏功能(如为每个词加上超链接)会导致混乱</li>
+<li>尽可能彻底地隐藏所有需要隐藏的功能</li>
+<li>在合适的时机、合适的位置上显示相应功能</li>
+</ol></li>
+<li>注意
+<ol type="1">
+<li>别让用户找信息</li>
+<li>让功能易于发现
+<ol type="1">
+<li>怎样介绍被隐藏在幕后的附件项？<strong>把标签放在哪里比把标签做多大重要得多</strong></li>
+<li>用户关注点：用户在遇到问题的时候，过于关注屏幕上问题区域</li>
+</ol></li>
+</ol></li>
+</ol>
+<h4 id="策略四转移">策略四：转移</h4>
+<ol type="1">
+<li>被精简掉的按钮全部通过电视屏幕上的菜单来管理</li>
+<li>遥控器使用起来非常方便：用户需熟悉和记住的按钮只有几个，不会按错</li>
+<li>利用电视屏幕比在遥控器上增加液晶面板便宜得多</li>
+<li>在设备之间转移
+<ol type="1">
+<li>利用移动平台与桌面平台的优势，各司其职，把某项任务的某些内容(如输入信息)转移到不同的平台上</li>
+<li>向用户转移:把复杂的工作留给用户</li>
+</ol></li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/exam4/18.png"><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/exam4/18.png" alt="img"></a></p>
+<ol start="5" type="1">
+<li>用户擅长的事情:让用户感觉简单，明确哪些信息给计算机，哪些信息给用户</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/exam4/19.png"><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/exam4/19.png" alt="img"></a></p>
+<h4 id="简化策略的组合">简化策略的组合</h4>
+<ol type="1">
+<li>删除不必要的</li>
+<li>组织要提供的</li>
+<li>隐藏非核心的</li>
+<li>转移</li>
+</ol>
+<h2 id="交互设计模型与理论">交互设计模型与理论</h2>
+<p>预测模型（大题）</p>
+<h3 id="预测模型">预测模型</h3>
+<ol type="1">
+<li>能够预测用户的执行情况，但不需要对用户做实际测试</li>
+<li>特别适合于无法进行用户测试的情形</li>
+<li>不同模型关注用户执行的不同方面
+<ol type="1">
+<li>GOMS：击键层次模型KLM</li>
+<li>Fitts定律</li>
+</ol></li>
+</ol>
+<h4 id="goms模型">GOMS模型</h4>
+<p>最著名的预测模型，基于人类处理机模型，泛指整个GOMS模型体系。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230195130329.png" alt="image-20231230195130329">
+<figcaption aria-hidden="true">image-20231230195130329</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230195736617.png" alt="image-20231230195736617">
+<figcaption aria-hidden="true">image-20231230195736617</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230195745269.png" alt="image-20231230195745269">
+<figcaption aria-hidden="true">image-20231230195745269</figcaption>
+</figure>
+<p>优点:能够容易的对不同的界面或系统进行比较分析</p>
+<p>缺点:假设了用户完全按一种正确的方式人机交互，没有清楚的描述错误处理过程;只针对那些不犯任何错误的专家用户;任务之间的关系描述过于简单;忽略了用户间的个体差异</p>
+<h4 id="击键层次模型">击键层次模型</h4>
+<ol type="1">
+<li><p>对用户执行情况进行<strong>量化预测</strong>，仅涉及时间</p></li>
+<li><p>用途</p>
+<ul>
+<li>预测无错误情况下专家用户在下列输入前提下完成任务的时间</li>
+<li>便于比较不同系统</li>
+<li>确定何种方案能最有效地支持特定任务</li>
+</ul></li>
+<li><p>操作符</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230201927460.png" alt="image-20231230201927460">
+<figcaption aria-hidden="true">image-20231230201927460</figcaption>
+</figure></li>
+<li><p>使用</p>
+<p>两个例子</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230202051219.png" alt="image-20231230202051219">
+<figcaption aria-hidden="true">image-20231230202051219</figcaption>
+</figure></li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230202412800.png" alt="image-20231230202412800">
+<figcaption aria-hidden="true">image-20231230202412800</figcaption>
+</figure>
+<ol start="5" type="1">
+<li><p>放置M操作符的启发规则</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230202602841.png" alt="image-20231230202602841">
+<figcaption aria-hidden="true">image-20231230202602841</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230202614910.png" alt="image-20231230202614910">
+<figcaption aria-hidden="true">image-20231230202614910</figcaption>
+</figure></li>
+<li><p>KLM分析：建模可以给出执行标准任务的时间，但没有考虑下面的问题：错误、学习性、功能性、回忆、专注程度、疲劳、可接受性。</p></li>
+</ol>
+<h4 id="fitts定律">Fitts定律</h4>
+<p>最健壮且被广泛采用的人类运动模型之一。</p>
+<p>用户访问屏幕组件的时间对于系统的使用效率是至关重要的。</p>
+<p>能够预测使用某种定位设备指向某个目标的时间，根据目标大小及至目标的距离，计算指向该目标的时间，可指导设计人员设计按钮的位置、大小和密集程度，对图形用户界面设计有明显的意义(重点研究P操作的时间)。</p>
+<p>Fitts定律描述了人类运动系统的信息量。</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230203545421.png" alt="image-20231230203545421">
+<figcaption aria-hidden="true">image-20231230203545421</figcaption>
+</figure>
+<h5 id="三个部分">三个部分</h5>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230203554997.png" alt="image-20231230203554997">
+<figcaption aria-hidden="true">image-20231230203554997</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230204002429.png" alt="image-20231230204002429">
+<figcaption aria-hidden="true">image-20231230204002429</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230204016382.png" alt="image-20231230204016382">
+<figcaption aria-hidden="true">image-20231230204016382</figcaption>
+</figure>
+<h5 id="fitts定律建议">Fitts定律建议</h5>
+<ol type="1">
+<li>大目标、小距离具有优势：对选择任务而言，其移动时间随到目标距离的增加而增加，随目标的大小减小而增加</li>
+<li>屏幕元素应该尽可能多的占据屏幕空间(大目标)</li>
+<li>最好的像素是光标所处的像素(小距离)</li>
+<li>屏幕元素应尽可能利用屏幕边缘的优势(大目标)</li>
+<li>大菜单，如饼型菜单，比其他类型的菜单使用简单(大目标）</li>
+</ol>
+<h2 id="评估的基础知识三分之一的分数">评估的基础知识（三分之一的分数）</h2>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.22.25.png" alt="截屏2023-12-25 19.22.25">
+<figcaption aria-hidden="true">截屏2023-12-25 19.22.25</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.22.12.png" alt="截屏2023-12-25 19.22.12">
+<figcaption aria-hidden="true">截屏2023-12-25 19.22.12</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.25.32.png" alt="截屏2023-12-25 19.25.32">
+<figcaption aria-hidden="true">截屏2023-12-25 19.25.32</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.26.24.png" alt="截屏2023-12-25 19.26.24">
+<figcaption aria-hidden="true">截屏2023-12-25 19.26.24</figcaption>
+</figure>
+<h3 id="评估泛型和方法今年会考大题">评估泛型和方法（今年会考大题）</h3>
+<h4 id="快速评估">快速评估</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.27.37.png" alt="截屏2023-12-25 19.27.37">
+<figcaption aria-hidden="true">截屏2023-12-25 19.27.37</figcaption>
+</figure>
+<h4 id="可用性测试">可用性测试</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.32.42.png" alt="截屏2023-12-25 19.32.42">
+<figcaption aria-hidden="true">截屏2023-12-25 19.32.42</figcaption>
+</figure>
+<h4 id="实地研究">实地研究</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.33.02.png" alt="截屏2023-12-25 19.33.02">
+<figcaption aria-hidden="true">截屏2023-12-25 19.33.02</figcaption>
+</figure>
+<h4 id="预测性评估">预测性评估</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.38.00.png" alt="截屏2023-12-25 19.38.00">
+<figcaption aria-hidden="true">截屏2023-12-25 19.38.00</figcaption>
+</figure>
+<h3 id="评估方法的选择">评估方法的选择</h3>
+<ul>
+<li>不同方法的适用阶段</li>
+<li>评估方法的组合</li>
+</ul>
+<h3 id="decide评估框架">DECIDE评估框架</h3>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231225232432438.png" alt="image-20231225232432438">
+<figcaption aria-hidden="true">image-20231225232432438</figcaption>
+</figure>
+<ol type="1">
+<li>确定目标</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231225232451535.png" alt="image-20231225232451535">
+<figcaption aria-hidden="true">image-20231225232451535</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>发掘问题</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231225232509259.png" alt="image-20231225232509259">
+<figcaption aria-hidden="true">image-20231225232509259</figcaption>
+</figure>
+<ol start="3" type="1">
+<li><p>选择评估范型和技术<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231225232540277.png" alt="image-20231225232540277"></p></li>
+<li><p>明确实际问题<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231225232549369.png" alt="image-20231225232549369"></p></li>
+<li><p>处理道德问题<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231225232616983.png" alt="image-20231225232616983"></p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231225232642993.png" alt="image-20231225232642993">
+<figcaption aria-hidden="true">image-20231225232642993</figcaption>
+</figure></li>
+<li><p>评估、解释并表示数据<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231225232703297.png" alt="image-20231225232703297"></p></li>
+</ol>
+<h3 id="小规模试验的重要性会考">小规模试验的重要性（会考）</h3>
+<p>试验发布前的评估和检查</p>
+<ol type="1">
+<li>对评估计划进行小范围测试：<strong>以确保评估计划的可行性；检查设备及使用说明；练习访谈技巧；检查问卷中的问题是否明确</strong>。</li>
+<li>小规模试验可进行多次
+<ul>
+<li>类似迭代设计</li>
+<li>步骤：测试、反馈、修改、再测试</li>
+<li>快速、成本低</li>
+</ul></li>
+</ol>
+<h3 id="启发式评估重点">启发式评估（重点）</h3>
+<p>询问专家之启发式评估：一种灵活而又相当廉价的评估方式。</p>
+<p>由可用性专家完成</p>
+<p>步骤</p>
+<ol type="1">
+<li>彻底检查界面</li>
+<li>将界面与启发式规则进行对比</li>
+<li>列举可用性问题</li>
+<li>应用启发式规则对每一个问题进行解释与确认</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230225008405.png" alt="image-20231230225008405">
+<figcaption aria-hidden="true">image-20231230225008405</figcaption>
+</figure>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/exam4/13.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-human-computer-interaction/img/exam4/14.png"></p>
+<p>如何正确评估？</p>
+<ol type="1">
+<li>分析每个问题对应的启发式规则</li>
+<li>列出所有问题</li>
+<li>至少遍历两次界面</li>
+<li>不要局限于10条启发式原则：还有各种affordances、constraints、颜色原理等</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230225511625.png" alt="image-20231230225511625">
+<figcaption aria-hidden="true">image-20231230225511625</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230225524030.png" alt="image-20231230225524030">
+<figcaption aria-hidden="true">image-20231230225524030</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230225607723.png" alt="image-20231230225607723">
+<figcaption aria-hidden="true">image-20231230225607723</figcaption>
+</figure>
+<p>启发式评估的优点：</p>
+<ol type="1">
+<li>不涉及用户，所以面临的实际限制和道德问题较少</li>
+<li>成本相对较低，不需要特殊设备，而且较为快捷</li>
+<li>又被称为“经济评估法”</li>
+</ol>
+<p>启发式评估的缺点：</p>
+<ol type="1">
+<li>评估人员需要经过长时间的训练才能成为专家：理想的专家应同时具备交互设计和产品应用域的知识</li>
+<li>可能出现“虚假警报”</li>
+</ol>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230230028208.png" alt="image-20231230230028208">
+<figcaption aria-hidden="true">image-20231230230028208</figcaption>
+</figure>
+<h3 id="用户测试必考大题">用户测试（必考大题）</h3>
+<ul>
+<li>在受控环境中（类似于实验室环境）测量用户执行典型任务的情况</li>
+<li>目的是获得客观的性能数据，从而评价产品或系统的可用性，如易用性、易学性等</li>
+<li>最适合对原型和能够运行的系统进行测试</li>
+<li>可对设计提供重要的反馈</li>
+<li>在可用性测试中，往往把用户测试和其他技术相结合</li>
+</ul>
+<h4 id="测试设计">测试设计</h4>
+<p>用户测试须考虑实际限制并做出适当的折衷</p>
+<ul>
+<li>应确保不同参与者的测试条件相同</li>
+<li>应确保评估目标特征具有代表性</li>
+<li>实验可重复，但通常不能得到完全相同的结果</li>
+<li>以DECIDE框架为基础</li>
+</ul>
+<ol type="1">
+<li><p>第一步:定义目标和问题</p>
+<ol type="1">
+<li><p>目标描述了开展一个测试的原因，定义了测试在整个项目中的价值。</p></li>
+<li><p>目标是对关注点的说明和解答，比如用户在少于5秒的时间内，能够导航到正确的3级菜单</p></li>
+</ol></li>
+<li><p>第二步:选择参与者</p>
+<ol type="1">
+<li><p>了解用户特性帮助选择典型用户，需要平衡性别比例，至少4-5位、5-12位用户就足够了。</p></li>
+<li><p>参与者安排</p>
+<ul>
+<li>参与者不同：随机指派某个参与者组执行某个实验情形
+<ul>
+<li>缺点：要求有足够多的参与者；实验结果可能会受到个别参与者的影响（解决：随机分配
+or 预测试）</li>
+<li>优点：不存在”顺序效应”，即参与者在执行前一组任务时获得的经验将影响后面的测试任务</li>
+</ul></li>
+<li>参与者相同：相同的参与者执行所有实验情形，与前一种方法比只需一半的参与者
+<ul>
+<li>优点：能够消除个别差异带来的影响；便于比较参与者执行不同实验情形的差异。</li>
+<li>缺点：可能产生“顺序效应”（解决方法：均衡处理，如果有两项任务A和B，那么，应让一半的参与者先执行A，再执行B，另一半则先执行B，再执行A）</li>
+</ul></li>
+<li>参与者配对：根据用户特性（如技能和性别等），把两位参与者组成一组，再随机地安排他们执行某一种实验情形。适用于参与者无法执行两个实验情形。
+<ul>
+<li>缺点：实验结果可能会受一些未考虑到的重要变量的影响</li>
+<li>如在评估网站的导航性能时，参与者使用互联网的经验将影响实验结果</li>
+<li>因此，“使用互联网的经验”即可作为一个配对标准</li>
+</ul></li>
+</ul>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230232602821.png" alt="image-20231230232602821">
+<figcaption aria-hidden="true">image-20231230232602821</figcaption>
+</figure></li>
+</ol></li>
+<li><p>设计测试任务</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230232628475.png" alt="image-20231230232628475">
+<figcaption aria-hidden="true">image-20231230232628475</figcaption>
+</figure></li>
+<li><p>明确测试步骤</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230232650965.png" alt="image-20231230232650965">
+<figcaption aria-hidden="true">image-20231230232650965</figcaption>
+</figure></li>
+<li><p>数据搜集</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230232707364.png" alt="image-20231230232707364">
+<figcaption aria-hidden="true">image-20231230232707364</figcaption>
+</figure></li>
+</ol>
+<h4 id="分析方法">分析方法</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230232948416.png" alt="image-20231230232948416">
+<figcaption aria-hidden="true">image-20231230232948416</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230232957742.png" alt="image-20231230232957742">
+<figcaption aria-hidden="true">image-20231230232957742</figcaption>
+</figure>
+<h4 id="总结报告">总结报告</h4>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230233022697.png" alt="image-20231230233022697">
+<figcaption aria-hidden="true">image-20231230233022697</figcaption>
+</figure>
+<h2 id="以用户为中心">以用户为中心</h2>
+<p>考过英文是什么 User Centered Design（UCD）</p>
+<p>选择题40分，mooc题</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.08.41.png" alt="截屏2023-12-25 19.08.41">
+<figcaption aria-hidden="true">截屏2023-12-25 19.08.41</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.11.38.png" alt="截屏2023-12-25 19.08.41">
+<figcaption aria-hidden="true">截屏2023-12-25 19.08.41</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2023-12-25%2019.12.06.png" alt="截屏2023-12-25 19.12.06">
+<figcaption aria-hidden="true">截屏2023-12-25 19.12.06</figcaption>
+</figure>
+<p>注意4</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230234137277.png" alt="image-20231230234137277">
+<figcaption aria-hidden="true">image-20231230234137277</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230234145977.png" alt="image-20231230234145977">
+<figcaption aria-hidden="true">image-20231230234145977</figcaption>
+</figure>
+<p>注意1</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230234617981.png" alt="image-20231230234617981">
+<figcaption aria-hidden="true">image-20231230234617981</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230234627313.png" alt="image-20231230234627313">
+<figcaption aria-hidden="true">image-20231230234627313</figcaption>
+</figure>
+<p>注意1、2、5</p>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230234951367.png" alt="image-20231230234951367">
+<figcaption aria-hidden="true">image-20231230234951367</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230234959808.png" alt="image-20231230234959808">
+<figcaption aria-hidden="true">image-20231230234959808</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230235249035.png" alt="image-20231230235249035">
+<figcaption aria-hidden="true">image-20231230235249035</figcaption>
+</figure>
+<figure>
+<img src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231230235256714.png" alt="image-20231230235256714">
+<figcaption aria-hidden="true">image-20231230235256714</figcaption>
+</figure>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Kiyotaka Wang</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hmwang2002/github.io/2024/01/11/ren-ji-jiao-hu-xi-tong/">https://hmwang2002/github.io/2024/01/11/ren-ji-jiao-hu-xi-tong/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Kiyotaka Wang</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F2023%E7%A7%8B/">
+                                    <span class="chip bg-color">人机交互系统2023秋</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/11/ruan-jian-ce-shi-fu-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="软件测试">
+                        
+                        <span class="card-title">软件测试</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%952023%E7%A7%8B/" class="post-category">
+                                    软件测试2023秋
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%952023%E7%A7%8B/">
+                        <span class="chip bg-color">软件测试2023秋</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/11/fu-wu-duan-kai-fa-fu-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="服务端开发复习">
+                        
+                        <span class="card-title">服务端开发复习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/" class="post-category">
+                                    服务端开发2023秋
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/">
+                        <span class="chip bg-color">服务端开发2023秋</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <span id="year">2022</span>
+            <a href="/about" target="_blank">Kiyotaka Wang</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">68.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hmwang2002" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

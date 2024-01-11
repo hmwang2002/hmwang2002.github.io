@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2023-07-17T07:47:48.632Z</updated>
+  <updated>2024-01-11T01:18:06.308Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,87 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>软件测试</title>
+    <link href="https://hmwang2002/github.io/2024/01/11/ruan-jian-ce-shi-fu-xi/"/>
+    <id>https://hmwang2002/github.io/2024/01/11/ruan-jian-ce-shi-fu-xi/</id>
+    <published>2024-01-11T01:16:33.000Z</published>
+    <updated>2024-01-11T01:18:06.308Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;软测review&quot;&gt;软测review&lt;/h1&gt;
+&lt;p&gt;房老师今年画的重点不是很准，大题3道结果复习的时候和我们说就两道，结果多考了蜕变关系的设计。&lt;/p&gt;
+&lt;h2 id=&quot;源码测试&quot;&gt;源码测试&lt;/h2&gt;
+&lt;figure&gt;
+&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="软件测试2023秋" scheme="https://hmwang2002/github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%952023%E7%A7%8B/"/>
+    
+    
+    <category term="软件测试2023秋" scheme="https://hmwang2002/github.io/tags/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%952023%E7%A7%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人机交互系统</title>
+    <link href="https://hmwang2002/github.io/2024/01/11/ren-ji-jiao-hu-xi-tong/"/>
+    <id>https://hmwang2002/github.io/2024/01/11/ren-ji-jiao-hu-xi-tong/</id>
+    <published>2024-01-11T01:15:31.000Z</published>
+    <updated>2024-01-11T01:16:09.254Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;人机复习&quot;&gt;人机复习&lt;/h1&gt;
+&lt;h2 id=&quot;人机交互概述&quot;&gt;人机交互概述&lt;/h2&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="人机交互系统2023秋" scheme="https://hmwang2002/github.io/categories/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F2023%E7%A7%8B/"/>
+    
+    
+    <category term="人机交互系统2023秋" scheme="https://hmwang2002/github.io/tags/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%B3%BB%E7%BB%9F2023%E7%A7%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务端开发复习</title>
+    <link href="https://hmwang2002/github.io/2024/01/11/fu-wu-duan-kai-fa-fu-xi/"/>
+    <id>https://hmwang2002/github.io/2024/01/11/fu-wu-duan-kai-fa-fu-xi/</id>
+    <published>2024-01-11T01:12:32.000Z</published>
+    <updated>2024-01-11T01:15:03.776Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="服务端开发2023秋" scheme="https://hmwang2002/github.io/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/"/>
+    
+    
+    <category term="服务端开发2023秋" scheme="https://hmwang2002/github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%912023%E7%A7%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>初学ZooKeeper</title>
@@ -458,88 +539,6 @@
 &lt;h2 id=&quot;网络连接类型&quot;&gt;1. 网络连接类型&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/1.png&quot;&gt;&lt;/p&gt;
 &lt;ol</summary>
-        
-      
-    
-    
-    
-    <category term="互联网计算" scheme="https://hmwang2002/github.io/categories/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97/"/>
-    
-    
-    <category term="互联网计算" scheme="https://hmwang2002/github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kiyotaka | C++作业一</title>
-    <link href="https://hmwang2002/github.io/2022/09/23/c-di-yi-ci-zuo-ye/"/>
-    <id>https://hmwang2002/github.io/2022/09/23/c-di-yi-ci-zuo-ye/</id>
-    <published>2022-09-23T13:02:00.000Z</published>
-    <updated>2022-11-21T05:01:32.231Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;c第一次作业&quot;&gt;c++第一次作业&lt;/h1&gt;
-&lt;h2 id=&quot;二进制转十进制&quot;&gt;二进制转十进制&lt;/h2&gt;
-&lt;p&gt;实现如下功能：输入一个二进制数，输出该二进制数对应的十进制表示。&lt;/p&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="C++" scheme="https://hmwang2002/github.io/categories/C/"/>
-    
-    
-    <category term="菜鸟的代码作业" scheme="https://hmwang2002/github.io/tags/%E8%8F%9C%E9%B8%9F%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%9C%E4%B8%9A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>互联网计算|2022.9.8</title>
-    <link href="https://hmwang2002/github.io/2022/09/12/hu-lian-wang-ji-suan-2022-9-8/"/>
-    <id>https://hmwang2002/github.io/2022/09/12/hu-lian-wang-ji-suan-2022-9-8/</id>
-    <published>2022-09-12T08:16:52.000Z</published>
-    <updated>2022-11-21T04:59:08.177Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;互联网计算-2022.9.8&quot;&gt;互联网计算 2022.9.8&lt;/h1&gt;
-&lt;h2 id=&quot;peer-to-peer-communications&quot;&gt;Peer-to-Peer Communications:&lt;/h2&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="互联网计算" scheme="https://hmwang2002/github.io/categories/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97/"/>
-    
-    
-    <category term="互联网计算" scheme="https://hmwang2002/github.io/tags/%E4%BA%92%E8%81%94%E7%BD%91%E8%AE%A1%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>互联网计算| 2022/9/5</title>
-    <link href="https://hmwang2002/github.io/2022/09/10/hu-lian-wang-ji-suan-2022.9.5/"/>
-    <id>https://hmwang2002/github.io/2022/09/10/hu-lian-wang-ji-suan-2022.9.5/</id>
-    <published>2022-09-10T08:52:00.000Z</published>
-    <updated>2022-11-21T04:43:16.835Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;互联网计算-2022.9.5&quot;&gt;互联网计算 2022.9.5&lt;/h1&gt;
-&lt;h2 id=&quot;what-is-a-network&quot;&gt;What is a network?&lt;/h2&gt;
-&lt;p&gt;A network is an intricately connected</summary>
         
       
     
