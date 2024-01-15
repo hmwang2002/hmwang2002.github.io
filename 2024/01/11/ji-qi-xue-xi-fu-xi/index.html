@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
+    
+    <meta name="author" content="Kiyotaka Wang">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://hmwang2002/github.io/2024/01/11/ji-qi-xue-xi-fu-xi/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="机器学习review 评价指标   高斯分布也就是正态分布。 概率与学习-KNN 再次强调距离度量函数。     k-NN是典型的“懒惰学习”（lazy learning），训练阶段仅仅是把样本保存起来，训练时间开销为零，待收到测试样本后再进行处理。 SVM、CNN等是“急切学习”（eager learning），在训练阶段就对样本进行学习处理的方法，这类方法尝试在训练">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习复习">
+<meta property="og:url" content="https://hmwang2002/github.io/2024/01/11/ji-qi-xue-xi-fu-xi/index.html">
+<meta property="og:site_name" content="Kiyotaka Wang的博客">
+<meta property="og:description" content="机器学习review 评价指标   高斯分布也就是正态分布。 概率与学习-KNN 再次强调距离度量函数。     k-NN是典型的“懒惰学习”（lazy learning），训练阶段仅仅是把样本保存起来，训练时间开销为零，待收到测试样本后再进行处理。 SVM、CNN等是“急切学习”（eager learning），在训练阶段就对样本进行学习处理的方法，这类方法尝试在训练">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231231232933517.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231231233802232.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101095719569.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101095730071.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101100232336.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101100326818.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101101235618.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101102901350.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101103949963.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101104917768.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101104931974.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101105407515.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101105458290.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101105634299.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101105708644.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101110015094.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101110202747.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112630883.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112642458.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112715690.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112747389.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112923547.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101131324816.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101131337114.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101132455674.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101132508811.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101132518792.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101133337648.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101133836719.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101133852871.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101135302234.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101140120720.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101140155445.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102164146254.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165214620.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165540203.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165614441.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165800037.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165932736.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102170558654.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102170631809.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102170647674.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102170722550.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102171152584.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102171247470.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102171422732.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102174018021.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102172212311.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102174816771.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102175150256.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102175228408.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102175332156.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102175453498.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102180945213.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181342430.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181418412.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181441587.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181631188.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181753279.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181744135.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191434753.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191623202.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191730704.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191834573.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191816520.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102192828848.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102192851789.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102193110384.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102193121090.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102193133813.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102193431802.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194133988.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194511183.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194517637.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194647531.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194959004.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102195139100.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201009323.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201053714.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201101406.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201314606.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201338749.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201355061.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201450901.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201502440.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201509525.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201752659.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201835629.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102202020492.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102210028387.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111433667.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111447201.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111628839.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111826084.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111832478.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112115044.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112245336.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112622663.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112645673.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112856095.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113148733.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113157217.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113345407.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113528619.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113606904.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113754281.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103115510615.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103115645197.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103120155362.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103120259292.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103120307744.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103133622328.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103133609292.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103134912049.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103134848290.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103135026663.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103135039288.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103135155076.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142224222.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142308476.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142408129.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142417123.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142355226.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142350953.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142441592.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142555211.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142924187.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142959556.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143139906.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143239262.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143248215.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143423881.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143430682.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143443425.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143453888.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103144649711.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153156832.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153206625.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153332206.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153439980.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153448857.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153525499.png">
+<meta property="article:published_time" content="2024-01-11T01:10:03.000Z">
+<meta property="article:modified_time" content="2024-01-15T05:03:38.892Z">
+<meta property="article:author" content="Kiyotaka Wang">
+<meta property="article:tag" content="机器学习2023秋">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231231232933517.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            机器学习复习 -
+        
+        Kiyotaka Wang&#39;s Blog
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        Kiyotaka Wang&#39;s Blog
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"hmwang2002","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"20px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":6,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Sans SC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":false,"family":"Farsan","url":"https://fonts.googleapis.com/css2?family=Farsan&display=swap"}},"content_max_width":"1200px","sidebar_width":"300px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Kiyotaka Wang","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":"https://github.com/hmwang2002","instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"Tags":{"path":"/tags/","icon":"fa-regular fa-tags"},"About":{"icon":"fa-regular fa-user","path":"/about/"},"Friends":{"icon":"fa-solid fa-link","path":"/links/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Kiyotaka Wang的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+
+    <div class="navbar-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                Kiyotaka Wang&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/about/"
+                                        >
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/links/"
+                                        >
+                                    <i class="fa-solid fa-link fa-fw"></i>
+                                    友情链接
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/about/"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-regular fa-user fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links/"
+                        >
+                            <span>
+                                友情链接
+                            </span>
+                            
+                                <i class="fa-solid fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">14</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">15</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">27</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">机器学习复习</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Kiyotaka Wang</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-01-11 09:10:03</span>
+        <span class="mobile">2024-01-11 09:10:03</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-01-15 13:03:38</span>
+            <span class="mobile">2024-01-15 13:03:38</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02023%E7%A7%8B/">机器学习2023秋</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02023%E7%A7%8B/">机器学习2023秋</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>5 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h1 id="机器学习review">机器学习review</h1>
+<h2 id="评价指标">评价指标</h2>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231231232933517.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20231231233802232.png"></p>
+<p>高斯分布也就是正态分布。</p>
+<h2 id="概率与学习-knn">概率与学习-KNN</h2>
+<p>再次强调距离度量函数。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101095719569.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101095730071.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101100232336.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101100326818.png"></p>
+<p>k-NN是典型的“懒惰学习”（lazy
+learning），训练阶段仅仅是把样本保存起来，训练时间开销为零，待收到测试样本后再进行处理。</p>
+<p>SVM、CNN等是“急切学习”（eager
+learning），在训练阶段就对样本进行学习处理的方法，这类方法尝试在训练期间构造一个通用的，与输入无关的目标函数。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101101235618.png"></p>
+<h2 id="无监督学习">无监督学习</h2>
+<p>聚类的“好坏”不存在绝对标准！</p>
+<p>聚类（簇、类）：数据对象的集合。在同一个类中，数据对象是相似的，不同类之间的数据对象是不相似的。</p>
+<h3 id="聚类的依据">聚类的依据</h3>
+<p>将整个数据集中每个样本的特征向量看成是分布在特征空间中的一些点，<strong>点与点之间的距离</strong>即可作为相似性度量依据。</p>
+<p>聚类分析是根据<strong>不同样本之间的差异</strong>，根据<strong>距离函数</strong>的规律（大小）进行分类（聚类）的。</p>
+<p>一个好的聚类算法：聚类内部高相似性；聚类之间低相似性。簇内相似度高，簇间相似度低。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101102901350.png"></p>
+<h3 id="聚类方法">聚类方法</h3>
+<p>计算量有点大，感觉不太会考计算吧</p>
+<h4 id="基于试探的聚类搜索算法">基于试探的聚类搜索算法</h4>
+<h5 id="按最近邻规则的简单试探法">按最近邻规则的简单试探法</h5>
+<p>给定N个待分类的数据样本{x1，x2，...，xN}，要求按距离阈值T，将它们分类到聚类中心z1，z2，...</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101103949963.png"></p>
+<h5 id="最大最小距离算法">最大最小距离算法</h5>
+<p>基本思想：以试探类间欧式距离为最大作为预选出聚类中心的条件。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101104917768.png"></p>
+<figure>
+<img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101104931974.png" alt="image-20240101104931974">
+<figcaption aria-hidden="true">image-20240101104931974</figcaption>
+</figure>
+<h4 id="系统聚类法">系统聚类法</h4>
+<p>基本思想：将数据样本按距离准则逐步分类，类别由多到少，直到获得合适的分类要求为止。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101105407515.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101105458290.png"></p>
+<h4 id="动态聚类法">动态聚类法</h4>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101105634299.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101105708644.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101110015094.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101110202747.png"></p>
+<h3 id="聚类评价">聚类评价</h3>
+<p>可考虑用以下几个指标来评价聚类效果</p>
+<ul>
+<li>聚类中心之间的距离：距离值大，通常可考虑分为不同类</li>
+<li>聚类域中的样本数目：样本数目少且聚类中心距离远，可考虑是否为噪声</li>
+<li>聚类域内样本的距离方差：方差过大的样本可考虑是否属于这一类</li>
+</ul>
+<p>聚类目前还没有一种通用的准则，往往需要根据实际应用来选择合适的方法。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112630883.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112642458.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112715690.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112747389.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101112923547.png"></p>
+<h2 id="树学习">树学习</h2>
+<p>主要关注ID3决策树算法，因为书上也有ID3的例题</p>
+<h3 id="概念学习">概念学习</h3>
+<p>归纳推理：已知前件为真，后件未必为真。</p>
+<p>符号（概念）学习是一类归纳推理。</p>
+<p>定义：给定样例集合，以及每个样例是否属于某个概念，<strong>自动</strong>地推断出该概念的一般定义。</p>
+<h3 id="find-s和候选消除算法">Find-S和候选消除算法</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101131324816.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101131337114.png"></p>
+<h3 id="id3">ID3</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101132455674.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101132508811.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101132518792.png"></p>
+<p>对决策树来说，最好的特征就是选择目前对分类能提供最大信息量的那个，即具有最大熵的特征。基于此特征分类后，我们再重新计算每一个特征的信息熵，然后再选择具有最大熵的特征。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101133337648.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101133836719.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101133852871.png"></p>
+<h3 id="c4.5">C4.5</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101135302234.png"></p>
+<h3 id="cart">CART</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101140120720.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240101140155445.png"></p>
+<h2 id="集成学习">集成学习</h2>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102164146254.png"></p>
+<p>多个分类器集成在一起，以提高分类准确率。由训练数据构建基分类器，然后根据预测结果进行投票。集成学习本身不是一种分类器，而是分类器结合方法。通常集成分类器性能会好于单个分类器。</p>
+<h3 id="bias-variance-tradeoff问题">Bias-Variance tradeoff问题</h3>
+<p>偏差-方差平衡</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165214620.png"></p>
+<h3 id="bagging基本原理">Bagging基本原理</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165540203.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165614441.png"></p>
+<p>优点：</p>
+<ol type="1">
+<li>并行式集成学习，降低分类器方差，改善泛化。<img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165800037.png" alt="image-20240102165800037"></li>
+</ol>
+<p>缺点：</p>
+<h4 id="随机森林">随机森林</h4>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102165932736.png"></p>
+<h5 id="随机森林的特点">随机森林的特点</h5>
+<ul>
+<li>差异性：每棵树是不同的；每棵树使用的特征是不同的；</li>
+<li>缓解维度灾难：因为每棵树都没有使用全部的特征，特征空间被减小了；</li>
+<li>可并行化：因为每棵树使用不同的数据、不同的特征，可以有效采用并行化技术；</li>
+<li>训练-测试划分：训练和测试的划分不是必须的，因为构建每棵决策树时，总有30%的数据是没有采样的；</li>
+<li>稳定性：通过多数投票或者平均，结果较为稳定。</li>
+</ul>
+<h3 id="boosting基本原理">Boosting基本原理</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102170558654.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102170631809.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102170647674.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102170722550.png"></p>
+<h2 id="概率与学习">概率与学习</h2>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102171152584.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102171247470.png"></p>
+<h3 id="带约束的数学优化问题">带约束的数学优化问题</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102171422732.png"></p>
+<h3 id="不带约束的数学优化问题重点">不带约束的数学优化问题（重点）</h3>
+<p>牛顿法</p>
+<p>最小二乘问题</p>
+<p>应该是会给公式，考试就是算出答案，ppt也没怎么讲。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102174018021.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102172212311.png"></p>
+<h2 id="支持向量机">支持向量机</h2>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102174816771.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102175150256.png"></p>
+<h3 id="线性支持向量机">线性支持向量机</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102175228408.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102175332156.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102175453498.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102180945213.png"></p>
+<h3 id="非线性支持向量机">非线性支持向量机</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181342430.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181418412.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181441587.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181631188.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181753279.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102181744135.png"></p>
+<h2 id="神经元和感知机">神经元和感知机</h2>
+<h3 id="mp神经元基本结构">MP神经元基本结构</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191434753.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191623202.png"></p>
+<h3 id="激活函数">激活函数</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191730704.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191834573.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102191816520.png"></p>
+<h3 id="感知机">感知机</h3>
+<p>由一组MP神经元组成的集合。最简单形式的前馈式人工神经网络。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102192828848.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102192851789.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102193110384.png"></p>
+<p><strong>例子</strong></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102193121090.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102193133813.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102193431802.png"></p>
+<h3 id="线性可分性">线性可分性</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194133988.png"></p>
+<p>感知器所做的事情是尝试寻找一条直线（二维空间中是一条直线，三维空间中是一个平面，在更高维度的空间中是一个超平面），在直线的一边神经元都激活，而在另一边神经元都不激活。这条直线被称作<strong>决策边界</strong>，或者是<strong>判别函数</strong>。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194511183.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194517637.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194647531.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102194959004.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102195139100.png"></p>
+<h2 id="神经网络">神经网络</h2>
+<h3 id="多层感知机mlp">多层感知机MLP</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201009323.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201053714.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201101406.png"></p>
+<h3 id="反向传播重要">反向传播（重要）</h3>
+<p>误差反传要素：</p>
+<ul>
+<li>误差定义</li>
+<li>Delta规则</li>
+<li>激活函数</li>
+<li>反传学习的推导（链式法则）</li>
+</ul>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201314606.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201338749.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201355061.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201450901.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201502440.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201509525.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201752659.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102201835629.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102202020492.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240102210028387.png"></p>
+<p>一个例子的链接，不过不全，没有偏置和激活函数。</p>
+<p>https://zhuanlan.zhihu.com/p/40378224</p>
+<h2 id="演化学习">演化学习</h2>
+<h3 id="遗传算法">遗传算法</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111433667.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111447201.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111628839.png"></p>
+<p>例子</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111826084.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103111832478.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112115044.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112245336.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112622663.png"></p>
+<h3 id="遗传算子">遗传算子</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112645673.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103112856095.png"></p>
+<h3 id="后代种群的演化">后代种群的演化</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113148733.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113157217.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113345407.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113528619.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113606904.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103113754281.png"></p>
+<h2 id="维度约简">维度约简</h2>
+<h3 id="线性判别分析lda">线性判别分析LDA</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103115510615.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103115645197.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103120155362.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103120259292.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103120307744.png"></p>
+<h3 id="主成分分析pca">主成分分析PCA</h3>
+<p>无监督的特征降维方法</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103133622328.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103133609292.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103134912049.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103134848290.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103135026663.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103135039288.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103135155076.png"></p>
+<h2 id="强化学习">强化学习</h2>
+<h3 id="mdp">MDP</h3>
+<p>马尔可夫决策过程</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142224222.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142308476.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142408129.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142417123.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142355226.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142350953.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142441592.png"></p>
+<p>定理：必然存在着一个确定性的最优策略。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142555211.png"></p>
+<h3 id="动态规划">动态规划</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142924187.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103142959556.png"></p>
+<h4 id="bellman等式重要">Bellman等式（重要）</h4>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143139906.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143239262.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143248215.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143423881.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143430682.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143443425.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103143453888.png"></p>
+<h3 id="强化学习-1">强化学习</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103144649711.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153156832.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153206625.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153332206.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153439980.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153448857.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20240103153525499.png"></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 机器学习复习</li>
+        <li><strong>作者:</strong> Kiyotaka Wang</li>
+        <li><strong>创建于
+                :</strong> 2024-01-11 09:10:03</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-01-15 13:03:38
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://hmwang2002.github.io/2024/01/11/ji-qi-xue-xi-fu-xi/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02023%E7%A7%8B/">#机器学习2023秋</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/01/11/fu-wu-duan-kai-fa-fu-xi/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">服务端开发复习</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/01/11/devops-fu-xi/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">devops复习</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">机器学习复习</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0review"><span class="nav-text">机器学习review</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="nav-text">评价指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E4%B8%8E%E5%AD%A6%E4%B9%A0-knn"><span class="nav-text">概率与学习-KNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-text">无监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB%E7%9A%84%E4%BE%9D%E6%8D%AE"><span class="nav-text">聚类的依据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="nav-text">聚类方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%AF%95%E6%8E%A2%E7%9A%84%E8%81%9A%E7%B1%BB%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95"><span class="nav-text">基于试探的聚类搜索算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E6%9C%80%E8%BF%91%E9%82%BB%E8%A7%84%E5%88%99%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%95%E6%8E%A2%E6%B3%95"><span class="nav-text">按最近邻规则的简单试探法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB%E7%AE%97%E6%B3%95"><span class="nav-text">最大最小距离算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%81%9A%E7%B1%BB%E6%B3%95"><span class="nav-text">系统聚类法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BB%E6%B3%95"><span class="nav-text">动态聚类法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E7%B1%BB%E8%AF%84%E4%BB%B7"><span class="nav-text">聚类评价</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E5%AD%A6%E4%B9%A0"><span class="nav-text">树学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E5%AD%A6%E4%B9%A0"><span class="nav-text">概念学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#find-s%E5%92%8C%E5%80%99%E9%80%89%E6%B6%88%E9%99%A4%E7%AE%97%E6%B3%95"><span class="nav-text">Find-S和候选消除算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id3"><span class="nav-text">ID3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c4.5"><span class="nav-text">C4.5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cart"><span class="nav-text">CART</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bias-variance-tradeoff%E9%97%AE%E9%A2%98"><span class="nav-text">Bias-Variance tradeoff问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bagging%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-text">Bagging基本原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="nav-text">随机森林</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-text">随机森林的特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#boosting%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-text">Boosting基本原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E4%B8%8E%E5%AD%A6%E4%B9%A0"><span class="nav-text">概率与学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98"><span class="nav-text">带约束的数学优化问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98%E9%87%8D%E7%82%B9"><span class="nav-text">不带约束的数学优化问题（重点）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="nav-text">支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="nav-text">线性支持向量机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="nav-text">非线性支持向量机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E5%85%83%E5%92%8C%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="nav-text">神经元和感知机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mp%E7%A5%9E%E7%BB%8F%E5%85%83%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">MP神经元基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-text">激活函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="nav-text">感知机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86%E6%80%A7"><span class="nav-text">线性可分性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-text">神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BAmlp"><span class="nav-text">多层感知机MLP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E9%87%8D%E8%A6%81"><span class="nav-text">反向传播（重要）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%94%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="nav-text">演化学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95"><span class="nav-text">遗传算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E5%AD%90"><span class="nav-text">遗传算子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E4%BB%A3%E7%A7%8D%E7%BE%A4%E7%9A%84%E6%BC%94%E5%8C%96"><span class="nav-text">后代种群的演化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%B4%E5%BA%A6%E7%BA%A6%E7%AE%80"><span class="nav-text">维度约简</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90lda"><span class="nav-text">线性判别分析LDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90pca"><span class="nav-text">主成分分析PCA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="nav-text">强化学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mdp"><span class="nav-text">MDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bellman%E7%AD%89%E5%BC%8F%E9%87%8D%E8%A6%81"><span class="nav-text">Bellman等式（重要）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-1"><span class="nav-text">强化学习</span></a></li></ol></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Kiyotaka Wang</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>

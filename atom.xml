@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2024-01-11T01:18:06.308Z</updated>
+  <updated>2024-01-15T05:09:35.282Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hmwang2002/github.io/2024/01/11/ruan-jian-ce-shi-fu-xi/"/>
     <id>https://hmwang2002/github.io/2024/01/11/ruan-jian-ce-shi-fu-xi/</id>
     <published>2024-01-11T01:16:33.000Z</published>
-    <updated>2024-01-11T01:18:06.308Z</updated>
+    <updated>2024-01-15T05:09:35.282Z</updated>
     
     
       
@@ -31,8 +31,7 @@
     <summary type="html">&lt;h1 id=&quot;软测review&quot;&gt;软测review&lt;/h1&gt;
 &lt;p&gt;房老师今年画的重点不是很准，大题3道结果复习的时候和我们说就两道，结果多考了蜕变关系的设计。&lt;/p&gt;
 &lt;h2 id=&quot;源码测试&quot;&gt;源码测试&lt;/h2&gt;
-&lt;figure&gt;
-&lt;img</summary>
+&lt;p&gt;&lt;img lazyload</summary>
         
       
     
@@ -50,7 +49,7 @@
     <link href="https://hmwang2002/github.io/2024/01/11/ren-ji-jiao-hu-xi-tong/"/>
     <id>https://hmwang2002/github.io/2024/01/11/ren-ji-jiao-hu-xi-tong/</id>
     <published>2024-01-11T01:15:31.000Z</published>
-    <updated>2024-01-11T01:16:09.254Z</updated>
+    <updated>2024-01-15T05:07:31.861Z</updated>
     
     
       
@@ -77,7 +76,7 @@
     <link href="https://hmwang2002/github.io/2024/01/11/fu-wu-duan-kai-fa-fu-xi/"/>
     <id>https://hmwang2002/github.io/2024/01/11/fu-wu-duan-kai-fa-fu-xi/</id>
     <published>2024-01-11T01:12:32.000Z</published>
-    <updated>2024-01-11T01:15:03.776Z</updated>
+    <updated>2024-01-15T04:59:56.477Z</updated>
     
     
       
@@ -98,11 +97,38 @@
   </entry>
   
   <entry>
+    <title>机器学习复习</title>
+    <link href="https://hmwang2002/github.io/2024/01/11/ji-qi-xue-xi-fu-xi/"/>
+    <id>https://hmwang2002/github.io/2024/01/11/ji-qi-xue-xi-fu-xi/</id>
+    <published>2024-01-11T01:10:03.000Z</published>
+    <updated>2024-01-15T05:03:38.892Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;机器学习review&quot;&gt;机器学习review&lt;/h1&gt;
+&lt;h2 id=&quot;评价指标&quot;&gt;评价指标&lt;/h2&gt;
+&lt;p&gt;&lt;img lazyload src=&quot;/images/loading.svg&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习2023秋" scheme="https://hmwang2002/github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02023%E7%A7%8B/"/>
+    
+    
+    <category term="机器学习2023秋" scheme="https://hmwang2002/github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A02023%E7%A7%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>devops复习</title>
     <link href="https://hmwang2002/github.io/2024/01/11/devops-fu-xi/"/>
     <id>https://hmwang2002/github.io/2024/01/11/devops-fu-xi/</id>
     <published>2024-01-11T01:07:40.000Z</published>
-    <updated>2024-01-11T01:39:34.867Z</updated>
+    <updated>2024-01-15T04:55:01.658Z</updated>
     
     
       
@@ -121,6 +147,36 @@
     
     
     <category term="Devops2023秋" scheme="https://hmwang2002/github.io/tags/Devops2023%E7%A7%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>注册中心</title>
+    <link href="https://hmwang2002/github.io/2023/08/10/zhu-ce-zhong-xin/"/>
+    <id>https://hmwang2002/github.io/2023/08/10/zhu-ce-zhong-xin/</id>
+    <published>2023-08-10T09:33:16.000Z</published>
+    <updated>2024-01-15T03:20:24.197Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;注册中心&quot;&gt;注册中心&lt;/h1&gt;
+&lt;h2 id=&quot;注册中心基本概念&quot;&gt;注册中心基本概念&lt;/h2&gt;
+&lt;h3 id=&quot;什么是注册中心&quot;&gt;什么是注册中心？&lt;/h3&gt;
+&lt;p&gt;注册中心主要有三种角色：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;服务提供者（RPC</summary>
+        
+      
+    
+    
+    
+    <category term="微服务" scheme="https://hmwang2002/github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    
+    
+    <category term="微服务" scheme="https://hmwang2002/github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
   </entry>
   
@@ -181,7 +237,7 @@
     <link href="https://hmwang2002/github.io/2022/11/06/c-oo-ji-chu/"/>
     <id>https://hmwang2002/github.io/2022/11/06/c-oo-ji-chu/</id>
     <published>2022-11-06T14:56:15.000Z</published>
-    <updated>2022-12-03T11:06:18.706Z</updated>
+    <updated>2024-01-15T04:50:09.834Z</updated>
     
     
       
@@ -497,56 +553,6 @@
     
     
     <category term="随笔" scheme="https://hmwang2002/github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>泛型</title>
-    <link href="https://hmwang2002/github.io/2022/10/03/fan-xing/"/>
-    <id>https://hmwang2002/github.io/2022/10/03/fan-xing/</id>
-    <published>2022-10-03T02:36:32.000Z</published>
-    <updated>2022-11-21T04:59:25.391Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://hmwang2002/github.io/categories/Java/"/>
-    
-    
-    <category term="博客" scheme="https://hmwang2002/github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++的io处理</title>
-    <link href="https://hmwang2002/github.io/2022/10/02/c-de-io-chu-li/"/>
-    <id>https://hmwang2002/github.io/2022/10/02/c-de-io-chu-li/</id>
-    <published>2022-10-02T14:43:02.000Z</published>
-    <updated>2022-11-21T05:03:25.319Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="C++" scheme="https://hmwang2002/github.io/categories/C/"/>
-    
-    
-    <category term="菜鸟的代码作业" scheme="https://hmwang2002/github.io/tags/%E8%8F%9C%E9%B8%9F%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%9C%E4%B8%9A/"/>
     
   </entry>
   

@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="NJU Kiyotaka Wang 南京大学 软件学院 A Simple NJUSEer">
+    
+    <meta name="author" content="Kiyotaka Wang">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://hmwang2002/github.io/2023/08/10/zhu-ce-zhong-xin/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="注册中心 注册中心基本概念 什么是注册中心？ 注册中心主要有三种角色：  服务提供者（RPC Server）：在启动时，向 Registry 注册自身服务，并向 Registry 定期发送心跳汇报存活状态。 服务消费者（RPC Client）：在启动时，向 Registry 订阅服务，把 Registry 返回的服务节点列表缓存在本地内存中，并与 RPC Sever 建立连接。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="注册中心">
+<meta property="og:url" content="https://hmwang2002/github.io/2023/08/10/zhu-ce-zhong-xin/index.html">
+<meta property="og:site_name" content="Kiyotaka Wang的博客">
+<meta property="og:description" content="注册中心 注册中心基本概念 什么是注册中心？ 注册中心主要有三种角色：  服务提供者（RPC Server）：在启动时，向 Registry 注册自身服务，并向 Registry 定期发送心跳汇报存活状态。 服务消费者（RPC Client）：在启动时，向 Registry 订阅服务，把 Registry 返回的服务节点列表缓存在本地内存中，并与 RPC Sever 建立连接。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230810173720133.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230810173740681.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230810173821281.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811093412774.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811093631908.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811093916006.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811103053945.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811103115783.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811104932427.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811105851661.png">
+<meta property="article:published_time" content="2023-08-10T09:33:16.000Z">
+<meta property="article:modified_time" content="2024-01-15T03:20:24.197Z">
+<meta property="article:author" content="Kiyotaka Wang">
+<meta property="article:tag" content="微服务">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230810173720133.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            注册中心 -
+        
+        Kiyotaka Wang&#39;s Blog
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        Kiyotaka Wang&#39;s Blog
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"hmwang2002","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"20px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":6,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":true,"family":"Noto Sans SC","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":false,"family":"Farsan","url":"https://fonts.googleapis.com/css2?family=Farsan&display=swap"}},"content_max_width":"1200px","sidebar_width":"300px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Kiyotaka Wang","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":"https://github.com/hmwang2002","instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"},"Tags":{"path":"/tags/","icon":"fa-regular fa-tags"},"About":{"icon":"fa-regular fa-user","path":"/about/"},"Friends":{"icon":"fa-solid fa-link","path":"/links/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Kiyotaka Wang的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+
+    <div class="navbar-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                Kiyotaka Wang&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-solid fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags/"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/about/"
+                                        >
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/links/"
+                                        >
+                                    <i class="fa-solid fa-link fa-fw"></i>
+                                    友情链接
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags/"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/about/"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-regular fa-user fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links/"
+                        >
+                            <span>
+                                友情链接
+                            </span>
+                            
+                                <i class="fa-solid fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">14</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">15</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">27</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">注册中心</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.jpg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Kiyotaka Wang</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-08-10 17:33:16</span>
+        <span class="mobile">2023-08-10 17:33:16</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-01-15 11:20:24</span>
+            <span class="mobile">2024-01-15 11:20:24</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>5.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>18 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h1 id="注册中心">注册中心</h1>
+<h2 id="注册中心基本概念">注册中心基本概念</h2>
+<h3 id="什么是注册中心">什么是注册中心？</h3>
+<p>注册中心主要有三种角色：</p>
+<ul>
+<li><strong>服务提供者（RPC Server）</strong>：在启动时，向 Registry
+注册自身服务，并向 Registry 定期发送心跳汇报存活状态。</li>
+<li><strong>服务消费者（RPC Client）</strong>：在启动时，向 Registry
+订阅服务，把 Registry 返回的服务节点列表缓存在本地内存中，并与 RPC Sever
+建立连接。</li>
+<li><strong>服务注册中心（Registry）</strong>：用于保存 RPC Server
+的注册信息，当 RPC Server 节点发生变更时，Registry 会同步变更，RPC
+Client 感知后会刷新本地 内存中缓存的服务节点列表。</li>
+</ul>
+<p>最后，RPC Client 从本地缓存的服务节点列表中，基于负载均衡算法选择一台
+RPC Sever 发起调用。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230810173720133.png"></p>
+<h3 id="注册中心需要实现的功能">注册中心需要实现的功能</h3>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230810173740681.png"></p>
+<h2 id="微服务cap原则">微服务CAP原则</h2>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230810173821281.png"></p>
+<blockquote>
+<p>CAP原则又称CAP定理，指的是在一个分布式系统中，存在Consistency（一致性）、Availability（可用性）、Partition
+tolerance（分区容错性），三者不可同时保证，最多只能保证其中的两者。</p>
+<p>一致性（C）：在分布式系统中的所有数据备份，在同一时刻都是同样的值（所有的节点无论何时访问都能拿到最新的值）</p>
+<p>可用性（A）：系统中非故障节点收到的每个请求都必须得到响应（比如我们之前使用的服务降级和熔断，其实就是一种维持可用性的措施，虽然服务返回的是没有什么意义的数据，但是不至于用户的请求会被服务器忽略）</p>
+<p>分区容错性（P）：一个分布式系统里面，节点之间组成的网络本来应该是连通的，然而可能因为一些故障（比如网络丢包等，这是很难避免的），使得有些节点之间不连通了，整个网络就分成了几块区域，数据就散布在了这些不连通的区域中（这样就可能出现某些被分区节点存放的数据访问失败，我们需要来容忍这些不可靠的情况）</p>
+</blockquote>
+<p>总的来说，数据存放的节点数越多，分区容错性就越高，但是要复制更新的次数就越多，一致性就越难保证。同时为了保证一致性，更新所有节点数据所需要的时间就越长，那么可用性就会降低。</p>
+<p>所以说，只能存在以下三种方案：</p>
+<h3 id="ac可用性一致性">AC可用性+一致性</h3>
+<p>要同时保证可用性和一致性，代表着某个节点数据更新之后，需要立即将结果通知给其他节点，并且要尽可能的快，这样才能及时响应保证可用性，这就对网络的稳定性要求非常高，但是实际情况下，网络很容易出现丢包等情况，并不是一个可靠的传输，如果需要避免这种问题，就只能将节点全部放在一起，但是这显然违背了分布式系统的概念，所以对于我们的分布式系统来说，很难接受。</p>
+<h3 id="cp一致性分区容错性">CP一致性+分区容错性</h3>
+<p>为了保证一致性，那么就得将某个节点的最新数据发送给其他节点，并且需要等到所有节点都得到数据才能进行响应，同时有了分区容错性，那么代表我们可以容忍网络的不可靠问题，所以就算网络出现卡顿，那么也必须等待所有节点完成数据同步，才能进行响应，因此就会导致服务在一段时间内完全失效，所以可用性是无法得到保证的。</p>
+<h3 id="ap可用性分区容错性">AP可用性+分区容错性</h3>
+<p>既然CP可能会导致一段时间内服务得不到任何响应，那么要保证可用性，就只能放弃节点之间数据的高度统一，也就是说可以在数据不统一的情况下，进行响应，因此就无法保证一致性了。虽然这样会导致拿不到最新的数据，但是只要数据同步操作在后台继续运行，一定能够在某一时刻完成所有节点数据的同步，那么就能实现<strong>最终一致性</strong>，所以AP实际上是最能接受的一种方案。</p>
+<p>比如Eureka集群，它使用的就是AP方案，Eureka各个节点都是平等的，少数节点挂掉不会影响正常节点的工作，剩余的节点依然可以提供注册和查询服务。而Eureka客户端在向某个Eureka服务端注册时如果发现连接失败，则会自动切换至其他节点。只要有一台Eureka服务器正常运行，那么就能保证服务可用<strong>(A)</strong>，只不过查询到的信息可能不是最新的<strong>(C)</strong>。</p>
+<h2 id="分布式系统协议">分布式系统协议</h2>
+<p>一致性协议算法主要有Paxos、Raft、ZAB。</p>
+<p>Paxos算法是Leslie
+Lamport在1990年提出的一种基于消息传递的一致性算法，非常难以理解，基于Paxos协议的数据同步与传统主备方式最大的区别在于：Paxos只需超过半数的副本在线且相互通信正常，就可以保证服务的持续可用，且数据不丢失。</p>
+<p>Raft是斯坦福大学的Diego Ongaro、John
+Ousterhout两个人以易理解为目标设计的一致性算法，已经有了十几种语言的Raft算法实现框架，较为出名的有etcd，Google的Kubernetes也是用了etcd作为他的服务发现框架。</p>
+<p>Raft是Paxos的简化版，与Paxos相比，Raft强调的是易理解、易实现，Raft和Paxos一样只要保证超过半数的节点正常就能够提供服务。这篇文章
+<a class="link" href="https://link.juejin.cn?target=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzg3OTU5NzQ1Mw%3D%3D%26mid%3D2247484080%26idx%3D1%26sn%3D24ccb6e7de6d7a274c75296799b57c32%26chksm%3Dcf034052f874c944a601a6eb50d524753d7adaf59c0f2326a47a3104302c2544a6901104668f%26token%3D333114218%26lang%3Dzh_CN%23rd">《ETCD教程-2.Raft协议》 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
+详细讲解了Raft原理，非常有意思，感兴趣的同学可以看看。</p>
+<p>ZooKeeper Atomic Broadcast (ZAB,
+ZooKeeper原子消息广播协议)是ZooKeeper实现分布式数据一致性的核心算法，ZAB借鉴Paxos算法，但又不像Paxos算法那样，是一种通用的分布式一致性算法，它是一种特别为ZooKeeper专门设计的支持崩溃恢复的原子广播协议。</p>
+<h2 id="常用注册中心">常用注册中心</h2>
+<h3 id="zookeeper">ZooKeeper</h3>
+<p>ZooKeeper官方并没有说他是一个注册中心，不过国内Dubbo场景下很多都是使用ZooKeeper来完成了注册中心的功能。</p>
+<p>ZooKeeper是非常经典的服务注册中心中间件，在国内环境下，由于受到Dubbo框架的影响，大部分情况下认为Zookeeper是RPC服务框架下注册中心最好选择，随着Dubbo框架的不断开发优化，和各种注册中心组件的诞生，即使是RPC框架，现在的注册中心也逐步放弃了ZooKeeper。在常用的开发集群环境中，ZooKeeper依然起到十分重要的作用，Java体系中，大部分的集群环境都是依赖ZooKeeper管理服务的各个节点。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811093412774.png"></p>
+<h4 id="zookeeper如何实现注册中心">ZooKeeper如何实现注册中心</h4>
+<p>ZooKeeper可以充当一个服务注册表（Service
+Registry），让多个服务提供者形成一个集群，让服务消费者通过服务注册表获取具体的服务访问地址（ip+端口）去访问具体的服务提供者。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811093631908.png"></p>
+<p>每当一个服务提供者部署后都要将自己的服务注册到zookeeper的某一路径上:
+/{service}/{version}/{ip:port} 。</p>
+<p>比如我们的HelloWorldService部署到两台机器，那么Zookeeper上就会创建两条目录：</p>
+<ul>
+<li>/HelloWorldService/1.0.0/100.19.20.01:16888</li>
+<li>/HelloWorldService/1.0.0/100.19.20.02:16888</li>
+</ul>
+<p>这么描述有点不好理解，下图更直观：</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811093916006.png"></p>
+<p>在ZooKeeper中，进行服务注册，实际上就是在ZooKeeper中创建了一个znode节点，该节点存储了该服务的IP、端口、调用方式（协议、序列化方式）等。该节点承担着最重要的职责，它由服务提供者（发布服务时）创建，以供服务消费者获取节点中的信息，从而定位到服务提供者真正网络拓扑位置以及得知如何调用。</p>
+<h4 id="rpc服务注册发现过程简述如下">RPC服务注册/发现过程简述如下：</h4>
+<ol type="1">
+<li>服务提供者启动时，会将其服务名称，ip地址注册到配置中心。</li>
+<li>服务消费者在第一次调用服务时，会通过注册中心找到相应的服务的IP地址列表，并缓存到本地，以供后续使用。当消费者调用服务时，不会再去请求注册中心，而是直接通过负载均衡算法从IP列表中取一个服务提供者的服务器调用服务。</li>
+<li>当服务提供者的某台服务器宕机或下线时，相应的ip会从服务提供者IP列表中移除。同时，注册中心会将新的服务IP地址列表发送给服务消费者机器，缓存在消费者本机。</li>
+<li>当某个服务的所有服务器都下线了，那么这个服务也就下线了。</li>
+<li>同样，当服务提供者的某台服务器上线时，注册中心会将新的服务IP地址列表发送给服务消费者机器，缓存在消费者本机。</li>
+<li>服务提供方可以根据服务消费者的数量来作为服务下线的依据。</li>
+</ol>
+<p>ZooKeeper提供了“心跳检测”功能：<strong>它会定时向各个服务提供者发送一个请求（实际上建立的是一个
+socket
+长连接），如果长期没有响应，服务中心就认为该服务提供者已经“挂了”，并将其剔除。</strong></p>
+<p>比如100.100.0.237这台机器如果宕机了，那么zookeeper上的路径就会只剩/HelloWorldService/1.0.0/100.100.0.238:16888。</p>
+<p>ZooKeeper的Watch机制其实就是一种<strong>推拉结合的模式</strong>：</p>
+<ul>
+<li>服务消费者会去监听相应路径（/HelloWorldService/1.0.0），一旦路径上的数据有任务变化（增加或减少），<strong>Zookeeper只会发送一个事件类型和节点信息给关注的客户端，而不会包括具体的变更内容</strong>，所以事件本身是轻量级的，这就是推的部分。</li>
+<li><strong>收到变更通知的客户端需要自己去拉变更的数据</strong>，这就是拉的部分。</li>
+</ul>
+<h4 id="zookeeper不适合作为注册中心">ZooKeeper不适合作为注册中心</h4>
+<p>作为一个分布式协同服务，ZooKeeper非常好，但是对于Service发现服务来说就不合适了，因为对于Service发现服务来说就算是返回了包含不实的信息的结果也比什么都不返回要好。<strong>所以当向注册中心查询服务列表时，我们可以容忍注册中心返回的是几分钟以前的注册信息，但不能接受服务直接down掉不可用。</strong></p>
+<p>但是zk会出现这样一种情况，当master节点因为网络故障与其他节点失去联系时，剩余节点会重新进行leader选举。问题在于，选举leader的时间太长，30
+~ 120s,
+且选举期间整个zk集群都是不可用的，这就导致在选举期间注册服务瘫痪。在云部署的环境下，因网络问题使得zk集群失去master节点是较大概率会发生的事，虽然服务能够最终恢复，但是漫长的选举时间导致的注册长期不可用是不能容忍的。</p>
+<p>所以说，<strong>作为注册中心，可用性的要求要高于一致性！</strong></p>
+<p>在 CAP
+模型中，<strong>ZooKeeper整体遵循一致性（CP）原则</strong>，即在任何时候对
+ZooKeeper
+的访问请求能得到一致的数据结果，但是当机器下线或者宕机时，<strong>不能保证服务可用性。</strong></p>
+<p>那为什么ZooKeeper不使用最终一致性（AP）模型呢？因为这个依赖<strong>ZooKeeper的核心算法是ZAB，所有设计都是为了强一致性</strong>。这个对于分布式协调系统，完全没没有毛病，但是<strong>你如果将ZooKeeper为分布式协调服务所做的一致性保障，用在注册中心，或者说服务发现场景，这个其实就不合适。</strong></p>
+<h3 id="eureka">Eureka</h3>
+<h4 id="eureka架构图">Eureka架构图</h4>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811103053945.png"></p>
+<p>简化版：</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811103115783.png"></p>
+<h4 id="eureka特点">Eureka特点</h4>
+<ul>
+<li><p><strong>可用性（AP原则）</strong>：Eureka
+在设计时就紧遵AP原则，Eureka的集群中，只要有一台Eureka还在，就能保证注册服务可用，只不过查到的信息可能不是最新的（不保证强一致性）。</p></li>
+<li><p><strong>去中心化架构</strong>：Eureka Server
+可以运行多个实例来构建集群，不同于 ZooKeeper 的选举 leader
+的过程，Eureka Server 采用的是Peer to Peer
+对等通信。这是一种去中心化的架构，无 master/slave 之分，每一个 Peer
+都是对等的。节点通过彼此互相注册来提高可用性，每个节点需要添加一个或多个有效的
+serviceUrl 指向其他节点。每个节点都可被视为其他节点的副本。</p></li>
+<li><p><strong>请求自动切换</strong>：在集群环境中如果某台 Eureka Server
+宕机，Eureka Client 的请求会自动切换到新的 Eureka Server
+节点上，当宕机的服务器重新恢复后，Eureka
+会再次将其纳入到服务器集群管理之中。</p></li>
+<li><p><strong>节点间操作复制</strong>：当节点开始接受客户端请求时，所有的操作都会在节点间进行复制操作，将请求复制到该
+Eureka Server 当前所知的其它所有节点中。</p></li>
+<li><p><strong>自动注册&amp;心跳</strong>：当一个新的 Eureka Server
+节点启动后，会首先尝试从邻近节点获取所有注册列表信息，并完成初始化。Eureka
+Server 通过 getEurekaServiceUrls()
+方法获取所有的节点，并且会通过心跳契约的方式定期更新。</p></li>
+<li><p><strong>自动下线</strong>：默认情况下，如果 Eureka Server
+在一定时间内没有接收到某个服务实例的心跳（默认周期为30秒），Eureka
+Server 将会注销该实例（默认为90秒，
+eureka.instance.lease-expiration-duration-in-seconds
+进行自定义配置）。</p></li>
+<li><p><strong>保护模式</strong>：当 Eureka Server
+节点在短时间内丢失过多的心跳时，那么这个节点就会进入自我保护模式。</p></li>
+</ul>
+<p>除了上述特点，Eureka还有一种自我保护机制，如果在15分钟内超过
+<strong>85%</strong>
+的节点都没有正常的心跳，那么Eureka就认为客户端与注册中心出现了网络故障，此时会出现以下几种情况：</p>
+<ul>
+<li>Eureka不再从注册表中移除因为长时间没有收到心跳而过期的服务；</li>
+<li>Eureka仍然能够接受新服务注册和查询请求，但是不会被同步到其它节点上（即保证当前节点依然可用）</li>
+<li>当网络稳定时，当前实例新注册的信息会被同步到其它节点中。</li>
+</ul>
+<h4 id="eureka工作流程">Eureka工作流程</h4>
+<ol type="1">
+<li><p>Eureka Server
+启动成功，等待服务端注册。在启动过程中如果配置了集群，集群之间定时通过
+Replicate 同步注册表，每个 Eureka Server
+都存在独立完整的服务注册表信息。</p></li>
+<li><p>Eureka Client 启动时根据配置的 Eureka Server
+地址去注册中心注册服务。</p></li>
+<li><p>Eureka Client 会每 30s 向 Eureka Server
+发送一次心跳请求，证明客户端服务正常。</p></li>
+<li><p>当 Eureka Server 90s 内没有收到 Eureka Client
+的心跳，注册中心则认为该节点失效，会注销该实例。</p></li>
+<li><p>单位时间内 Eureka Server 统计到有大量的 Eureka Client
+没有上送心跳，则认为可能为网络异常，进入自我保护机制，不再剔除没有上送心跳的客户端。</p></li>
+<li><p>当 Eureka Client 心跳请求恢复正常之后，Eureka Server
+自动退出自我保护模式。</p></li>
+<li><p>Eureka Client
+定时全量或者增量从注册中心获取服务注册表，并且将获取到的信息缓存到本地。</p></li>
+<li><p>服务调用时，Eureka Client
+会先从本地缓存找寻调取的服务。如果获取不到，先从注册中心刷新注册表，再同步到本地缓存。</p></li>
+<li><p>Eureka Client 获取到目标服务器信息，发起服务调用。</p></li>
+<li><p>Eureka Client 程序关闭时向 Eureka Server 发送取消请求，Eureka
+Server 将实例从注册表中删除。</p></li>
+</ol>
+<blockquote>
+<p>Eureka的设计之巧妙，在于完美地解决了注册中心的稳定性和高可用性。</p>
+<p>Eureka
+为了保障注册中心的高可用性，容忍了数据的非强一致性，服务节点间的数据可能不一致，
+Client-Server
+间的数据可能不一致。<strong>比较适合跨越多机房、对注册中心服务可用性要求较高的使用场景。</strong></p>
+</blockquote>
+<h3 id="nacos">Nacos</h3>
+<blockquote>
+<p>近期学习下来，个人感觉从使用的便捷性角度，还是alibaba的nacos比较方便。nacos既可以作为注册中心也可以作为配置中心，比起eureka来说可视化界面和功能都更加强大。在国产化的大背景下，使用Nacos这些国产的开源组件，在实际工作中显然是更实用的。</p>
+</blockquote>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811104932427.png"></p>
+<p>Nacos /nɑ:kəʊs/ 是 Dynamic Naming and Configuration
+Service的首字母简称，一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台。</p>
+<p>Nacos 致力于帮助您发现、配置和管理微服务。Nacos
+提供了一组简单易用的特性集，帮助您快速实现动态服务发现、服务配置、服务元数据及流量管理。</p>
+<p>Nacos 帮助您更敏捷和容易地构建、交付和管理微服务平台。 Nacos
+是构建以“服务”为中心的现代应用架构 (例如微服务范式、云原生范式)
+的服务基础设施。</p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/image-20230811105851661.png"></p>
+<h3 id="nacos-主要特点">Nacos 主要特点</h3>
+<p><strong>服务发现和服务健康监测</strong>：</p>
+<ul>
+<li>Nacos 支持基于 DNS 和基于 RPC
+的服务发现。服务提供者使用原生SDK、OpenAPI、或一个独立的Agent TODO注册
+Service 后，服务消费者可以使用DNS TODO
+或HTTP&amp;API查找和发现服务。</li>
+<li>Nacos
+提供对服务的实时的健康检查，阻止向不健康的主机或服务实例发送请求。Nacos
+支持传输层 (PING 或 TCP)和应用层 (如
+HTTP、MySQL、用户自定义）的健康检查。
+对于复杂的云环境和网络拓扑环境中（如
+VPC、边缘网络等）服务的健康检查，Nacos 提供了 agent
+上报模式和服务端主动检测2种健康检查模式。Nacos
+还提供了统一的健康检查仪表盘，帮助您根据健康状态管理服务的可用性及流量。</li>
+</ul>
+<p><strong>动态配置服务</strong>：</p>
+<ul>
+<li>动态配置服务可以让您以中心化、外部化和动态化的方式管理所有环境的应用配置和服务配置。</li>
+<li>动态配置消除了配置变更时重新部署应用和服务的需要，让配置管理变得更加高效和敏捷。</li>
+<li>配置中心化管理让实现无状态服务变得更简单，让服务按需弹性扩展变得更容易。</li>
+<li>Nacos 提供了一个简洁易用的UI (控制台样例 Demo)
+帮助您管理所有的服务和应用的配置。Nacos
+还提供包括配置版本跟踪、金丝雀发布、一键回滚配置以及客户端配置更新状态跟踪在内的一系列开箱即用的配置管理特性，帮助您更安全地在生产环境中管理配置变更和降低配置变更带来的风险。</li>
+</ul>
+<p><strong>动态 DNS 服务</strong>：</p>
+<ul>
+<li>动态 DNS
+服务支持权重路由，让您更容易地实现中间层负载均衡、更灵活的路由策略、流量控制以及数据中心内网的简单DNS解析服务。动态DNS服务还能让您更容易地实现以
+DNS 协议为基础的服务发现，以帮助您消除耦合到厂商私有服务发现 API
+上的风险。</li>
+<li>Nacos 提供了一些简单的 DNS APIs TODO
+帮助您管理服务的关联域名和可用的 IP:PORT 列表。</li>
+</ul>
+<blockquote>
+<p>小节一下：</p>
+<ul>
+<li>Nacos是阿里开源的，支持基于 DNS 和基于 RPC 的服务发现。</li>
+<li><strong>Nacos的注册中心支持CP也支持AP</strong>，对他来说只是一个命令的切换，随你玩，还支持各种注册中心迁移到Nacos，反正一句话，只要你想要的他就有。</li>
+<li><strong>Nacos除了服务的注册发现之外，还支持动态配置服务</strong>，一句话概括就是<strong>Nacos
+= Spring Cloud注册中心 + Spring Cloud配置中心</strong>。</li>
+</ul>
+</blockquote>
+<h2 id="参考链接">参考链接</h2>
+<p><a class="link" target="_blank" rel="noopener" href="https://juejin.cn/post/7068065361312088095">注册中心对比和选型：Zookeeper、Eureka、Nacos、Consul和ETCD
+- 掘金 (juejin.cn) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a class="link" target="_blank" rel="noopener" href="https://itbaima.net/document">柏码 -
+让每一行代码都闪耀智慧的光芒！ (itbaima.net) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><a href="%5BNacos%20概念%5D(https://nacos.io/zh-cn/docs/concepts.html)">Nacos官网</a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 注册中心</li>
+        <li><strong>作者:</strong> Kiyotaka Wang</li>
+        <li><strong>创建于
+                :</strong> 2023-08-10 17:33:16</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-01-15 11:20:24
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://hmwang2002.github.io/2023/08/10/zhu-ce-zhong-xin/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">#微服务</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/01/11/devops-fu-xi/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">devops复习</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/07/17/chu-xue-zookeeper/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">初学ZooKeeper</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">注册中心</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="nav-text">注册中心</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">注册中心基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="nav-text">什么是注册中心？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-text">注册中心需要实现的功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1cap%E5%8E%9F%E5%88%99"><span class="nav-text">微服务CAP原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ac%E5%8F%AF%E7%94%A8%E6%80%A7%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-text">AC可用性+一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp%E4%B8%80%E8%87%B4%E6%80%A7%E5%88%86%E5%8C%BA%E5%AE%B9%E9%94%99%E6%80%A7"><span class="nav-text">CP一致性+分区容错性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ap%E5%8F%AF%E7%94%A8%E6%80%A7%E5%88%86%E5%8C%BA%E5%AE%B9%E9%94%99%E6%80%A7"><span class="nav-text">AP可用性+分区容错性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%8D%8F%E8%AE%AE"><span class="nav-text">分布式系统协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="nav-text">常用注册中心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zookeeper"><span class="nav-text">ZooKeeper</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zookeeper%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="nav-text">ZooKeeper如何实现注册中心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rpc%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%8F%91%E7%8E%B0%E8%BF%87%E7%A8%8B%E7%AE%80%E8%BF%B0%E5%A6%82%E4%B8%8B"><span class="nav-text">RPC服务注册&#x2F;发现过程简述如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zookeeper%E4%B8%8D%E9%80%82%E5%90%88%E4%BD%9C%E4%B8%BA%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="nav-text">ZooKeeper不适合作为注册中心</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eureka"><span class="nav-text">Eureka</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eureka%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="nav-text">Eureka架构图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#eureka%E7%89%B9%E7%82%B9"><span class="nav-text">Eureka特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#eureka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-text">Eureka工作流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nacos"><span class="nav-text">Nacos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nacos-%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9"><span class="nav-text">Nacos 主要特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Kiyotaka Wang</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>
