@@ -6,7 +6,7 @@
   <link href="https://hmwang2002/github.io/atom.xml" rel="self"/>
   
   <link href="https://hmwang2002/github.io/"/>
-  <updated>2024-01-15T05:09:35.282Z</updated>
+  <updated>2024-01-18T03:39:02.768Z</updated>
   <id>https://hmwang2002/github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>努力无用？</title>
+    <link href="https://hmwang2002/github.io/2024/01/18/nu-li-wu-yong/"/>
+    <id>https://hmwang2002/github.io/2024/01/18/nu-li-wu-yong/</id>
+    <published>2024-01-18T03:13:31.000Z</published>
+    <updated>2024-01-18T03:39:02.768Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="随感" scheme="https://hmwang2002/github.io/categories/%E9%9A%8F%E6%84%9F/"/>
+    
+    
+    <category term="随感" scheme="https://hmwang2002/github.io/tags/%E9%9A%8F%E6%84%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>软件测试</title>
@@ -528,31 +553,6 @@
     
     
     <category term="C++高级程序设计" scheme="https://hmwang2002/github.io/tags/C-%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用6瓶农夫山泉的价格实现图床自由</title>
-    <link href="https://hmwang2002/github.io/2022/10/04/yong-6-ping-nong-fu-shan-quan-de-jie-ge-shi-xian-tu-chuang-zi-you/"/>
-    <id>https://hmwang2002/github.io/2022/10/04/yong-6-ping-nong-fu-shan-quan-de-jie-ge-shi-xian-tu-chuang-zi-you/</id>
-    <published>2022-10-04T05:58:12.000Z</published>
-    <updated>2022-11-21T04:52:20.059Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="博客" scheme="https://hmwang2002/github.io/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-    <category term="随笔" scheme="https://hmwang2002/github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
