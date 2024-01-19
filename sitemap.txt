@@ -1,3 +1,4 @@
+https://hmwang2002/github.io/about/index.html
 https://hmwang2002/github.io/2024/01/18/nu-li-wu-yong/
 https://hmwang2002/github.io/2024/01/11/ruan-jian-ce-shi-fu-xi/
 https://hmwang2002/github.io/2024/01/11/ren-ji-jiao-hu-xi-tong/
@@ -5,7 +6,6 @@ https://hmwang2002/github.io/2024/01/11/ji-qi-xue-xi-fu-xi/
 https://hmwang2002/github.io/2024/01/11/fu-wu-duan-kai-fa-fu-xi/
 https://hmwang2002/github.io/2024/01/11/devops-fu-xi/
 https://hmwang2002/github.io/2022/11/06/c-oo-ji-chu/
-https://hmwang2002/github.io/about/index.html
 https://hmwang2002/github.io/categories/index-1.html
 https://hmwang2002/github.io/tags/index-1.html
 https://hmwang2002/github.io/links/index.html
