@@ -25,15 +25,15 @@
 <meta property="og:site_name" content="Kiyotaka Wang的博客">
 <meta property="og:description" content="Redis-String底层数据结构 Redis的字符串是动态字符串，是可以修改的字符串，内部结构实现上类似于Java的ArrayList，采用预分配冗余空间的方式来减少内存的频繁使用。   内部为当前字符串实际分配的空间 capacity 一般要高于实际字符串长度 len. 当字符串长度小于 1M 时，扩容都是加倍现有的空间 超过 1M，扩容时一次只会多扩 1M 的空间 字符串最">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ask.qcloudimg.com/http-save/yehe-8916337/654033f8e1b493432bee3543d2af8dbc.png">
-<meta property="og:image" content="https://ask.qcloudimg.com/http-save/yehe-8916337/facdb062f663e77d0026699a2f132ff7.png">
-<meta property="og:image" content="https://ask.qcloudimg.com/http-save/yehe-8916337/a0d961f2e3b392e2988b83109bafed5b.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/654033f8e1b493432bee3543d2af8dbc.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/facdb062f663e77d0026699a2f132ff7.png">
+<meta property="og:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/a0d961f2e3b392e2988b83109bafed5b.png">
 <meta property="article:published_time" content="2024-03-01T02:13:45.000Z">
-<meta property="article:modified_time" content="2024-03-01T02:14:40.360Z">
+<meta property="article:modified_time" content="2024-03-01T02:19:08.079Z">
 <meta property="article:author" content="Kiyotaka Wang">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ask.qcloudimg.com/http-save/yehe-8916337/654033f8e1b493432bee3543d2af8dbc.png">
+<meta name="twitter:image" content="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/654033f8e1b493432bee3543d2af8dbc.png">
     
     
     <!--- Icon Part-->
@@ -578,8 +578,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-03-01 10:14:40</span>
-            <span class="mobile">2024-03-01 10:14:40</span>
+            <span class="desktop">2024-03-01 10:19:08</span>
+            <span class="mobile">2024-03-01 10:19:08</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -643,7 +643,7 @@
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
             <h1 id="redis-string底层数据结构">Redis-String底层数据结构</h1>
 <p>Redis的字符串是动态字符串，是可以修改的字符串，内部结构实现上类似于Java的ArrayList，采用预分配冗余空间的方式来减少内存的频繁使用。</p>
-<p><img lazyload src="/images/loading.svg" data-src="https://ask.qcloudimg.com/http-save/yehe-8916337/654033f8e1b493432bee3543d2af8dbc.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/654033f8e1b493432bee3543d2af8dbc.png"></p>
 <ul>
 <li>内部为当前字符串实际分配的空间 capacity 一般要高于实际字符串长度
 len.</li>
@@ -696,7 +696,7 @@ append 操作来修改字符串。</p>
 <h2 id="embstr-vs-raw">embstr vs raw</h2>
 <p>Redis 的字符串有两种存储方式，在长度特别短时，使用 emb
 形式存储(embeded)，当长度超过 44 时，使用 raw 形式存储 。</p>
-<p><img lazyload src="/images/loading.svg" data-src="https://ask.qcloudimg.com/http-save/yehe-8916337/facdb062f663e77d0026699a2f132ff7.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/facdb062f663e77d0026699a2f132ff7.png"></p>
 <p>上面debug
 object输出中有个encoding字段，一个字符的差别，存储形式就发生了变化。</p>
 <p>为啥呢？我们首先来了解一下Redis对象头结构体，所有的Redis对象都有下面的这个结构头：</p>
@@ -725,7 +725,7 @@ object输出中有个encoding字段，一个字符的差别，存储形式就发
 	int8 flags<span class="token punctuation">;</span> <span class="token comment">// 1byte</span>
 	byte<span class="token punctuation">[</span><span class="token punctuation">]</span> content<span class="token punctuation">;</span>  <span class="token comment">// 内联数组，长度为 capacity</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img lazyload src="/images/loading.svg" data-src="https://ask.qcloudimg.com/http-save/yehe-8916337/a0d961f2e3b392e2988b83109bafed5b.png"></p>
+<p><img lazyload src="/images/loading.svg" data-src="http://kiyotakawang.oss-cn-hangzhou.aliyuncs.com/img/a0d961f2e3b392e2988b83109bafed5b.png"></p>
 <p>如图所示，embstr 存储形式是这样一种存储形式，它将 RedisObject
 对象头和 SDS 对象连续存在一起，使用 malloc 方法一次分配。</p>
 <p>而 raw
@@ -762,7 +762,7 @@ object输出中有个encoding字段，一个字符的差别，存储形式就发
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-03-01 10:14:40
+                    :</strong> 2024-03-01 10:19:08
             </li>
         
         <li>
