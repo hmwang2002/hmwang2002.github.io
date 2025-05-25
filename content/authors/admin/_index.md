@@ -3,11 +3,11 @@
 title: Haomin Wang
 
 # Name pronunciation (optional)
-name_pronunciation: Haomin Wang
+# name_pronunciation: Haomin Wang
 
 # Full name (for SEO)
-first_name: ''
-last_name: ''
+first_name: Haomin
+last_name: Wang
 
 # Status emoji
 status:
