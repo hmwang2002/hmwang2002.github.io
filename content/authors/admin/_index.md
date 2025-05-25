@@ -50,10 +50,11 @@ interests:
   - Computer Vision
 
 education:
-  - area: PhD Artificial Intelligence
+  - area: Ph.D. Artificial Intelligence
     institution: Shanghai Jiao Tong University
     date_start: 2025-09-01
     date_end: ''
+    summary: |
 
   - area: B.Eng. in Software Engineering
     institution: Nanjing University
