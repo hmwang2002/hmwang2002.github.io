@@ -1,13 +1,13 @@
 ---
 # Display name
-title: 王昊旻
+title: Haomin Wang
 
 # Name pronunciation (optional)
 name_pronunciation: Haomin Wang
 
 # Full name (for SEO)
-first_name: Haomin
-last_name: Wang
+first_name: ''
+last_name: ''
 
 # Status emoji
 status:
