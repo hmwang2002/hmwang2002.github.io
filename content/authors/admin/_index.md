@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Haomin Wang（王昊旻）
+title: 王昊旻
 
 # Name pronunciation (optional)
 name_pronunciation: Haomin Wang
