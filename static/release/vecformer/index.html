@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG" />
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG" />
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>
+    Point or Line? Using Line-based Representation for Panoptic Symbol
+    Spotting in CAD Drawings
+  </title>
+  <link rel="icon" type="image/x-icon" href="static/images/cad-file_7479085.png" />
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+
+  <link rel="stylesheet" href="static/css/bulma.min.css" />
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="static/css/index.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">
+              Point or Line? Using Line-based Representation for Panoptic
+              Symbol Spotting in CAD Drawings
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?user=7OcAXh8AAAAJ" target="_blank">Xingguang
+                  Wei</a><sup>1,2*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://hmwang2002.github.io/" target="_blank">Haomin Wang</a><sup>1,3*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=IX_lIFIAAAAJ" target="_blank">Shenglong
+                  Ye</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?user=3C0rPHsAAAAJ&hl=zh-CN" target="_blank">Ruifeng
+                  Luo</a><sup>4,8</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://zhangyanting.github.io/" target="_blank">Yanting Zhang</a><sup>5</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.semanticscholar.org/author/Lixin-Gu/2334465171" target="_blank">Lixin
+                  Gu</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://jifengdai.org/" target="_blank">Jifeng Dai</a><sup>1,6</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?user=gFtI-8QAAAAJ&hl=zh-CN&oi=ao" target="_blank">Yu
+                  Qiao</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?user=WM0OglcAAAAJ&hl=zh-CN" target="_blank">Wenhai
+                  Wang</a><sup>1,7</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?user=Zl_2sZYAAAAJ" target="_blank">Hongjie
+                  Zhang</a><sup>1†</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup> Shanghai AI Laboratory</span><br />
+              <span class="author-block"><sup>2</sup> University of Science and Technology of
+                China</span><br />
+              <span class="author-block"><sup>3</sup> Shanghai Jiao Tong University</span><br />
+              <span class="author-block"><sup>4</sup> Tongji University</span><br />
+              <span class="author-block"><sup>5</sup> Donghua University</span><br />
+              <span class="author-block"><sup>6</sup> Tsinghua University</span><br />
+              <span class="author-block"><sup>7</sup> The Chinese University of Hong Kong</span><br />
+              <span class="author-block"><sup>8</sup> Arcplus East China Architectural Design &amp;
+                Research Institute Co., Ltd.</span><br />
+              <span class="author-block">Arxiv Preprint</span>
+              <span class="eql-cntrb"><small><br /><sup>*</sup>Indicates Equal Contribution</small>
+                <small><br /><sup>†</sup>Corresponding Author</small>
+              </span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Arxiv PDF link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2505.23395.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2505.23395" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <!-- Supplementary PDF link -->
+                <!-- <span class="link-block">
+                  <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Supplementary</span>
+                  </a>
+                </span> -->
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark" tabindex="-1" style="pointer-events:none">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code(Coming Soon)</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="" target="_blank" class="external-link button is-normal is-rounded is-dark"
+                  tabindex="-1" style="pointer-events:none">
+                    <span class="icon" style="vertical-align: middle; font-size: 20px;">🤗</span>
+                    <span style="vertical-align: middle;">Model Weights(Coming Soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser video-->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="static/images/network.png" alt="Overview of VecFormer" />
+        <h2 class="subtitle has-text-centered">
+          Overview of VecFormer.
+        </h2>
+      </div>
+    </div>
+  </section>
+  <!-- End teaser video -->
+
+  <!-- Paper abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              We study the task of panoptic symbol spotting, which involves identifying both individual instances of
+              countable things
+              and the semantic regions of uncountable stuff in computer-aided design (CAD) drawings composed of vector
+              graphical
+              primitives. Existing methods typically rely on image rasterization, graph construction, or point-based
+              representation,
+              but these approaches often suffer from high computational costs, limited generality, and loss of geometric
+              structural
+              information. In this paper, we propose VecFormer, a novel method that addresses these challenges through
+              line-based
+              representation of primitives. This design preserves the geometric continuity of the original primitive,
+              enabling more
+              accurate shape representation while maintaining a computation-friendly structure, making it well-suited
+              for vector
+              graphic understanding tasks. To further enhance prediction reliability, we introduce a Branch Fusion
+              Refinement module
+              that effectively integrates instance and semantic predictions, resolving their inconsistencies for more
+              coherent
+              panoptic outputs. Extensive experiments demonstrate that our method establishes a new state-of-the-art,
+              achieving 91.1
+              PQ, with Stuff-PQ improved by 9.6 and 21.2 points over the second-best results under settings with and
+              without prior
+              information, respectively, highlighting the strong potential of line-based representation as a foundation
+              for vector
+              graphic understanding.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+  <!-- Image carousel -->
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0006-0002-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0029-0333-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0030-0010-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0080-0004-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0083-0012-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0103-0065-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0105-0026-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0105-0062-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0110-0020-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0110-0075-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0112-0008-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0131-0004-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+          <div class="item">
+            <!-- Your image here -->
+            <div class="has-text-centered">
+              <img src="static/images/0131-0010-pred.png" alt="Visualization of the predicted results." />
+            </div>
+            <h2 class="subtitle has-text-centered">
+              Visualization of the predicted results.
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End image carousel -->
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{wei2025pointlineusinglinebased,
+      title={Point or Line? Using Line-based Representation for Panoptic Symbol Spotting in CAD Drawings},
+      author={Xingguang Wei and Haomin Wang and Shenglong Ye and Ruifeng Luo and Yanting Zhang and Lixin Gu and Jifeng Dai and
+      Yu Qiao and Wenhai Wang and Hongjie Zhang},
+      year={2025},
+      eprint={2505.23395},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2505.23395},
+      }</code></pre>
+    </div>
+  </section>
+  <!--End BibTex citation -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project
+                Page Template</a>
+              which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this
+              website, we just ask that you link back to this page in the
+              footer. <br />
+              This website is licensed under a
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons
+                Attribution-ShareAlike 4.0 International
+                License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+</body>
+
+</html>
