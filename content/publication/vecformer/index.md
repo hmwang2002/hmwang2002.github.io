@@ -47,7 +47,7 @@ url_source: ''
 url_video: ''
 links:
 - name: Homepage
-  url: https://hmwang2002.github.io/release/vecformer/
+  url: /release/vecformer/
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
