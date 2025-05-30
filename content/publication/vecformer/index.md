@@ -45,9 +45,9 @@ url_project: ''
 url_slides: ''
 url_source: ''
 url_video: ''
-# links:
-# - name: Models
-#   url: https://huggingface.co/collections/OpenGVLab/internvl3-67f7f690be79c2fe9d74fe9d
+links:
+- name: Homepage
+  url: https://hmwang2002.github.io/release/vecformer/
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
