@@ -2,7 +2,7 @@
 title: "Point or Line? Using Line-based Representation for Panoptic Symbol Spotting in CAD Drawings"
 authors:
   - Xingguang Wei*
-  - Haomin Wang*
+  - whm
   - Shenglong Ye
   - Ruifeng Luo
   - Yanting Zhang
