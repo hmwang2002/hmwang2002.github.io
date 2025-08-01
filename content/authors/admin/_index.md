@@ -30,7 +30,7 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'wanghaomin@pjlab.org.cn'
+    url: wanghaomin@pjlab.org.cn
     label: E-mail Me
   # - icon: brands/x
   #   url: https://twitter.com/GetResearchDev
@@ -56,7 +56,7 @@ education:
     date_end: ''
     summary: |
 
-  - area: B.Eng. in Software Engineering
+  - area: B.Eng. Software Engineering
     institution: Nanjing University
     date_start: 2021-09-01
     date_end: 2025-06-30
@@ -142,5 +142,7 @@ work:
 
 ## About Me
 
-Hi! My name is Haomin Wang（王昊旻）. Currently I'm a Ph.D. student at Shanghai Jiao Tong University, focusing on Multimodal Large Language Models and Computer Vision. Meanwhile, I'm a research intern at Shanghai AI Laborotary. 
+Hi! My name is Haomin Wang（王昊旻）. Currently I'm a Ph.D. student at Shanghai Jiao Tong University supervised by Prof. Jifeng Dai and Dr. Hongjie Zhang, focusing on Multimodal Large Language Models and Computer Vision. Meanwhile, I'm also a research intern at Shanghai AI Laborotary. 
 My current research interests include applying MLLMs to vector-graphic generation and enhancing the reasoning capabilities of large multimodal models.
+
+I'm currently looking for collaborations, feel free to contact me.
