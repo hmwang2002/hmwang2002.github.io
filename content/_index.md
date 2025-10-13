@@ -30,6 +30,49 @@ sections:
           size: cover
           position: center
           parallax: false
+  - block: markdown
+    id: News
+    content:
+      title: "🔥 News"
+      text: |
+        <style>
+          /* --- 🔧 样式调优，仅影响本区块 --- */
+          /* 扩大正文区域宽度 */
+          section#News .prose {
+          max-width: 800px !important;              /* 控制内容最大宽度 */
+          width: 100vw !important;                   /* 撑满整个视口宽度 */
+        }
+
+          /* 调整字体与行距 */
+          section#News .prose ul li {
+            font-size: 1.3rem;   /* 稍大，视觉更饱满 */
+            line-height: 1.55rem; /* 稍松一点，仍紧凑 */
+            margin: 0.45rem 0;    /* 缩短条目间距 */
+          }
+
+          /* 列表整体的上下间距更紧凑 */
+          section#News .prose ul {
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+          }
+
+          /* 日期加一点权重 */
+          section#News .prose strong {
+            font-weight: 600;
+          }
+
+          /* 减少本 block 与前后模块的外部间距 */
+          section#News {
+            margin-top: -2.0rem !important;
+            margin-bottom: -4.0rem !important;
+          }
+        </style>
+
+        - **2025/10:** 🎉 We have released [InternSVG](https://hmwang2002.github.io/release/internsvg/), welcome to have a try!
+        - **2025/09:** 🎉 [VecFormer](https://hmwang2002.github.io/release/vecformer/) and [ArchCAD-400K](https://arxiv.org/abs/2503.22346) are accepted by NeurIPS 2025!
+        - **2025/08:** 🎉 Our team released [InternVL 3.5](https://github.com/OpenGVLab/InternVL), welcome to have a try!  
+        - **2025/04:** 🎉 Our team released [InternVL 3](https://github.com/OpenGVLab/InternVL), welcome to have a try!
+
   - block: collection
     id: papers
     content:

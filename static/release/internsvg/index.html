@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="InternSVG: Towards Unified SVG Tasks with Multimodal Large Language Models">
+  <meta name="description" content="InternSVG unifies diverse SVG tasks such as generation, editing, and understanding under a multimodal large language model framework, bridging textual and vector graphical modalities.">
+  <meta name="keywords" content="InternSVG, SVG, multimodal, large language model, vector graphics, generation, editing, computer vision, AI">
+  <meta name="author" content="Haomin Wang, Jinhui Yin, Qi Wei, Wenguang Zeng, Lixin Gu, Shenglong Ye, Zhangwei Gao, Yaohui Wang, Yanting Zhang, Yuanqi Li, Yanwen Guo, Wenhai Wang">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Shanghai AI Lab & Nanjing University ">
+  <meta property="og:title" content="InternSVG: Towards Unified SVG Tasks with Multimodal Large Language Models">
+  <meta property="og:description" content="InternSVG unifies diverse SVG tasks under a single multimodal LLM framework for vector graphics understanding and generation.">
+  <meta property="og:url" content="https://quentin-77.github.io/InternSVG-page/">
+  <meta property="og:image" content="https://quentin-77.github.io/InternSVG-page/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="InternSVG - Unified SVG Tasks Preview">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@OpenGVLab">
+  <meta name="twitter:creator" content="@HaominWang">
+  <meta name="twitter:title" content="InternSVG: Towards Unified SVG Tasks with Multimodal Large Language Models">
+  <meta name="twitter:description" content="InternSVG unifies SVG understanding, editing, and generation with multimodal large language models.">
+  <meta name="twitter:image" content="https://internsvg.github.io/static/images/social_preview.png">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="InternSVG: Towards Unified SVG Tasks with Multimodal Large Language Models">
+  <meta name="citation_author" content="Wang, Haomin">
+  <meta name="citation_author" content="Yin, Jinhui">
+  <meta name="citation_author" content="Wei, Qi">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_conference_title" content="arXiv Preprint">
+  <!-- <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2501.xxxxx.pdf"> -->
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <title>InternSVG: Towards Unified SVG Tasks with Multimodal Large Language Models</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+
+<body>
+<main id="main-content">
+<!-- Hero section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">InternSVG: Towards Unified SVG Tasks with Multimodal Large Language Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://hmwang2002.github.io/" target="_blank">Haomin Wang</a><sup>1,2*</sup>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=WqSaXYAAAAAJ" target="_blank">Jinhui Yin</a><sup>3,2*</sup>,</span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?hl=zh-CN&user=rABFjSsAAAAJ" target="_blank">Qi Wei</a><sup>3,2*</sup>,</span>
+            <span class="author-block">Wenguang Zeng<sup>4</sup>,</span>
+            <span class="author-block">Lixin Gu<sup>2</sup>,</span>
+            <span class="author-block">Shenglong Ye<sup>2</sup>,</span>
+            <span class="author-block">Zhangwei Gao<sup>1,2</sup>,</span>
+            <span class="author-block">Yaohui Wang<sup>2</sup>,</span>
+            <span class="author-block">Yanting Zhang<sup>4</sup>,</span>
+            <span class="author-block">Yuanqi Li<sup>3</sup>,</span>
+            <span class="author-block">Yanwen Guo<sup>3</sup>,</span>
+            <span class="author-block">Wenhai Wang<sup>5</sup>,</span>
+            <span class="author-block">Kai Chen<sup>2</sup>,</span>
+            <span class="author-block">Yu Qiao<sup>2</sup>,</span>
+            <span class="author-block"><a href="https://scholar.google.com.hk/citations?user=Zl_2sZYAAAAJ">Hongjie Zhang</a><sup>2†</sup></span>
+          </div>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University,</span>
+            <span class="author-block"><sup>2</sup>Shanghai AI Laboratory,</span>
+            <span class="author-block"><sup>3</sup>Nanjing University,</span>
+            <span class="author-block"><sup>4</sup>Donghua University,</span>
+            <span class="author-block"><sup>5</sup>The Chinese University of Hong Kong</span>
+            <span class="eql-cntrb">
+              <small><br><sup>*</sup>Indicates Equal Contribution,<sup>†</sup>Indicates Correspondence Authors</small>
+            </span>
+          </div>
+          
+    
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark" style="pointer-events:none">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark" style="pointer-events:none">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark" style="pointer-events:none">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              
+              <span class="link-block">
+                <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark" style="pointer-events:none">
+                  <span class="icon" style="vertical-align: middle; font-size: 20px;">🤗</span>
+                  <span>Model Weights</span>
+                </a>
+              </span>
+
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+
+
+    <div class="hero-body">
+      <img src="static/images/overview.jpg" alt="Overview of our InternSVG family" width="100%">
+     
+      <h2 class="subtitle has-text-centered">
+        Overview of our InternSVG family
+      </h2>
+    </div>
+
+    </div>
+</section>
+
+<!-- Abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vector graphics, represented in Scalable Vector Graphics (SVG) format, serve as a core medium for digital design and web rendering. 
+            Existing works on SVG tasks often focus on isolated subtasks such as generation, editing, or understanding. 
+            In this paper, we propose <b>InternSVG</b>, a unified framework based on multimodal large language models that jointly addresses SVG-related tasks across perception and creation. 
+            By representing SVGs as structured sequences and aligning them with textual descriptions and raster renderings, 
+            InternSVG enables a generalizable interface for vector reasoning, generation, and manipulation. 
+            Extensive experiments demonstrate its versatility and performance across diverse SVG benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAgoge -->
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">SAgoge: A Comprehensive Multimodal SVG Dataset </h2>
+          <p>
+            We introduce SAgoge, a large-scale and comprehensive dataset for SVG tasks with more than 16
+            million training samples spanning icons, illustrations, chemical structures, and animations.
+          </p>
+          <p>
+            <img src="static/images/dataset_pipeline.jpg" alt="Dataset Pipeline"
+            class="blend-img-background center-image" loading="lazy">
+          </p>
+          <p>
+            Raw SVGs are gathered from the web and a custom synthesis pipeline, then normalized to a 128 × 128 canvas and
+            simplified to shorten code. The rendered images or videos, processed SVG code, and handcrafted prompts are fed to an
+            MLLM to synthesize high-quality training samples for understanding, editing, and generation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- InternSVG -->
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">InternSVG: A Unified MLLM for SVG Understanding, Editing, and Generation</h2>
+          <p>
+            <img src="static/images/method.jpg" alt="method"
+            class="blend-img-background center-image" loading="lazy">
+          </p>
+          <p>
+            InternSVG follows the “ViT–MLP–LLM” paradigm ,
+            using InternViT-300M as the vision encoder and Qwen2.5-7B as the language model. We further design SVG-specific special tokens and introduce a tailored
+            embedding initialization strategy to incorporate SVG content effectively.
+          </p>
+          <h3>See InternSVG in Action!</h3>
+          <p>
+            <img src="static/images/demo.png" alt="demo"
+            class="blend-img-background center-image" loading="lazy">
+          </p>
+          <p>
+            <img src="static/images/demo_chem.png" alt="demo"
+            class="blend-img-background center-image" loading="lazy">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SArena -->
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">SArena: A Companion Benchmark</h2>
+          <p>
+            To enable systematic evaluation across SVG understanding, editing, and generation, we introduce
+            SArena, a benchmark that aligns with the domains and difficulty spectrum covered by SAgoge and
+            provides standardized tasks and metrics.SArena includes 4 sub-benchmarks, i.e., icons, illustrations, chemical structures, and animation.
+          </p>
+          <h3>SArena-Icon</h3>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <div>
+                <img src="static/images/icon_gen.png"
+                  alt="Comparison of SVG generation performance on SArena-Icon."
+                  class="blend-img-background center-image" loading="lazy">
+                <h3  class="subtitle has-text-centered">Comparison of SVG generation performance.</h3>
+              </div>
+            </div>
+            <div class="item">
+              <p>
+                <img src="static/images/icon_un_edit.png"
+                  alt="Comparison of SVG understanding and editing performance."
+                  class="blend-img-background center-image" loading="lazy">
+                  <h3  class="subtitle has-text-centered">Comparison of SVG understanding and editing performance.</h3>
+                </p>
+            </div>
+            <div class="item">
+              <p>
+                <img src="static/images/icon_edit_simple.png"
+                  alt="Comparison of SVG editing performance across 8 simple subtasks."
+                  class="blend-img-background center-image" loading="lazy">
+                  <h3  class="subtitle has-text-centered">Comparison of SVG editing performance across 8 simple subtasks.</h3>
+                </p>
+            </div>
+            <div class="item">
+              <p>
+                <img src="static/images/icon_edit_hard.png"
+                  alt="Comparison of SVG editing performance across 2 hard subtasks."
+                  class="blend-img-background center-image" loading="lazy">
+                  <h3  class="subtitle has-text-centered">Comparison of SVG editing performance across 2 hard subtasks.</h3>
+                </p>
+            </div>
+          </div>
+          <h3>SArena-Illustration</h3>
+          <p>
+            <img src="static/images/illu_gen.png"
+              alt="Comparison of SVG generation performance between baselines and InternSVG on the SArena-Illustration dataset."
+              class="blend-img-background center-image" loading="lazy">
+            <div class="has-text-centered">
+              Comparison of SVG generation performance on SArena-Illustration.
+            </div>
+          </p>
+          
+          <h3>SArena-Chemistry</h3>
+          <p>
+            <img src="static/images/chem_gen.png"
+              alt="Comparison of SVG generation performance between baselines and InternSVG on the SArena-Chemistry dataset."
+              class="blend-img-background center-image" loading="lazy">
+            <div class="has-text-centered">
+              Comparison of SVG generation performance on SArena-Chemistry.
+            </div>
+          </p>
+          
+          <h3>SArena-Animation</h3>
+          <p>
+            <img src="static/images/anim_gen.png"
+              alt="Comparison of SVG generation performance between baselines and InternSVG on the SArena-Animation dataset."
+              class="blend-img-background center-image" loading="lazy">
+            <div class="has-text-centered">
+              Comparison of SVG generation performance on SArena-Animation.
+            </div>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SGP-Bench -->
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">SGP-Bench</h2>
+          <p>
+            To further validate the effectiveness of SAgoge in enhancing model capabilities for SVG modeling,
+            we conduct comparative experiments on SGP-Bench, a benchmark specifically designed to evaluate
+            semantic and structural understanding of symbolic graphic programs.
+          </p>
+          <p>
+            <img src="static/images/sgp_bench.png"
+              alt="Comparison of SVG understanding performance between baselines and InternSVG on the SGP-Bench benchmark."
+              class="blend-img-background center-image" loading="lazy">
+            <div class="subtitle has-text-centered">
+              Comparison of SVG understanding performance on SGP-Bench.
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">Comparison with Baselines</h2>
+          <p>
+            We compare the generated SVGs with those produced by baseline methods to assess visual quality.
+          </p>
+          <h3>SArena-Icon</h3>
+          <div id="results-carousel-icon" class="carousel results-carousel">
+            <div class="item">
+              <div>
+                <img src="static/images/icon_t2s.png"
+                  alt="Comparison of Text-to-SVG performance between baselines and InternSVG on the SArena-Icon dataset."
+                  class="blend-img-background center-image" loading="lazy">
+                <h3 class="subtitle has-text-centered">Text-to-SVG</h3>
+              </div>
+            </div>
+            <div class="item">
+              <div>
+                <img src="static/images/icon_i2s.png"
+                  alt="Comparison of Image-to-SVG performance between baselines and InternSVG on the SArena-Icon dataset."
+                  class="blend-img-background center-image" loading="lazy">
+                <h3 class="subtitle has-text-centered">Image-to-SVG</h3>
+              </div>
+            </div>
+          </div>
+
+
+          <h3>SArena-Illustration</h3>
+          <div id="results-carousel-illu" class="carousel results-carousel">
+            <div class="item">
+              <div>
+                <img src="static/images/illu_t2s.png"
+                  alt="Comparison of Text-to-SVG performance between baselines and InternSVG on the SArena-Illustration dataset."
+                  class="blend-img-background center-image" loading="lazy">
+                <h3 class="subtitle has-text-centered">Text-to-SVG</h3>
+              </div>
+            </div>
+            <div class="item">
+              <div>
+                <img src="static/images/illu_i2s.png"
+                  alt="Comparison of Image-to-SVG performance between baselines and InternSVG on the SArena-Illustration dataset."
+                  class="blend-img-background center-image" loading="lazy">
+                <h3 class="subtitle has-text-centered">Image-to-SVG</h3>
+              </div>
+            </div>
+          </div>
+          
+          <h3>SArena-Chemistry</h3>
+          <div id="results-carousel-chem" class="carousel results-carousel">
+            <div class="item">
+              <div>
+                <img src="static/images/chem_t2s.png"
+                  alt="Comparison of Text-to-SVG performance between baselines and InternSVG on the SArena-Chemistry dataset."
+                  class="blend-img-background center-image" loading="lazy">
+                <h3 class="subtitle has-text-centered">Text-to-SVG</h3>
+              </div>
+            </div>
+            <div class="item">
+              <div>
+                <img src="static/images/chem_i2s.png"
+                  alt="Comparison of Image-to-SVG performance between baselines and InternSVG on the SArena-Chemistry dataset."
+                  class="blend-img-background center-image" loading="lazy">
+                <h3 class="subtitle has-text-centered">Image-to-SVG</h3>
+              </div>
+            </div>
+          </div>
+          
+          <h3>SArena-Animation</h3>
+          <div id="results-carousel-anim" class="carousel results-carousel">
+            <div class="item">
+              <div>
+                <img src="static/images/anim_t2s.png"
+                  alt="Comparison of Text-to-SVG performance between baselines and InternSVG on the SArena-Animation dataset."
+                  class="blend-img-background center-image" loading="lazy">
+                <h3 class="subtitle has-text-centered">Text-to-SVG</h3>
+              </div>
+            </div>
+            <div class="item">
+              <div>
+                <img src="static/images/anim_v2s.png"
+                  alt="Comparison of Image-to-SVG performance between baselines and InternSVG on the SArena-Animation dataset."
+                  class="blend-img-background center-image" loading="lazy">
+                <h3 class="subtitle has-text-centered">Image-to-SVG</h3>
+              </div>
+            </div>
+          </div>          
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">Comparison with Baselines</h2>
+
+          <h3>Text-to-SVG on SArena-Icon</h3>
+          <div>
+            <img src="static/images/icon_t2s.png"
+              alt="Comparison of Text-to-SVG performance between baselines and InternSVG on the SArena-Icon dataset."
+              class="blend-img-background center-image" loading="lazy">
+          </div>
+
+          <h3>Image-to-SVG on SArena-Icon</h3>
+          <p>
+            <img src="static/images/icon_i2s.png"
+              alt="Comparison of Image-to-SVG performance between baselines and InternSVG on the SArena-Icon dataset."
+              class="blend-img-background center-image" loading="lazy">
+          </p>
+
+          <h3>Text-to-SVG on SArena-Illustration</h3>
+          <p>
+            <img src="static/images/illu_t2s.png"
+              alt="Comparison of Text-to-SVG performance between baselines and InternSVG on the SArena-Illustration dataset."
+              class="blend-img-background center-image" loading="lazy">
+          </p>
+
+          <h3>Image-to-SVG on SArena-Illustration</h3>
+          <p>
+            <img src="static/images/illu_i2s.png"
+              alt="Comparison of Image-to-SVG performance between baselines and InternSVG on the SArena-Illustration dataset."
+              class="blend-img-background center-image" loading="lazy">
+          </p>
+
+          <h3>Text-to-SVG on SArena-Chemistry</h3>
+          <p>
+            <img src="static/images/chem_t2s.png"
+              alt="Comparison of Text-to-SVG performance between baselines and InternSVG on the SArena-Chemistry dataset."
+              class="blend-img-background center-image" loading="lazy">
+          </p>
+
+          <h3>Image-to-SVG on SArena-Chemistry</h3>
+          <p>
+            <img src="static/images/chem_i2s.png"
+              alt="Comparison of Image-to-SVG performance between baselines and InternSVG on the SArena-Chemistry dataset."
+              class="blend-img-background center-image" loading="lazy">
+          </p>
+
+          <h3>Text-to-SVG on SArena-Animation</h3>
+          <p>
+            <img src="static/images/anim_t2s.png"
+              alt="Comparison of Text-to-SVG performance between baselines and InternSVG on the SArena-Animation dataset."
+              class="blend-img-background center-image" loading="lazy">
+          </p>
+
+          <h3>Image-to-SVG on SArena-Animation</h3>
+          <p>
+            <img src="static/images/anim_v2s.png"
+              alt="Comparison of Image-to-SVG performance between baselines and InternSVG on the SArena-Animation dataset."
+              class="blend-img-background center-image" loading="lazy">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- <section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="content">
+          <h2 class="title is-3">Dataset Examples</h2>
+
+          <h3>Examples of Multiple-choice QA Tasks.</h3>
+          <div>
+            <img src="static/images/example_un_mc.jpg"
+              alt="Examples of multiple-choice QA tasks."
+              class="blend-img-background center-image" loading="lazy">
+          </div>
+          <h3>Examples of SVG Description Tasks.</h3>
+
+          <div>
+            <img src="static/images/example_un_desc1.jpg"
+                alt="Examples of SVG Description Tasks."
+                class="blend-img-background center-image" loading="lazy">
+          </div>
+
+          <h3>Examples of SVG Editing Tasks.</h3>
+          <div>
+            <img src="static/images/example_editing_1.jpg"
+                alt="Examples of SVG Editing Tasks."
+                class="blend-img-background center-image" loading="lazy">
+            <img src="static/images/example_editing_2.jpg"
+                alt="Examples of Text-to-SVG Tasks."
+                class="blend-img-background center-image" loading="lazy">
+          </div>
+
+          <h3>Examples of Text-to-SVG Tasks.</h3>
+          <div>
+            <img src="static/images/example_gen_text2svg.jpg"
+                alt="Examples of Text-to-SVG Tasks."
+                class="blend-img-background center-image" loading="lazy">
+          </div>
+
+          <h3>Examples of Image-to-SVG Tasks.</h3>
+          <div>
+            <img src="static/images/example_gen_img2svg.jpg"
+                alt="Examples of Image-to-SVG Tasks."
+                class="blend-img-background center-image" loading="lazy">
+          </div>
+
+          <h3>Examples of Text-to-SANI Tasks.</h3>
+          <div>
+            <img src="static/images/example_gen_text2sani.jpg"
+                alt="Examples of Text-to-SANI Tasks."
+                class="blend-img-background center-image" loading="lazy">
+          </div>
+
+          <h3>Examples of Video-to-SANI Tasks.</h3>
+          <div>
+            <img src="static/images/example_gen_video2sani1.jpg"
+                alt="Examples of Video-to-SANI Tasks."
+                class="blend-img-background center-image" loading="lazy">
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{wang2025internsvg,
+  title={InternSVG: Towards Unified SVG Tasks with Multimodal Large Language Models},
+  author={Wang, Haomin and Yin, Jinhui and Wei, Qi and Zeng, Wenguang and Gu, Lixin and Ye, Shenglong and Gao, Zhangwei and Wang, Yaohui and Zhang, Yanting and Li, Yuanqi and Guo, Yanwen and Wang, Wenhai},
+  journal={arXiv preprint arXiv:2501.xxxxx},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container has-text-centered">
+    <p>
+      © 2025 InternSVG Project · Built with <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.<br>
+      Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
