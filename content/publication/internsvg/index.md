@@ -15,7 +15,6 @@ authors:
   - Wenhai Wang
   - Kai Chen
   - Yu Qiao
-  - Zhe Chen*
   - Hongjie Zhang
 date: "2025-10-13T12:38:04Z"
 doi: ""
