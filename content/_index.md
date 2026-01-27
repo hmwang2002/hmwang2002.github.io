@@ -68,6 +68,7 @@ sections:
           }
         </style>
 
+        - **2026/01:** 🎉 [InternSVG](https://hmwang2002.github.io/release/internsvg/) and [InternSpatial](https://arxiv.org/abs/2506.18385) are accepted by ICLR 2026!
         - **2025/10:** 🎉 We have released [InternSVG](https://hmwang2002.github.io/release/internsvg/), welcome to have a try!
         - **2025/09:** 🎉 [VecFormer](https://hmwang2002.github.io/release/vecformer/) and [ArchCAD-400K](https://arxiv.org/abs/2503.22346) are accepted by NeurIPS 2025!
         - **2025/08:** 🎉 Our team released [InternVL 3.5](https://github.com/OpenGVLab/InternVL), welcome to have a try!  
