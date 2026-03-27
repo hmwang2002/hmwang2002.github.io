@@ -1,5 +1,5 @@
 ---
-title: "InternSpatial: A Comprehensive Dataset for Spatial Reasoning in Vision-Language Models"
+title: "[ICLR 2026] InternSpatial: A Comprehensive Dataset for Spatial Reasoning in Vision-Language Models"
 authors:
   - Nianchen Deng*
   - Lixin Gu*

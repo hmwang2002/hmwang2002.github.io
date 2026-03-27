@@ -1,5 +1,5 @@
 ---
-title: "Point or Line? Using Line-based Representation for Panoptic Symbol Spotting in CAD Drawings"
+title: "[NIPS 2025] Point or Line? Using Line-based Representation for Panoptic Symbol Spotting in CAD Drawings"
 authors:
   - Xingguang Wei*
   - whm

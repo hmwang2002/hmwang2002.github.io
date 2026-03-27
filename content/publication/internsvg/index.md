@@ -1,5 +1,5 @@
 ---
-title: "InternSVG: Towards Unified SVG Tasks with Multimodal Large Language Models"
+title: "[ICLR 2026] InternSVG: Towards Unified SVG Tasks with Multimodal Large Language Models"
 authors:
   - whm
   - Jinhui Yin*

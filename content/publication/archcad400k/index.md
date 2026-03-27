@@ -1,5 +1,5 @@
 ---
-title: "ArchCAD-400K: An Open Large-Scale Architectural CAD Dataset and New Baseline for Panoptic Symbol Spotting"
+title: "[NIPS 2025] ArchCAD-400K: An Open Large-Scale Architectural CAD Dataset and New Baseline for Panoptic Symbol Spotting"
 authors:
   - Ruifeng Luo*
   - Zhengjie Liu*
