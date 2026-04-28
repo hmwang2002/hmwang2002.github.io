@@ -142,7 +142,7 @@ work:
 
 ## About Me
 
-Hi! My name is Haomin Wang（王昊旻）. Currently I'm a Ph.D. student at Shanghai Jiao Tong University supervised by Dr. Kai Chen and Dr. Hongjie Zhang, focusing on Multimodal Large Language Models and Computer Vision. Meanwhile, I'm also a research intern at Shanghai AI Laborotary. 
+Hi! My name is Haomin Wang（王昊旻）. Currently I'm a Ph.D. student in School of Artificial Intelligence at Shanghai Jiao Tong University, focusing on Multimodal Large Language Models and Computer Vision. Meanwhile, I'm also a research intern at Shanghai AI Laborotary. 
 My current research interests include applying MLLMs to vector-graphic generation and enhancing the reasoning capabilities of large multimodal models.
 
 I'm currently looking for collaborations, feel free to contact me via email: kiyotakawang@sjtu.edu.cn.
