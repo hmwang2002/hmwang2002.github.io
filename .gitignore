@@ -2,7 +2,7 @@ _site/
 push.sh
 .DS_Store
 .bundle/
-vendor/
+/vendor/
 .jekyll-cache/
 .jekyll-metadata
 Gemfile.lock
