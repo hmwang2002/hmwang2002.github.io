@@ -1,8 +1,8 @@
-go.sum
-hugo_stats.json
-hugo_build.lock
+_site/
+push.sh
 .DS_Store
-.idea
-.vscode
-public/
-resources/
+.bundle/
+vendor/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
