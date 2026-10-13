@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f6">
+  <title>WAVE-0 · Lightweight Latent Future Prediction</title>
+  <meta name="description" content="WAVE-0 bridges vision–language–action policies and world action models with a lightweight, action-grounded latent world model.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WAVE-0: Bridging VLA Policies and WAMs with Lightweight Latent Future Prediction">
+  <meta property="og:description" content="Latent planning. Future prediction. Action generation. A 257M world model that helps robot policies anticipate the consequences of their actions.">
+  <meta property="og:url" content="https://hmwang2002.github.io/release/wave0/">
+  <meta property="og:image" content="https://hmwang2002.github.io/release/wave0/assets/hero-poster.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://hmwang2002.github.io/release/wave0/">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Inter:wght@400..700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261013-intro-video">
+  <script src="app.js?v=20261013-intro-video" defer></script>
+  <noscript><style>.results-panel[hidden] { display: block !important; margin-top: 2rem; } .result-tabs, .copy-button { display: none; }</style></noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="navigation shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="WAVE-0 home"><img src="assets/mark.svg" width="29" height="29" alt="">WAVE-0</a>
+      <div class="nav-links"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a><a href="#real-world">Real world</a></div>
+      <a class="nav-code" href="https://github.com/AutoLab-SAI-SJTU/WAVE-0"><img src="assets/github.svg" width="16" height="16" alt=""><span>Code</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" id="top" aria-labelledby="project-title">
+      <div class="hero-orbit" aria-hidden="true"></div>
+      <p class="eyebrow hero-eyebrow"><span class="status-dot"></span> WORLD-MODEL-AUGMENTED VLA EXECUTION</p>
+      <h1 id="project-title">WAVE<span class="hero-zero">-0</span></h1>
+      <p class="paper-title">Bridging VLA Policies and WAMs <br class="desktop-break"> with Lightweight Latent Future Prediction</p>
+      <div class="author-block" aria-label="Authors and affiliations">
+        <div class="author-list">
+          <span>Haomin Wang<sup>1</sup></span>
+          <span>Anqiong Ji<sup>1,3</sup></span>
+          <span>Ke Wang<sup>2,4</sup></span>
+          <span>Zhongshan Liu<sup>3</sup></span>
+          <span>Ru Ying<sup>3</sup></span>
+        </div>
+        <div class="author-list">
+          <span>Ran Zheng<sup>3</sup></span>
+          <span>Zhipeng Zhang<sup>1†</sup></span>
+        </div>
+        <div class="affiliations">
+          <span class="affiliation-primary"><sup>1</sup>AutoLab, School of Artificial Intelligence, Shanghai Jiao Tong University</span>
+          <span><sup>2</sup>Awaken Robotics</span>
+          <span><sup>3</sup>Baidu AI Cloud</span>
+          <span><sup>4</sup>Zhejiang University</span>
+        </div>
+        <p class="corresponding-author"><sup>†</sup>Corresponding Author</p>
+      </div>
+      <div class="project-links" aria-label="Project resources">
+        <span class="resource-pill unavailable" aria-label="arXiv, coming soon"><img class="resource-logo" src="assets/arxiv.svg" width="18" height="18" alt="">arXiv<span class="soon">Soon</span></span>
+        <a class="resource-pill primary" href="https://github.com/AutoLab-SAI-SJTU/WAVE-0"><img class="resource-logo" src="assets/github.svg" width="18" height="18" alt="">Code<span aria-hidden="true">↗</span></a>
+        <a class="resource-pill" href="https://huggingface.co/collections/KiyotakaWang/wave-0"><img class="resource-logo huggingface-logo" src="assets/huggingface.svg" width="22" height="22" alt="">Models<span aria-hidden="true">↗</span></a>
+      </div>
+
+      <figure class="intro-film" id="film" aria-label="Project introduction">
+        <div class="film-surface">
+          <video id="intro-video" src="assets/videos/wave_0_video.mp4" controls playsinline preload="metadata" poster="assets/intro-poster.jpg" aria-label="WAVE-0 project introduction"><a href="assets/videos/wave_0_video.mp4">Download the WAVE-0 introduction video</a>.</video>
+          <div class="film-placeholder" id="film-placeholder" hidden>
+            <img class="film-poster" src="assets/intro-poster.jpg" alt="" width="960" height="544">
+            <div class="film-shade"></div>
+            <div class="film-center"><p role="status">Video temporarily unavailable. <a href="assets/videos/wave_0_video.mp4">Open video directly</a>.</p></div>
+          </div>
+        </div>
+      </figure>
+      <div class="metric-strip" aria-label="Headline paper results">
+        <div><span class="metric-label">RoboTwin 2.0</span><strong>91.47<span>%</span></strong></div>
+        <div><span class="metric-label">LIBERO</span><strong>98.7<span>%</span></strong></div>
+        <div><span class="metric-label">LIBERO-Plus</span><strong>88.0<span>%</span></strong></div>
+        <div><span class="metric-label">LIBERO-Pro</span><strong>61.4<span>%</span></strong></div>
+        <div><span class="metric-label">Real world</span><strong>73.3<span>%</span></strong></div>
+        <div><span class="metric-label">Latent world model</span><strong>257<span>M</span></strong></div>
+      </div>
+    </section>
+
+    <section class="section shell" id="overview" aria-labelledby="overview-title">
+      <div class="overview-layout">
+        <div>
+          <p class="eyebrow"><span class="section-number">01</span> THE IDEA</p><h2 id="overview-title">From understanding <br>the world to <br><em>anticipating it.</em></h2>
+          <figure class="overview-figure"><button class="figure-zoom" type="button" data-zoom="assets/paradigms.webp" aria-label="Enlarge the robot policy paradigm comparison"><img src="assets/paradigms.webp" width="1452" height="892" loading="lazy" alt="Comparison of standard VLA, video-generation WAM, training-only world supervision, and WAVE-0."><span class="zoom-hint">View full figure <span aria-hidden="true">↗</span></span></button></figure>
+        </div>
+        <div class="overview-copy">
+          <p class="lead">How can we bring WAM-style future prediction into pretrained VLA policies?</p>
+          <p>WAVE-0 bridges the semantic understanding of pretrained VLAs with future prediction in WAMs through a lightweight, 257M latent world model. Built on π0.5, it translates VLM-generated latent action plans into predicted future visual representations that condition the action expert alongside the original vision–language context, during both training and inference.</p>
+          <p>Our two-stage training first learns action-dependent latent dynamics directly from ground-truth robot actions, with counterfactual ranking encouraging the world model to distinguish the consequences of different actions. We then integrate the frozen world model into π0.5 and align VLM-generated plans with the learned action representations—unifying latent planning, future prediction, and action generation without pixel reconstruction or additional large-scale video pretraining.</p>
+          <a class="text-link" href="#method">Explore the architecture <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="idea-strip"><span>Action-grounded dynamics learning</span><span>Lightweight latent future prediction</span><span>Future-conditioned action generation</span></div>
+    </section>
+
+    <section class="method-section" id="method" aria-labelledby="method-title">
+      <div class="shell section">
+        <div class="section-heading"><div><p class="eyebrow"><span class="section-number">02</span> THE METHOD</p><h2 id="method-title">Plan. Predict. <em>Act.</em></h2></div><p>Latent action plans become predicted futures <br>that explicitly condition action generation.</p></div>
+        <ol class="pipeline" aria-label="WAVE-0 inference pathway">
+          <li><span class="pipeline-index">01 / PLAN</span><h3>Latent action planning</h3><p>Given the current observation and instruction, the VLM uses learnable action queries to produce latent plans aligned with action representations learned in Stage 1.</p></li>
+          <li class="pipeline-world"><span class="pipeline-index">02 / PREDICT</span><h3>Future world state prediction</h3><p>The frozen world model combines these plans with current visual representations and robot state to predict future representations in a fixed visual embedding space.</p></li>
+          <li><span class="pipeline-index">03 / ACT</span><h3>Future-conditioned action generation</h3><p>A resampler compresses predicted futures into tokens that condition the action expert alongside the original VLM context. Latent-action query tokens are excluded from the expert’s context.</p></li>
+        </ol>
+        <figure class="method-figure"><button class="figure-zoom" type="button" data-zoom="assets/method.webp" aria-label="Enlarge the WAVE-0 architecture figure"><img src="assets/method.webp" width="1584" height="612" loading="lazy" alt="Two-stage architecture: action-grounded world model training followed by future-conditioned policy fine-tuning."><span class="zoom-hint">View full figure <span aria-hidden="true">↗</span></span></button><figcaption>Overview of WAVE-0. Stage 1: The latent world model learns action-conditioned dynamics in a fixed visual embedding space, trained with future-representation prediction, latent residual supervision, and counterfactual action ranking. Stage 2: The VLM generates latent action plans aligned with the representations from the frozen action encoder. The frozen world model predicts the visual consequences of these plans, and a resampler compresses them into future tokens that condition the action expert alongside the original VLM context.</figcaption></figure>
+        <div class="training-stages">
+          <article><span class="stage-label">STAGE 1</span><h3>Learn how actions change the world.</h3><p>We jointly train the action encoder, state encoder, and latent world model to predict future visual representations from current observations and ground-truth robot actions. Future prediction and latent residual supervision teach the model action-dependent dynamics, while counterfactual ranking encourages it to distinguish demonstrated actions from mismatched ones when predicting the observed future.</p></article>
+          <article><span class="stage-label">STAGE 2</span><h3>Let predicted futures guide actions.</h3><p>We integrate the frozen world model into π0.5 and train the VLM to generate latent action plans aligned with representations from the frozen action encoder. The world model predicts the visual consequences of these plans, which a lightweight resampler compresses into future tokens. These tokens condition the action expert alongside the original VLM context during both training and inference.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="results" aria-labelledby="results-title">
+      <div class="section-heading"><div><p class="eyebrow"><span class="section-number">03</span> THE RESULTS</p><h2 id="results-title">Small world model. <br><em>Meaningful gains.</em></h2></div><p>Evaluated in simulation, under distribution <br>shifts, and on physical robots.</p></div>
+      <div class="result-tabs" role="tablist" aria-label="Benchmark results">
+        <button id="tab-libero" role="tab" aria-selected="true" aria-controls="panel-libero" tabindex="0" type="button">LIBERO</button>
+        <button id="tab-robotwin" role="tab" aria-selected="false" aria-controls="panel-robotwin" tabindex="-1" type="button">RoboTwin 2.0</button>
+        <button id="tab-generalization" role="tab" aria-selected="false" aria-controls="panel-generalization" tabindex="-1" type="button">Generalization</button>
+      </div>
+      <div class="results-panel" id="panel-libero" role="tabpanel" aria-labelledby="tab-libero" tabindex="0">
+        <div class="result-story"><span class="table-ref">FOUR TASK SUITES</span><strong class="result-gain">98.7<span>%</span></strong><h3>Stronger across <br>sequential tasks.</h3><p>The largest gain over π0.5 is on LIBERO-Long: 92.4% to 97.6%, where earlier actions shape the success of later steps.</p><span class="protocol">Spatial · Object · Goal · Long</span></div>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Benchmark results table"><table><caption>Success rate (%) on LIBERO</caption><thead><tr><th scope="col">Method</th><th scope="col">Spatial</th><th scope="col">Object</th><th scope="col">Goal</th><th scope="col">Long</th><th scope="col">Avg.</th></tr></thead><tbody>
+          <tr><th scope="row">OpenVLA</th><td>84.7</td><td>88.4</td><td>79.2</td><td>53.7</td><td>76.5</td></tr>
+          <tr><th scope="row">GR00T N1</th><td>94.4</td><td>97.6</td><td>93.0</td><td>90.6</td><td>93.9</td></tr>
+          <tr><th scope="row">π0</th><td>96.8</td><td>98.8</td><td>95.8</td><td>85.2</td><td>94.1</td></tr>
+          <tr><th scope="row">Motus</th><td>96.8</td><td>99.8</td><td>96.6</td><td>97.6</td><td>97.7</td></tr>
+          <tr><th scope="row">LingBot-VA</th><td>98.5</td><td>99.6</td><td>97.2</td><td>98.5</td><td>98.5</td></tr>
+          <tr><th scope="row">Fast-WAM</th><td>98.2</td><td>100.0</td><td>97.0</td><td>95.2</td><td>97.6</td></tr>
+          <tr><th scope="row">ImageWAM</th><td>97.2</td><td>99.2</td><td>98.8</td><td>98.4</td><td>98.4</td></tr>
+          <tr><th scope="row">VLA-JEPA</th><td>96.2</td><td>99.6</td><td>97.2</td><td>95.8</td><td>97.2</td></tr>
+          <tr><th scope="row">JEPA-WAM</th><td>95.6</td><td>99.4</td><td>97.2</td><td>94.6</td><td>96.7</td></tr>
+          <tr><th scope="row">LaWAM</th><td>99.4</td><td>99.6</td><td>98.4</td><td>97.0</td><td>98.6</td></tr>
+          <tr class="comparison-start"><th scope="row">π0.5</th><td>98.8</td><td>98.2</td><td>98.0</td><td>92.4</td><td>96.9</td></tr>
+          <tr class="ours"><th scope="row">WAVE-0 <span>Ours</span></th><td>98.6</td><td>100.0</td><td>98.6</td><td>97.6</td><td>98.7</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="results-panel" id="panel-robotwin" role="tabpanel" aria-labelledby="tab-robotwin" tabindex="0" hidden>
+        <div class="result-story"><span class="table-ref">BIMANUAL MANIPULATION</span><strong class="result-gain">+11.09<span>pp</span></strong><h3>Beyond direct <br>observation-to-action.</h3><p>Average success improves from 80.38% to 91.47% over π0.5, with consistent gains in clean and randomized scenes.</p><span class="protocol">50 tasks · Clean + Randomized</span></div>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Benchmark results table"><table><caption>Success rate (%) on RoboTwin 2.0</caption><thead><tr><th scope="col">Method</th><th scope="col">Clean</th><th scope="col">Randomized</th><th scope="col">Average</th></tr></thead><tbody>
+          <tr><th scope="row">π0</th><td>65.92</td><td>58.40</td><td>62.16</td></tr>
+          <tr><th scope="row">ABot-M0</th><td>81.20</td><td>80.40</td><td>80.80</td></tr>
+          <tr><th scope="row">Motus</th><td>88.66</td><td>87.02</td><td>87.84</td></tr>
+          <tr><th scope="row">GigaWorld-Policy</th><td>86.36</td><td>85.04</td><td>85.70</td></tr>
+          <tr><th scope="row">LingBot-VA</th><td>92.90</td><td>91.50</td><td>92.20</td></tr>
+          <tr><th scope="row">Fast-WAM</th><td>91.88</td><td>91.78</td><td>91.83</td></tr>
+          <tr><th scope="row">AHA-WAM</th><td>93.40</td><td>92.20</td><td>92.80</td></tr>
+          <tr><th scope="row">LaWAM</th><td>92.64</td><td>89.80</td><td>91.22</td></tr>
+          <tr><th scope="row">ImageWAM</th><td>93.20</td><td>93.56</td><td>93.38</td></tr>
+          <tr class="comparison-start"><th scope="row">π0.5</th><td>81.12</td><td>79.64</td><td>80.38</td></tr>
+          <tr><th scope="row">π0.5 + WM</th><td>89.48</td><td>89.54</td><td>89.51</td></tr>
+          <tr class="ours"><th scope="row">WAVE-0 <span>Ours</span></th><td>91.46</td><td>91.48</td><td>91.47</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="results-panel" id="panel-generalization" role="tabpanel" aria-labelledby="tab-generalization" tabindex="0" hidden>
+        <div class="result-story"><span class="table-ref">OUT-OF-DISTRIBUTION EVALUATION</span><strong class="generalization-heading">Stronger<br>generalization.</strong><h3>New conditions. <br>The same policy.</h3><p>Evaluate the LIBERO-trained model under visual, spatial, and language shifts, without additional fine-tuning.</p>
+          <div class="para-result" aria-label="LIBERO-Para results">
+            <div class="para-heading"><h4>LIBERO-Para</h4><strong class="para-score">75.0<span>%</span></strong></div>
+            <p>π0.5: 71.4% <span class="para-gain">+3.6 pp</span></p>
+            <p>Generalization to paraphrased instructions.</p>
+          </div>
+        </div>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Benchmark results table"><table><caption>Average success rate (%) on LIBERO-Plus and LIBERO-Pro</caption><thead><tr><th scope="col">Method</th><th scope="col">LIBERO-Plus</th><th scope="col">LIBERO-Pro</th></tr></thead><tbody>
+          <tr><th scope="row">OpenVLA</th><td>15.6</td><td>52.0</td></tr>
+          <tr><th scope="row">Fast-WAM</th><td>51.5</td><td>40.2</td></tr>
+          <tr><th scope="row">ImageWAM</th><td>83.1</td><td>48.7</td></tr>
+          <tr><th scope="row">VLA-JEPA</th><td>79.5</td><td>48.3</td></tr>
+          <tr><th scope="row">JEPA-WAM</th><td>79.2</td><td>41.9</td></tr>
+          <tr><th scope="row">LaWAM</th><td>76.6</td><td>52.7</td></tr>
+          <tr class="comparison-start"><th scope="row">π0.5</th><td>84.5</td><td>53.0</td></tr>
+          <tr class="ours"><th scope="row">WAVE-0 <span>Ours</span></th><td>88.0</td><td>61.4</td></tr>
+        </tbody></table></div>
+      </div>
+    </section>
+
+    <section class="real-section" id="real-world" aria-labelledby="real-title"><div class="shell section">
+      <div class="section-heading"><div><p class="eyebrow"><span class="section-number">04</span> IN THE REAL WORLD</p><h2 id="real-title">From latent futures <br>to <em>physical actions.</em></h2></div><p>Three tasks. Dual-arm AgileX Piper. <br>20 evaluation trials per task.</p></div>
+      <div class="real-grid">
+        <figure><div class="real-video"><video controls muted playsinline preload="metadata" poster="assets/books.webp" aria-label="WAVE-0 successful Book Organization rollout"><source src="assets/videos/book-organization.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/videos/book-organization.mp4">Download the Book Organization video.</a></video></div><figcaption><h3>Book Organization</h3><p><strong>85.0%</strong> <span>vs. 40.0% · π0.5</span></p></figcaption></figure>
+        <figure><div class="real-video"><video controls muted playsinline preload="metadata" poster="assets/usb.webp" aria-label="WAVE-0 successful USB Storage rollout"><source src="assets/videos/usb-storage.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/videos/usb-storage.mp4">Download the USB Storage video.</a></video></div><figcaption><h3>USB Storage</h3><p><strong>65.0%</strong> <span>vs. 45.0% · π0.5</span></p></figcaption></figure>
+        <figure><div class="real-video"><video controls muted playsinline preload="metadata" poster="assets/keyboard.webp" aria-label="WAVE-0 successful Keyboard Pushback rollout"><source src="assets/videos/keyboard-pushback.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/videos/keyboard-pushback.mp4">Download the Keyboard Pushback video.</a></video></div><figcaption><h3>Keyboard Pushback</h3><p><strong>70.0%</strong> <span>vs. 30.0% · π0.5</span></p></figcaption></figure>
+      </div>
+      <div class="real-results-card">
+        <div class="real-results-heading"><h3>Real-world performance</h3><p><strong>73.3%</strong> average <span>+35.0 pp over π0.5</span></p></div>
+        <div class="table-wrap real-table" tabindex="0" role="region" aria-label="Real-world performance comparison">
+        <table>
+          <caption class="sr-only">Real-world success rates (%)</caption>
+          <thead><tr><th scope="col">Method</th><th scope="col">Book Organization</th><th scope="col">USB Storage</th><th scope="col">Keyboard Pushback</th><th scope="col">Avg.</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">ImageWAM</th><td>50.0</td><td>25.0</td><td>45.0</td><td>40.0</td></tr>
+            <tr><th scope="row">LaWAM</th><td>40.0</td><td>35.0</td><td>55.0</td><td>43.3</td></tr>
+          </tbody>
+          <tbody class="real-comparison">
+            <tr class="comparison-start"><th scope="row">π0.5</th><td>40.0</td><td>45.0</td><td>30.0</td><td>38.3</td></tr>
+            <tr class="ours"><th scope="row">WAVE-0 <span>Ours</span></th><td>85.0</td><td>65.0</td><td>70.0</td><td>73.3</td></tr>
+          </tbody>
+          <tfoot><tr><th scope="row">Δ Improvement (pp)</th><td>+45.0</td><td>+20.0</td><td>+40.0</td><td>+35.0</td></tr></tfoot>
+        </table>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section shell resources-section" id="resources" aria-labelledby="resources-title">
+      <p class="eyebrow"><span class="section-number">05</span> BUILD WITH WAVE-0</p>
+      <div class="resources-heading"><h2 id="resources-title">A lightweight idea. <br><em>Ready to explore.</em></h2><p>Training recipes and model checkpoints <br>for WAVE-0.</p></div>
+      <div class="resource-grid"><a href="https://github.com/AutoLab-SAI-SJTU/WAVE-0"><span class="resource-type">GITHUB <span aria-hidden="true">↗</span></span><h3>Explore the code</h3><p>Implementation, two-stage training, <br>and evaluation scripts.</p></a><a href="https://huggingface.co/collections/KiyotakaWang/wave-0"><span class="resource-type">HUGGING FACE <span aria-hidden="true">↗</span></span><h3>Model collection</h3><p>WAVE-0 checkpoints for <br>LIBERO and RoboTwin 2.0.</p></a><a href="https://github.com/AutoLab-SAI-SJTU/WAVE-0#-quick-start"><span class="resource-type">QUICK START <span aria-hidden="true">↗</span></span><h3>Start experimenting</h3><p>Prepare your environment <br>and run the training recipes.</p></a></div>
+      <div class="clone-command"><code id="clone-command">git clone https://github.com/AutoLab-SAI-SJTU/WAVE-0.git</code><button class="copy-button" type="button" aria-label="Copy git clone command">Copy <span aria-hidden="true">⧉</span></button></div><span id="copy-status" class="sr-only" role="status"></span>
+      <section class="citation" id="citation" aria-labelledby="citation-title">
+        <h3 id="citation-title">Citation</h3>
+        <pre><code>% BibTeX citation will be added here.</code></pre>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer shell"><div class="footer-top"><a class="brand" href="#top"><img src="assets/mark.svg" width="26" height="26" alt="">WAVE-0</a><p>Understanding the present. Anticipating what comes next.</p><a href="#top" class="back-top">Back to top ↑</a></div><div class="footer-bottom"><p>© 2026 WAVE-0 contributors</p></div></footer>
+
+  <dialog id="figure-dialog" aria-label="Enlarged project figure"><button class="dialog-close" type="button" aria-label="Close enlarged figure">Close <span aria-hidden="true">×</span></button><img id="figure-dialog-image" alt=""></dialog>
+</body>
+</html>
