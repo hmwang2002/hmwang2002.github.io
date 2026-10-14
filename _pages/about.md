@@ -20,6 +20,8 @@ Here's my [**CV**](/files/resume.pdf).
 
 
 # 🔥 News
+
+- *2026.10*: &nbsp;🎉 We released [WAVE-0](/release/wave0/), bringing lightweight future prediction to pretrained VLA policies!
 - *2026.06*: &nbsp;🎉 [CTRL-S](https://github.com/hmwang2002/CTRL-S) is accepted by ECCV 2026!
 - *2026.03*: &nbsp;🎉 We released [CTRL-S](https://github.com/hmwang2002/CTRL-S), welcome to have a try!
 - *2026.01*: &nbsp;🎉 [InternSVG](https://hmwang2002.github.io/release/internsvg/) and [InternSpatial](https://arxiv.org/abs/2506.18385) are accepted by ICLR 2026!
@@ -28,6 +30,19 @@ Here's my [**CV**](/files/resume.pdf).
 - *2025.08*: &nbsp;🎉 Our team released [InternVL 3.5](https://github.com/OpenGVLab/InternVL), welcome to have a try!
 
 # 📝 Selected Publications 
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">arXiv 2026</div><img src='/release/wave0/assets/method.webp' alt="WAVE-0 two-stage training architecture" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[WAVE-0: Bridging VLA Policies and WAMs with Lightweight Latent Future Prediction](https://arxiv.org/abs/2610.18568)
+
+**Haomin Wang**, Anqiong Ji, Ke Wang, Zhongshan Liu, Ru Ying, Ran Zheng, Zhipeng Zhang
+
+[**PDF**](https://arxiv.org/pdf/2610.18568) \| [**Code**](https://github.com/AutoLab-SAI-SJTU/WAVE-0) \| [**Models**](https://huggingface.co/collections/KiyotakaWang/wave-0) \| [**Homepage**](/release/wave0/)
+
+WAVE-0 bridges pretrained vision–language–action policies and world action models through a lightweight, action-grounded latent world model. Its 257M-parameter world model predicts future visual representations to guide action generation, without pixel reconstruction or additional large-scale video pretraining. WAVE-0 achieves 91.47% success on RoboTwin 2.0 and 98.7% on LIBERO, with strong generalization and real-world performance.
+</div>
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2026</div><img src='images/ctrl_s.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
