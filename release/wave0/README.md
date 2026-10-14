@@ -19,7 +19,7 @@ The native player preserves the original aspect ratio and audio, with user-contr
 
 ## Content and assets
 
-- `index.html`: paper title, resource links, method, results, and acknowledgements. Results are static HTML; benchmark tabs add progressive interaction. The paper link and author list are pending; do not infer them from the anonymous manuscript.
+- `index.html`: paper title, resource links, method, results, and citation. Results are static HTML; benchmark tabs add progressive interaction. The arXiv link and BibTeX citation refer to [arXiv:2610.18568](https://arxiv.org/abs/2610.18568).
 - `style.css`: responsive layout, keyboard focus, and reduced-motion support.
 - `app.js`: video error fallback, accessible tabs, figure enlargement, and copy command.
 - `assets/method.webp`: Figure 2, cropped from the manuscript.
@@ -28,6 +28,6 @@ The native player preserves the original aspect ratio and audio, with user-contr
 - `assets/mark.svg`: a small vector wave mark created for this page.
 - `assets/videos/book-organization.mp4`, `usb-storage.mp4`, `keyboard-pushback.mp4`: supplied WAVE-0 successful real-world rollouts, displayed with native video controls. The original paper frames serve as posters.
 
-Numbers follow Tables 1–3 and Section 4.4 of the WAVE-0 manuscript. Benchmark tables show selected comparisons and label them as such. The full anonymous manuscript is not included. No authors, affiliations, acceptance status, arXiv identifier, or BibTeX entry are invented.
+Numbers follow Tables 1–3 and Section 4.4 of the WAVE-0 manuscript. The paper is available on arXiv; the BibTeX citation matches arXiv's export.
 
-Before publishing, confirm the author list and paper link, and ensure the linked model collection is accessible to the intended audience. This page does not change model-repository visibility.
+Ensure the linked model collection is accessible to the intended audience. This page does not change model-repository visibility.
